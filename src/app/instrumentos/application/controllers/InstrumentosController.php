@@ -52,7 +52,7 @@ class InstrumentosController extends Controller {
 
     $service = new getAllInstrumentos( new InstrumentoDatabaseRepository() ) ; 
     $instrumentos_listado = $service->execute( ) ; 
-    return $this->View( 'mantencion_listado' , compact('instrumentos_listado') ) ;
+    return $this->View( 'mantencion_listado' , compact('instrumentos_listado'), "admin" ) ;
 
  }
 
