@@ -14,6 +14,8 @@ help:
 version:
 	@echo '1.0 microframework'
 
+build:
+	composer update
 
 testSuites:
 	./vendor/bin/phpunit --list-suites
