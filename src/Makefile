@@ -14,8 +14,15 @@ help:
 version:
 	@echo '1.0 microframework'
 
+.PHONY: build
 build:
 	composer update
+
+.PHONY: clean
+clean:
+	rm -rf vendor
+	rm composer.lock
+
 
 testSuites:
 	./vendor/bin/phpunit --list-suites
