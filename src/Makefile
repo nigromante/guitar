@@ -23,6 +23,12 @@ clean:
 	rm -rf vendor
 	rm composer.lock
 
+pull:
+	git pull origin master
+
+push:
+	git push origin master
+
 
 testSuites:
 	./vendor/bin/phpunit --list-suites
