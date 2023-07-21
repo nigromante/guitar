@@ -1,0 +1,19 @@
+{
+    "name": "sebastian/guitar",
+    "description": "Guitar web app",
+    "autoload": {
+        "psr-4": {
+            "Sebastian\\Guitar\\": "app/",
+            "Framework\\": "framework/"
+        }
+    },
+    "authors": [
+        {
+            "name": "julian",
+            "email": "julianvidal@live.cl"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^10.2"
+    }
+}

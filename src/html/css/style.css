@@ -1,0 +1,22 @@
+@font-face {
+    font-family: UbuntuFont;
+    src: url(../fonts/Ubuntu-Regular.ttf);
+  }
+  
+  .UbuntuFont {
+    font-family: UbuntuFont;
+  }
+
+.contenido {
+  background-color: coral;
+}
+
+.figure-caption{
+    font-size: x-large;
+}
+.footer-bg{
+width: 15%;
+}
+.form-check{
+  margin-left: 10px;
+}
