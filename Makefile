@@ -23,7 +23,7 @@ clean:
 	docker rmi -f $$(docker images -aq)
 
 clean-data:
-	sudo rm -rf data
+	sudo rm -rf data/mysql
 	
 status:
 	docker ps -a

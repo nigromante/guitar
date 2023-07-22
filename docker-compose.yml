@@ -24,8 +24,8 @@ services:
             - MYSQL_PASSWORD=test
             - MYSQL_ROOT_PASSWORD=test
         volumes:
-            - ./dump:/docker-entrypoint-initdb.d
             - ./conf:/etc/mysql/conf.d
+            - ./data/dump:/docker-entrypoint-initdb.d
             - ./data/mysql:/var/lib/mysql
 
     phpmyadmin:
