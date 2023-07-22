@@ -3,6 +3,8 @@
 help:
 	@echo make help
 	@echo make version
+	@echo make build
+	@echo make clean
 
 	@echo make testSuites
 	@echo make testUnit
@@ -22,13 +24,6 @@ build:
 clean:
 	rm -rf vendor
 	rm composer.lock
-
-pull:
-	git pull origin master
-
-push:
-	git push origin master
-
 
 testSuites:
 	./vendor/bin/phpunit --list-suites

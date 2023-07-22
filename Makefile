@@ -5,6 +5,8 @@ help:
 	@echo make clean
 	@echo make status
 	@echo make ssh
+	@echo make pull
+	@echo make push
 
 
 build:
@@ -28,3 +30,10 @@ status:
 
 ssh:
 	docker exec -it guitar_php_1 /bin/bash
+
+pull:
+	git pull origin master
+
+push:
+	git push origin master
+
