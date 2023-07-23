@@ -1,6 +1,7 @@
 <?php
-    use Framework\Router ; 
+    namespace Framework ; 
     
+    // 
     class Application {
 
 

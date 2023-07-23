@@ -5,6 +5,10 @@
     require_once "../framework/Session.php" ; 
 
     use Framework\Router ; 
+    use Framework\Application ; 
+
+
+    $app = new Application() ;
 
     $routes = Router::list() ;
     
