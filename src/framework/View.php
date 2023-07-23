@@ -7,7 +7,7 @@ use Framework\ViewData;
 
 class View {
 
-    private const BASE_PATH = "/var/www/html/views" ; 
+    private const BASE_PATH = "/var/www/views" ; 
 
     public static function include( $view_file, $layout , $data ) {
         extract( $data );
