@@ -3,7 +3,7 @@
     "description": "Guitar web app",
     "autoload": {
         "psr-4": {
-            "Sebastian\\Guitar\\": "app/",
+            "Sebastian\\Guitar\\": "applications/",
             "Framework\\": "framework/"
         }
     },
