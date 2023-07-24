@@ -1,6 +1,6 @@
 <?php 
 use Framework\Router;
-use Controllers\frontend\TestController;
+use Controllers\test\FrontendController;
 
 
 Router::Get( '/xdebug' , function() { return 
@@ -8,7 +8,7 @@ Router::Get( '/xdebug' , function() { return
 }   ) ; 
 
 
-Router::Get( '/test/instrumentos' , [TestController::class , 'index'] ) ;
 
-Router::Get( '/test/:paso' , function($paso) { return "test : " . $paso ;} ) ;
+Router::Get( '/test/frontend' , [FrontendController::class , 'index'] ) ;
+
 

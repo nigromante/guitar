@@ -1,10 +1,10 @@
 <?php
-namespace Controllers\frontend;
+namespace Controllers\test;
 
 use  Controllers\frontend\Controller;
 
 
-class TestController extends Controller {
+class FrontendController extends Controller {
 
 
     public function index() {
