@@ -7,21 +7,33 @@ use Framework\ViewData;
 
 class View {
 
+    private static $BASE_APP ; 
+
     private const BASE_PATH = "/var/www/views" ; 
+
+    public static function setApp( $app ) {
+        self::$BASE_APP = $app ; 
+    }
+
+    public static function getApp() {
+        return self::BASE_PATH . "/".  self::$BASE_APP ; 
+    }
+
+
 
     public static function include( $view_file, $layout , $data ) {
         extract( $data );
-        include self::BASE_PATH . "/layouts/" . $layout . ".html.php" ; 
+        include self::getApp() . "/layouts/" . $layout . ".html.php" ; 
     }
 
     public static function include_part( $view_part_file, $data ) {
         extract( $data );
-        include self::BASE_PATH . "/parts/" . $view_part_file . ".html.php" ; 
+        include self::getApp() . "/parts/" . $view_part_file . ".html.php" ; 
     }
 
     public static function include_content( $view_file, $data ) {
         extract( $data );
-        include self::BASE_PATH . "/" . $view_file . ".html.php" ; 
+        include self::getApp() . "/" . $view_file . ".html.php" ; 
     }
 
     public static function transform( $html ) {

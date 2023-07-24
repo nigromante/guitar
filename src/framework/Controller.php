@@ -30,12 +30,15 @@ class Controller {
 
     private function ViewFile( $viewName ) {
         $t = explode( "\\", $this->Clase() ) ;
+
         $controller_name = array_pop($t) ;
         $controller_name = str_replace( "Controller" , "" , $controller_name) ;
-        array_pop($t) ; array_pop($t) ;
+
         $aplication_name = array_pop($t) ;
 
-        return "{$aplication_name}/{$controller_name}/{$viewName}" ;
+        View::setApp( $aplication_name ) ;
+
+        return "{$controller_name}/{$viewName}" ;
     } 
 
 

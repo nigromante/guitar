@@ -12,18 +12,8 @@ use Domain\infrastructure\repositories\Instrumentos\InstrumentoDatabaseRepositor
 
 class InstrumentosController extends Controller {
 
-    public function index() {
-
-        return $this->View( 'index' , [], "home" ) ;
-    }
-
-    public function info() {
-
-        return $this->Data( json_encode($this->Globals()) ) ;
-    }
 
     public function marca( $codigo = '' ) {
-
 
         if( empty($codigo)) 
             return $this->redirect( "/" ) ;
@@ -45,7 +35,5 @@ class InstrumentosController extends Controller {
         return $this->View( 'otrasMarcas' , compact('instrumentosOtrasMarcas') ) ;
 
     }
-
-
 
 }
