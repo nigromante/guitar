@@ -1,8 +1,11 @@
 <?php
 
 use Controllers\backend\InstrumentosController ; 
+use Controllers\backend\DashboardController ; 
 
 use Framework\Router;
+
+Router::Get( '/backend' , [DashboardController::class , 'index'] ) ;
 
 Router::Get( '/backend/instrumentos/listado' , [InstrumentosController::class , 'listado'] ) ;
 Router::Get( '/backend/instrumentos/detalle/:id' , [InstrumentosController::class , 'detalle'] ) ;

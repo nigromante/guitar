@@ -34,12 +34,12 @@ td  {
 
     <?php foreach( $instrumentos_listado as $instrumento) { ?>
         <tr>
-            <td> <a href="/instrumentos/mantencion/detalle/<?= $instrumento["id"] ?>" > <?= $instrumento["id"] ?> </a>  </td>
+            <td> <a href="/backend/instrumentos/detalle/<?= $instrumento["id"] ?>" > <?= $instrumento["id"] ?> </a>  </td>
             <td>  <?= $instrumento["alias"] ?> </td>
             <td>  <?= $instrumento["nombre"] ?> </td>
             <td>  <?= $instrumento["descripcion"] ?> </td>
             <td>
-            <a class="action action-borrar"  href="/instrumentos/mantencion/borrar/<?= $instrumento["id"] ?>" >Borrar </a>
+            <a class="action action-borrar"  href="/backend/instrumentos/borrar/<?= $instrumento["id"] ?>" >Borrar </a>
             </td>
         </tr>
     <?php } ?>

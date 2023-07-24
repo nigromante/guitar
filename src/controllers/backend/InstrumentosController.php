@@ -16,14 +16,14 @@ class InstrumentosController extends Controller {
 
         $service = new getAllInstrumentos( new InstrumentoDatabaseRepository() ) ; 
         $instrumentos_listado = $service->execute( ) ; 
-        return $this->View( 'mantencion_listado' , compact('instrumentos_listado'), "admin" ) ;
+        return $this->View( 'listado' , compact('instrumentos_listado') ) ;
 
     }
 
     public function detalle( $id ) {
         $service = new FindById( new InstrumentoDatabaseRepository() ) ; 
         $instrumento = $service->execute( $id ) ; 
-        return $this->View( 'mantencion_detalle' , compact('instrumento') ) ;
+        return $this->View( 'detalle' , compact('instrumento') ) ;
     }
 
     public function borrar( $id ) {
