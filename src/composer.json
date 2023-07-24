@@ -3,8 +3,10 @@
     "description": "Guitar web app",
     "autoload": {
         "psr-4": {
-            "Sebastian\\Guitar\\": "applications/",
-            "Framework\\": "framework/"
+            "Framework\\": "framework/",
+            "Controllers\\": "controllers/",
+            "Domain\\": "Guitar/"
+
         }
     },
     "authors": [
