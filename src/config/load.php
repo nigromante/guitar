@@ -11,7 +11,7 @@ $ENV_VARS = [
 
 require_once "database.php" ;
 
-require_once "test.php" ;
-
+require_once "api.php" ;
 require_once "web.php" ;
 require_once "backend.php" ;
+require_once "test.php" ;
