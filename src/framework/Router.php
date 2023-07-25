@@ -26,19 +26,24 @@ class Router {
 
     public static function evalRequest( $uri, $method ) {
 
-        //var_dump( $uri ) ;
-        //var_dump( $method ) ;
+        dump_group( 'router', 'Router' ) ; 
+        dumpsection( $uri , 'uri' ) ;
+        dumpsection( $method , 'method') ;
 
         foreach( self::$routes[$method] as $route => $callback ) {
             if( strpos( $route, ':' ) !== false ) {
                 $route = preg_replace( '#:[\da-zA-Z\-]+#', '([\da-zA-Z\-]+)' , $route ) ; 
             }
-            // var_dump( $route ) ;
 
 
             if(preg_match( "#^$route$#" , $uri, $matches) ) {
-                $params = array_slice($matches, 1) ; 
-                return ['callback' => $callback, 'params' => $params] ; 
+                $params = array_slice($matches, 1) ;
+                
+                $routeSelected = ['callback' => $callback, 'params' => $params] ;
+
+                dumpsection( $routeSelected, 'route' ) ;
+
+                return $routeSelected ; 
             } 
         }
 
@@ -47,6 +52,13 @@ class Router {
 
     public static function dispatch( $route ) {
         // var_dump( $route ) ;
+        GLOBAL $ENV_VARS ; 
+
+
+        dump_group( 'Environment', 'Environment' ) ; 
+        dumpsection( $ENV_VARS , 'ENV_VARS' ) ;
+
+
         extract( $route ) ;
         if( is_callable( $callback)) {
 
@@ -58,6 +70,8 @@ class Router {
             $clase =  $callback["class"] ; 
             $metodo = $callback["method"] ;
     
+
+            
             $obj = new ($clase)( ) ;
             return $obj->{$metodo}(...$params) ;
         }

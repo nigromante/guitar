@@ -5,10 +5,13 @@ namespace Framework ;
 class Dump
 {
     private static $instance;
-    private static $values ;
+    private $values ;
+    private $current_group ; 
 
     protected function __construct() { 
-        self::$values = [];
+        $this->current_group = "default" ;  
+        // $this->values = [ "default" => [ "description" => "user dump" , "data" => [] ] ];
+        $this->values = [  ];
     }
 
     public static function getInstance(): self
@@ -19,15 +22,37 @@ class Dump
         return self::$instance;
     }
 
-    public function set( $data, $title='' )
-    {
-        self::$values[] =  [ $data , $title ] ; 
+
+    public function setGroup( $group = "default" , $description = "" ) {
+        $this->current_group = $group ;
+        if( !isset( $this->values[ $group ] ) ) {
+            $this->values[ $group ] = [ "description" => $description , "data" => [] ] ; 
+        }  
     }
 
-    public function get(  )
+
+    public function set( $data, $title='' )
     {
-        return self::$values ; 
+        $this->values[ $this->current_group ]["data"][] =  [ "key" => $title , "value" => $data  ] ; 
     }
+
+    public function get( $group = "default" )
+    {
+        return $this->values[ $group ] ; 
+    }
+
+    public function getData( $group = "default" )
+    {
+        return $this->values[ $group ]["data"] ; 
+    }
+
+
+
+    public function getAll( )
+    {
+        return $this->values ; 
+    }
+    
 
 }
 

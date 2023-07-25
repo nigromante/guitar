@@ -8,6 +8,8 @@
     use Framework\Application ; 
 
 
+    dump( "Guitar" , "Application");
+
     $app = new Application() ;
 
     $routes = Router::list() ;
@@ -25,9 +27,9 @@
         echo $e->getMessage() ; 
     }
 
-    /*
-    $sessionInfo = $handler_session->info( ) ; 
-    dump($sessionInfo);
-    echo json_encode( getDump() ) ; 
-    */
     
+    // $sessionInfo = $handler_session->info( ) ; 
+    // dump_group( 'session', 'Session variables' ) ; 
+    // dump($sessionInfo);
+     
+    // echo json_encode( getDump() ) ;

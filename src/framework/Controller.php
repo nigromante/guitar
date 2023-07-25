@@ -17,6 +17,10 @@ class Controller {
 
     public function View( $viewName,  $data=[], $layout='default' ) {
 
+        dump_group( 'view', 'View' ) ; 
+        dumpsection( $layout , 'layout' ) ;
+
+
         $data = array_merge( $data, $this->globals) ;
 
         $viewFile = $this->ViewFile( $viewName ) ; 
@@ -25,7 +29,8 @@ class Controller {
             View::include( $viewFile , $layout , $data, [] ) ;
         $response = ob_get_clean();
         
-        return  View::transform( $response ) ;
+        return $response ; 
+        // return  View::transform( $response ) ;
     }
 
     private function ViewFile( $viewName ) {
@@ -35,6 +40,12 @@ class Controller {
         $controller_name = str_replace( "Controller" , "" , $controller_name) ;
 
         $aplication_name = array_pop($t) ;
+
+        dump_group( 'view', 'View' ) ; 
+        dumpsection( $aplication_name , 'aplication_name' ) ;
+        dumpsection( $controller_name , 'controller_name' ) ;
+        dumpsection( $viewName , 'viewName' ) ;
+
 
         View::setApp( $aplication_name ) ;
 
