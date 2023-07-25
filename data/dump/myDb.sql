@@ -79,9 +79,6 @@ CREATE TABLE `Session` (
 -- Volcado de datos para la tabla `Session`
 --
 
-INSERT INTO `Session` (`Session_Id`, `Session_Create`, `Session_Expires`, `Session_Data`) VALUES
-('172.21.0.1@818f7a76afcd835ae796084c27289902', '2023-07-22 01:29:04', '2023-07-22 01:34:24', '');
-
 --
 -- Índices para tablas volcadas
 --
