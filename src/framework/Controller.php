@@ -29,8 +29,7 @@ class Controller {
             View::include( $viewFile , $layout , $data, [] ) ;
         $response = ob_get_clean();
         
-        return $response ; 
-        // return  View::transform( $response ) ;
+        return  View::transform( $response ) ;
     }
 
     private function ViewFile( $viewName ) {

@@ -39,7 +39,9 @@ class View {
     public static function transform( $html ) {
         $html = preg_replace_callback("#{{.*:.*}}#", [self::class, "find_and_set"], $html) ; 
         $html = preg_replace_callback("#{{.*}}#", [self::class, "find_and_replace"], $html) ; 
-        return self::minify_html($html, true)  ; 
+        
+        return $html ; 
+        //return self::minify_html($html, true)  ; 
     }
 
 
