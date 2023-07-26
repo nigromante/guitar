@@ -1,0 +1,25 @@
+    th  {
+        padding: 8px ; 
+        border : 1px solid green ; 
+    }
+
+    td  {
+        padding: 8px ; 
+        border : 1px solid red ; 
+    }
+    .action {
+        display: inline-block ;
+        padding: 20px ;
+    }
+    .action.action-borrar {
+
+        background-color: red ;
+        color: white ;
+
+    }
+
+
+p {
+    padding: 8px;
+    border : 1px saddlebrown; 
+}

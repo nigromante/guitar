@@ -13,6 +13,7 @@
             </a>
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="/backend/instrumentos/listado"> Instrumentos </a></li>
+                <li><a class="dropdown-item" href="/backend/files/listado"> Files </a></li>
             </ul>
           </li>
 
