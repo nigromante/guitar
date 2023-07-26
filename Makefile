@@ -1,4 +1,4 @@
-# Ayuda
+# Ayuda general del makefile
 help:
 	@echo make build
 	@echo make run
