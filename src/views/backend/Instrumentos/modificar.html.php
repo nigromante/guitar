@@ -23,7 +23,7 @@
 
 
         <div class="col-auto">
-            <button type="submit" class="btn btn-primary mb-3">Modificar </button>
+            <button type="submit" class="btn btn-primary btn-icon-split"> Modificar </button>
         </div>
 
 

@@ -1,9 +1,9 @@
 
 {{ title :: Contactanos }}  
 
-    <h1> Crear Nuevo Instruemnto </h1>
+    <h1>  Nuevo Instruemnto </h1>
 
-    <form class="row g-3" method="post" action="/backend/instrumentos/crear">
+    <form class="row g-3" method="post" action="/backend/instrumentos/">
 
         <div class="mb-3">
             <label for="alias" class="form-label">Alias</label>
