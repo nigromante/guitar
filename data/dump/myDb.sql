@@ -111,3 +111,35 @@ ALTER TABLE `Session`
 ALTER TABLE `MusicalInstruments`
   MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
+
+
+CREATE TABLE `files` (
+  `id` int NOT NULL,
+  `filename` varchar(100) NOT NULL,
+  `filetype` varchar(10) NOT NULL,
+  `description` text NOT NULL,
+  `state` int NOT NULL,
+  `path` varchar(255) NOT NULL,
+  `owner` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `files`
+--
+ALTER TABLE `files`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `files`
+--
+ALTER TABLE `files`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+COMMIT;
