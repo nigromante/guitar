@@ -22,6 +22,9 @@ stop:
 clean:
 	docker rm -f $$(docker ps -aq)
 	docker rmi -f $$(docker images -aq)
+	
+clean-images:
+	docker rmi -f $$(docker images -aq)
 
 clean-data:
 	sudo rm -rf data/mysql
