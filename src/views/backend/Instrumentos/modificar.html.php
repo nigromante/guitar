@@ -3,7 +3,7 @@
 
     <h1> Modificar Instrumento </h1>
 
-    <form class="row g-3" method="post" action="/instrumentos/mantencion/modificar/<?= $id ?>">
+    <form class="row g-3" method="post" action="/backend/instrumentos/modificar/<?= $id ?>">
 
         <div class="mb-3">
             <label for="alias" class="form-label">Alias</label>

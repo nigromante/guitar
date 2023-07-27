@@ -23,19 +23,19 @@ class InstrumentosController extends Controller {
     }
 
 
-    public function mantencion_crear() {
+    public function crear() {
 
-        return $this->View( 'mantencion_crear' , [] ) ;
+        return $this->View( 'crear' , [] ) ;
     
     
     }
     
-    public function mantencion_crear_grabar(){
+    public function crear_grabar(){
         $data = $this->Post() ; 
         var_dump( $data ) ;
         $service = new Save( new InstrumentoDatabaseRepository() ) ; 
         $instrumento = $service->execute( $data ) ; 
-        return $this->View( "mantencion_crear_grabar" , []) ;
+        return $this->View( "crear_grabar" , []) ;
     }
 
     public function detalle( $id ) {

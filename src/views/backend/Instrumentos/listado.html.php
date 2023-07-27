@@ -1,5 +1,6 @@
 {{ title :: Instrumentos }}
 
+<a class="action action-crear" href="/backend/instrumentos/crear">crear instrumento</a>
 
 <table>
   <tr>  
@@ -17,12 +18,14 @@
             <td>  <?= $instrumento["nombre"] ?> </td>
             <td>  <?= $instrumento["descripcion"] ?> </td>
             <td>
-            <a class="action action-borrar"  href="/backend/instrumentos/borrar/<?= $instrumento["id"] ?>" >Borrar </a>
+            <a class="action action-borrar" data-id="<?= $instrumento["id"] ?>"  href="/backend/instrumentos/borrar/<?= $instrumento["id"] ?>" >Borrar </a>
+            <a class="action action-modificar" data-id="<?= $instrumento["id"] ?>"  href="/backend/instrumentos/modificar/<?= $instrumento["id"] ?>" >Modificar </a>
             </td>
         </tr>
     <?php } ?>
 
 </table>
+
 
 <script>
 </script>
