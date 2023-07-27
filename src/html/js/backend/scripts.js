@@ -1,25 +1,43 @@
+var Utilities=Utilities||(function () {
 
 
-const links = document.querySelectorAll('.action-borrar');
-links.forEach((link) => {
+  var PrivateDeleteEvent=function(){
+    const links = document.querySelectorAll('.action-borrar');
+    links.forEach((link) => {
+    
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+    
+        if (confirm("Confirme la eliminacion") == true) {
+    
+          row = event.target.closest("tr") ;
+          url = event.target.getAttribute("href") ;
+    
+          fetch( url )
+          .then(function (response) {
+              row.remove();
+            })
+          .catch(function (err) {
+              console.warn('Something went wrong.', err);
+            });
+        }
+    
+      });
+    
+    });
 
-  link.addEventListener('click', (event) => {
-    event.preventDefault();
+  }
+  
+  PrivateDeleteEvent();
 
-    if (confirm("Confirme la eliminacion") == true) {
+  return {
 
-      row = event.target.closest("tr") ;
-      url = event.target.getAttribute("href") ;
+     /*DeleteEvent: function(input){
+        PrivateDeleteEvent();
+     }*/
+  }
+})();
 
-      fetch( url )
-      .then(function (response) {
-          row.remove();
-        })
-      .catch(function (err) {
-          console.warn('Something went wrong.', err);
-        });
-    }
 
-  });
 
-});
+

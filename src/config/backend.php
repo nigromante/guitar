@@ -13,4 +13,6 @@ Router::Get( '/backend/instrumentos/detalle/:id' , [InstrumentosController::clas
 Router::Get( '/backend/instrumentos/borrar/:id' , [InstrumentosController::class , 'borrar'] ) ;
 
 Router::Get( '/backend/files/listado' , [FilesController::class , 'listado'] ) ;
+Router::Get( '/backend/files/borrar/:id' , [FilesController::class , 'borrar'] ) ;
+Router::Get( '/backend/files/detalle/:id' , [FilesController::class , 'detalle'] ) ;
 
