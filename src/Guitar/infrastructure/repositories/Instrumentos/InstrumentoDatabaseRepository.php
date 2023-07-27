@@ -83,6 +83,22 @@ class InstrumentoDatabaseRepository  implements  InstrumentoRepository {
      
         return "OK";  
     }
-    public function Save() {}
+    
+    public function Save($data) {
+        $sql="INSERT INTO `MusicalInstruments` ( `alias`, `name`, `description`, `createdat` , `enable`) VALUES ( '{$data["alias"]}', '{$data["nombre"]}', '{$data["descripcion"]}',  now(),  '1')" ; 
+        $result = mysqli_query(  $this->db, $sql  );
+     
+        return "OK";  
+    }
+
+    public function Update( $id , $data) {
+        $sql="INSERT INTO `MusicalInstruments` ( `alias`, `name`, `description`, `createdat` , `enable`) VALUES ( '{$data["alias"]}', '{$data["nombre"]}', '{$data["descripcion"]}',  now(),  '1')" ; 
+        $sql = "UPDATE `MusicalInstruments` set  `alias` = '{$data["alias"]}'  , `name` = '{$data["nombre"]}' , `description` = '{$data["descripcion"]}'   where id='{$id}' " ; 
+        $result = mysqli_query(  $this->db, $sql  );
+     
+        return "OK";  
+    }
+
+
 }
 ?>

@@ -11,7 +11,8 @@ interface  InstrumentoRepository {
     public function FindById($id) ;
     public function Borrar($id) ;
 
-    public function Save();
+    public function Save( $data );
+    public function Update( $id, $data );
 
 }
 ?>

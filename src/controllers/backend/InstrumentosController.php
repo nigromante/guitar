@@ -5,7 +5,9 @@ use  Controllers\backend\Controller;
 
 use Domain\application\services\Instrumentos\Borrar;
 use Domain\application\services\Instrumentos\FindById;
+use Domain\application\services\Instrumentos\Update;
 use Domain\application\services\Instrumentos\getAllInstrumentos;
+use Domain\application\services\Instrumentos\Save;
 use Domain\infrastructure\repositories\Instrumentos\InstrumentoDatabaseRepository;
 
 
@@ -20,6 +22,22 @@ class InstrumentosController extends Controller {
 
     }
 
+
+    public function mantencion_crear() {
+
+        return $this->View( 'mantencion_crear' , [] ) ;
+    
+    
+    }
+    
+    public function mantencion_crear_grabar(){
+        $data = $this->Post() ; 
+        var_dump( $data ) ;
+        $service = new Save( new InstrumentoDatabaseRepository() ) ; 
+        $instrumento = $service->execute( $data ) ; 
+        return $this->View( "mantencion_crear_grabar" , []) ;
+    }
+
     public function detalle( $id ) {
         $service = new FindById( new InstrumentoDatabaseRepository() ) ; 
         $instrumento = $service->execute( $id ) ; 
@@ -32,5 +50,19 @@ class InstrumentosController extends Controller {
         return "Registro Eliminado" ;
     }
 
+    
+    public function modificar( $id) {
+        $service = new FindById( new InstrumentoDatabaseRepository() ) ; 
+        $instrumento = $service->execute( $id ) ; 
+        return $this->View( 'modificar' , compact( 'id' , 'instrumento') ) ;
+    }
+
+    public function modificar_grabar( $id ) {
+        $data = $this->Post() ; 
+        var_dump( $data ) ;
+        $service = new Update( new InstrumentoDatabaseRepository() ) ; 
+        $instrumento = $service->execute( $id, $data ) ; 
+        return $this->View( "modificar_grabar" , []) ; 
+    }
 
 }
