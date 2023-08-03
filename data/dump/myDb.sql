@@ -143,3 +143,48 @@ ALTER TABLE `files`
 ALTER TABLE `files`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
 COMMIT;
+
+
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id` int NOT NULL,
+  `Nombre` varchar(100) NOT NULL,
+  `Apellido` varchar(100) NOT NULL,
+  `Email` varchar(100) NOT NULL,
+  `createdat` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `enable` int NOT NULL DEFAULT '0',
+  `password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` ( `Nombre`, `Apellido`, `Email`, `createdat`, `enable`, `password`) VALUES
+( 'Anibal', 'Barca', 'anibalbarca@ajdfsfodsa.com', '2023-07-31 22:51:36', 1, 'cartago1234')
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `usuario-email` (`Email`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+COMMIT;
