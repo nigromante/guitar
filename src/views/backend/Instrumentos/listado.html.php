@@ -1,6 +1,6 @@
 {{ title :: Instrumentos }}
 
-<a class="btn btn-primary btn-icon-split  action" href="/backend/instrumentos/crear">Crear instrumento</a>
+<a class="btn btn-primary btn-icon-split  action" href="/backend/instrumentos/crear">Crear Instrumento</a>
 
 <div class="table-responsive">
 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">

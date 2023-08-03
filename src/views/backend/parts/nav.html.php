@@ -31,7 +31,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="/backend/instrumentos/listado">Instrumentos</a>
                         <a class="collapse-item" href="/backend/files/listado">Archivos</a>
-                        <a class="collapse-item" href="/backend/usuarios/prueba">Usuarios</a>
+                        <a class="collapse-item" href="/backend/usuarios/listado">Usuarios</a>
                     </div>
                 </div>
             </li>

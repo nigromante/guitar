@@ -4,10 +4,13 @@ use Controllers\backend\InstrumentosController ;
 use Controllers\backend\FilesController ; 
 use Controllers\backend\DashboardController ; 
 use Controllers\backend\UsuariosController ;
+use Controllers\backend\AccesoController ;
 
 use Framework\Router;
 
 Router::Get( '/backend' , [DashboardController::class , 'index'] ) ;
+Router::Get( '/backend/acceso/login' , [AccesoController::class , 'login'] ) ;
+Router::Post( '/backend/acceso/login' , [AccesoController::class , 'login_validar'] ) ;
 
 Router::Get( '/backend/instrumentos/listado' , [InstrumentosController::class , 'listado'] ) ;
 Router::Get( '/backend/instrumentos/detalle/:id' , [InstrumentosController::class , 'detalle'] ) ;
@@ -24,4 +27,10 @@ Router::Get( '/backend/files/borrar/:id' , [FilesController::class , 'borrar'] )
 Router::Get( '/backend/files/detalle/:id' , [FilesController::class , 'detalle'] ) ;
 
 
-Router::Get( '/backend/usuarios/prueba' , [UsuariosController::class , 'index'] ) ;
+Router::Get( '/backend/usuarios/listado' , [UsuariosController::class , 'listado'] ) ;
+Router::Get( '/backend/usuarios/detalle/:id' , [UsuariosController::class , 'detalle'] ) ;
+Router::Get( '/backend/usuarios/borrar/:id' , [UsuariosController::class , 'borrar'] ) ;
+Router::Get( '/backend/usuarios/crear' , [UsuariosController::class , 'crear'] ) ;
+Router::Post( '/backend/usuarios/crear' , [UsuariosController::class , 'crear_grabar'] ) ;
+Router::Get( '/backend/usuarios/modificar/:id' , [UsuariosController::class , 'modificar'] ) ;
+Router::Post( '/backend/usuarios/modificar/:id' , [UsuariosController::class , 'modificar_grabar'] ) ;
