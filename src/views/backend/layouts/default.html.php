@@ -56,6 +56,8 @@
             <?php \Framework\View::include_part( 'footer', $data ) ;?> 
             <!-- End of Footer -->
 
+
+            <?php // \Framework\View::include_part( 'dev', $dev_data ) ;?>
         </div>
         <!-- End of Content Wrapper -->
 
