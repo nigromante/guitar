@@ -1,7 +1,7 @@
 <?php
 namespace Controllers\backend;
 
-use  Controllers\backend\Controller;
+use  Controllers\backend\SecureController;
 
 use Domain\application\services\Files\getAllFiles;
 use Domain\application\services\Files\DeleteFiles;
@@ -9,7 +9,7 @@ use Domain\application\services\Files\FindById;
 use Domain\infrastructure\repositories\Files\FilesDatabaseRepository;
 
 
-class FilesController extends Controller {
+class FilesController extends SecureController {
 
 
     public function listado() {

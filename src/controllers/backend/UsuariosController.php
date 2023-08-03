@@ -1,7 +1,7 @@
 <?php
 namespace Controllers\backend;
 
-use  Controllers\backend\Controller;
+use  Controllers\backend\SecureController;
 
 use Domain\application\services\Usuarios\Borrar;
 use Domain\application\services\Usuarios\FindById;
@@ -12,7 +12,7 @@ use Domain\application\services\Usuarios\Save;
 use Domain\infrastructure\repositories\Usuarios\UsuarioDatabaseRepository;
 
 
-class UsuariosController extends Controller {
+class UsuariosController extends SecureController {
 
 
     public function listado() {
@@ -20,7 +20,7 @@ class UsuariosController extends Controller {
         $service = new getAllUsuarios( new UsuarioDatabaseRepository() ) ; 
         $usuarios_listado = $service->execute( ) ; 
 
-        var_dump($usuarios_listado ); 
+        //  var_dump($usuarios_listado ); 
 
         return $this->View( 'listado' , compact('usuarios_listado') ) ;
 

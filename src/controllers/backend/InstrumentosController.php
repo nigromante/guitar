@@ -1,7 +1,7 @@
 <?php
 namespace Controllers\backend;
 
-use  Controllers\backend\Controller;
+use  Controllers\backend\SecureController;
 
 use Domain\application\services\Instrumentos\Borrar;
 use Domain\application\services\Instrumentos\FindById;
@@ -11,7 +11,7 @@ use Domain\application\services\Instrumentos\Save;
 use Domain\infrastructure\repositories\Instrumentos\InstrumentoDatabaseRepository;
 
 
-class InstrumentosController extends Controller {
+class InstrumentosController extends SecureController {
 
 
     public function listado() {

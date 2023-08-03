@@ -3,7 +3,7 @@ namespace Domain\application\services\Usuarios;
 
 use Domain\infrastructure\repositories\Usuarios\UsuarioRepository;
 
-class FindByAlias {
+class CheckLogin {
 
     private UsuarioRepository $repository ; 
 
@@ -11,8 +11,8 @@ class FindByAlias {
         $this->repository = $repository ; 
     }
 
-    public function execute( $alias ) {
-        return $this->repository->FindByAlias( $alias );
+    public function execute( $email, $password  ) {
+        return $this->repository->CheckLogin( $email, $password );
     }
 }
 ?>

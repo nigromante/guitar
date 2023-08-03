@@ -57,8 +57,8 @@ class UsuarioDatabaseRepository  implements  UsuarioRepository {
 
 
 
-    public function FindByAlias( $alias ) {
-        $sql = "SELECT * FROM `usuarios` where enable=1 and alias='{$alias}' " ; 
+    public function FindByEmail( $email ) {
+        $sql = "SELECT * FROM `usuarios` where enable=1 and Email='{$email}' " ; 
         $result = mysqli_query(  $this->db, $sql  );
         $row = $result->fetch_assoc() ;
         
@@ -125,5 +125,15 @@ class UsuarioDatabaseRepository  implements  UsuarioRepository {
         return "OK";  
     }
 
+    public function CheckLogin ( $email, $password) {
+        $sql = "SELECT * FROM `usuarios` where enable=1 and `Email`='{$email}' and  `password`='{$password}' " ; 
+        $result = mysqli_query(  $this->db, $sql  );
+        $row = $result->fetch_assoc() ;
+        
+        return ($row != null) ;  
+
+
+        
+    }
 
 }

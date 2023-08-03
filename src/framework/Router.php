@@ -28,8 +28,8 @@ class Router {
 
         // dump_group( 'router', 'Router' ) ; 
         // dumpsection( $uri , 'uri' ) ;
-        var_dump( $uri ) ;
-        var_dump( $method ) ;
+        // var_dump( $uri ) ;
+        // var_dump( $method ) ;
         // dumpsection( $method , 'method') ;
 
         foreach( self::$routes[$method] as $route => $callback ) {
@@ -75,6 +75,14 @@ class Router {
 
             
             $obj = new ($clase)( ) ;
+            
+            if( method_exists( $clase ,'CheckAuth')  ) { 
+                if( ! $obj->CheckAuth() ) {
+                    $obj->redirect("/") ;
+                    return "" ;
+                }
+            } 
+
             return $obj->{$metodo}(...$params) ;
         }
 

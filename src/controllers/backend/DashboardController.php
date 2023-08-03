@@ -1,11 +1,11 @@
 <?php
 namespace Controllers\backend;
 
-use  Controllers\backend\Controller;
+use  Controllers\backend\SecureController;
 
 
 
-class DashboardController extends Controller {
+class DashboardController extends SecureController {
 
 
     public function index() {
