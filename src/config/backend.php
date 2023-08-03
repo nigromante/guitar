@@ -8,14 +8,13 @@ use Controllers\backend\AccesoController ;
 
 use Framework\Router;
 
-Router::Get( '/backend' , [DashboardController::class , 'index'] ) ;
-Router::Get( '/backend/acceso/login' , [AccesoController::class , 'login'] ) ;
+Router::Get(  '/backend/acceso/login' , [AccesoController::class , 'login'] ) ;
 Router::Post( '/backend/acceso/login' , [AccesoController::class , 'login_validar'] ) ;
 
 Router::Get( '/backend/instrumentos/listado' , [InstrumentosController::class , 'listado'] ) ;
 Router::Get( '/backend/instrumentos/detalle/:id' , [InstrumentosController::class , 'detalle'] ) ;
 Router::Get( '/backend/instrumentos/borrar/:id' , [InstrumentosController::class , 'borrar'] ) ;
-Router::Get( '/backend/instrumentos/crear' , [InstrumentosController::class , 'crear'] ) ;
+Router::Get(  '/backend/instrumentos/crear' , [InstrumentosController::class , 'crear'] ) ;
 Router::Post( '/backend/instrumentos/crear' , [InstrumentosController::class , 'crear_grabar'] ) ;
 Router::Get( '/backend/instrumentos/modificar/:id' , [InstrumentosController::class , 'modificar'] ) ;
 Router::Post('/backend/instrumentos/modificar/:id' , [InstrumentosController::class , 'modificar_grabar'] ) ;

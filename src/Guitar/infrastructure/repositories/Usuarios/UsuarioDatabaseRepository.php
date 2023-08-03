@@ -114,7 +114,12 @@ class UsuarioDatabaseRepository  implements  UsuarioRepository {
 
     public function Update( $id , $data) {
        // $sql="INSERT INTO `usuarios` ( `Nombre`, `Apellido`, `Email`, `createdat` , `enable` , 'password') VALUES ( '{$data["Nombre"]}', '{$data["Apellido"]}', '{$data["Email"]}', '{$data["password"]}  now(),  '1')" ; 
-        $sql = "UPDATE `usuarios` set  `Nombre` = '{$data["Nombre"]}'  , `Apellido` = '{$data["Apellido"]}' , `Email` = '{$data["Email"]}' `password` = '{$data["password"]}'  where id='{$id}' " ; 
+        $sql = "UPDATE `usuarios` set  
+            `Nombre` = '{$data["Nombre"]}'  , 
+            `Apellido` = '{$data["Apellido"]}' , 
+            `Email` = '{$data["Email"]}',
+            `password` = '{$data["password"]}'  
+            where id='{$id}' " ; 
         $result = mysqli_query(  $this->db, $sql  );
      
         return "OK";  

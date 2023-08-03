@@ -15,6 +15,8 @@ class AccesoController extends Controller {
     }
 
     public function login_validar() {
+        $data = $this->Post() ; 
+        var_dump( $data ) ;
 
         return $this->View( 'login_validar' , [] , 'simple') ;
 
