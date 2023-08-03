@@ -20,8 +20,7 @@ stop:
 	docker-compose down 
 
 clean:
-	docker rm -f $$(docker ps -aq)
-	docker rmi -f $$(docker images -aq)
+	docker rm -f $$(docker ps -aq)  ||  docker rmi -f $$(docker images -aq)
 	
 clean-images:
 	docker rmi -f $$(docker images -aq)
