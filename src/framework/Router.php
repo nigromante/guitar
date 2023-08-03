@@ -26,9 +26,11 @@ class Router {
 
     public static function evalRequest( $uri, $method ) {
 
-        dump_group( 'router', 'Router' ) ; 
-        dumpsection( $uri , 'uri' ) ;
-        dumpsection( $method , 'method') ;
+        // dump_group( 'router', 'Router' ) ; 
+        // dumpsection( $uri , 'uri' ) ;
+        var_dump( $uri ) ;
+        var_dump( $method ) ;
+        // dumpsection( $method , 'method') ;
 
         foreach( self::$routes[$method] as $route => $callback ) {
             if( strpos( $route, ':' ) !== false ) {
@@ -41,7 +43,7 @@ class Router {
                 
                 $routeSelected = ['callback' => $callback, 'params' => $params] ;
 
-                dumpsection( $routeSelected, 'route' ) ;
+                // dumpsection( $routeSelected, 'route' ) ;
 
                 return $routeSelected ; 
             } 

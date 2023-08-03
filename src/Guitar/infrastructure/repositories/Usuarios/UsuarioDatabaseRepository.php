@@ -23,7 +23,7 @@ class UsuarioDatabaseRepository  implements  UsuarioRepository {
         $rows = $result->fetch_all(MYSQLI_ASSOC);
         $response = []; 
         foreach( $rows as $row ) {
-            $response[ strtoupper($row['Email' ]) ] = [ "id" => $row["id"] , "enable" => $row["enable"] , "Email" => $row ["Email"],"Nombre" => $row["Nombre"], "Apellido" => $row["Apellido"] , "createdat"
+            $response[] = [ "id" => $row["id"] , "enable" => $row["enable"] , "Email" => $row ["Email"],"Nombre" => $row["Nombre"], "Apellido" => $row["Apellido"] , "createdat"
             => $row["createdat"] , "password" => $row["password"]] ; 
         }
 
@@ -62,7 +62,7 @@ class UsuarioDatabaseRepository  implements  UsuarioRepository {
         $result = mysqli_query(  $this->db, $sql  );
         $row = $result->fetch_assoc() ;
         
-        $response[ strtoupper($row['Email' ]) ] = [ "id" => $row["id"] , "enable" => $row["enable"] , "Email" => $row ["Email"],"Nombre" => $row["Nombre"], "Apellido" => $row["Apellido"] , "createdat"
+        $response = [ "id" => $row["id"] , "enable" => $row["enable"] , "Email" => $row ["Email"],"Nombre" => $row["Nombre"], "Apellido" => $row["Apellido"] , "createdat"
             => $row["createdat"] , "password" => $row["password"]] ;  
 
         return $response ;  

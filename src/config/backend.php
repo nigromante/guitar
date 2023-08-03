@@ -7,9 +7,11 @@ use Controllers\backend\UsuariosController ;
 use Controllers\backend\AccesoController ;
 
 use Framework\Router;
+Router::Get( '/backend' , [DashboardController::class , 'index'] ) ;
 
-Router::Get(  '/backend/acceso/login' , [AccesoController::class , 'login'] ) ;
+
 Router::Post( '/backend/acceso/login' , [AccesoController::class , 'login_validar'] ) ;
+Router::Get(  '/backend/acceso/login' , [AccesoController::class , 'login'] ) ;
 
 Router::Get( '/backend/instrumentos/listado' , [InstrumentosController::class , 'listado'] ) ;
 Router::Get( '/backend/instrumentos/detalle/:id' , [InstrumentosController::class , 'detalle'] ) ;

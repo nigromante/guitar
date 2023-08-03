@@ -3,7 +3,7 @@
 
     <h1>  Nuevo Instruemnto </h1>
 
-    <form class="row g-3" method="post" action="/backend/instrumentos/">
+    <form class="row g-3" method="POST" action="/backend/instrumentos/crear">
 
         <div class="mb-3">
             <label for="alias" class="form-label">Alias</label>

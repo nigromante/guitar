@@ -19,6 +19,9 @@ class UsuariosController extends Controller {
 
         $service = new getAllUsuarios( new UsuarioDatabaseRepository() ) ; 
         $usuarios_listado = $service->execute( ) ; 
+
+        var_dump($usuarios_listado ); 
+
         return $this->View( 'listado' , compact('usuarios_listado') ) ;
 
     }
