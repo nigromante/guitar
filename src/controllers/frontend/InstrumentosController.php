@@ -1,4 +1,5 @@
 <?php
+
 namespace Controllers\frontend;
 
 use  Controllers\frontend\Controller;
@@ -10,30 +11,30 @@ use Domain\infrastructure\repositories\Instrumentos\InstrumentoDatabaseRepositor
 
 
 
-class InstrumentosController extends Controller {
+class InstrumentosController extends Controller
+{
 
 
-    public function marca( $codigo = '' ) {
+    public function marca($codigo = '')
+    {
 
-        if( empty($codigo)) 
-            return $this->redirect( "/" ) ;
+        if (empty($codigo))
+            return $this->redirect("/");
 
-        if( $codigo != "otras-marcas" ) {
-            $service = new FindByAlias( new InstrumentoDatabaseRepository() ) ; 
-            $instrumento = $service->execute( $codigo ) ; 
-            if( $instrumento === false ) {
-                return $this->redirect( "/" ) ;
+        if ($codigo != "otras-marcas") {
+            $service = new FindByAlias(new InstrumentoDatabaseRepository());
+            $instrumento = $service->execute($codigo);
+            if ($instrumento === false) {
+                return $this->redirect("/");
             }
-            return $this->View( 'marca' , compact('instrumento') ) ;
+            return $this->View('marca', compact('instrumento'));
         }
 
-        $service = new getNonSelectedInstruments( new InstrumentoDatabaseRepository() ) ; 
-        $instrumentosOtrasMarcas = $service->execute( ) ; 
-        if( $instrumentosOtrasMarcas === false ) {
-            return $this->redirect( "/" ) ;
+        $service = new getNonSelectedInstruments(new InstrumentoDatabaseRepository());
+        $instrumentosOtrasMarcas = $service->execute();
+        if ($instrumentosOtrasMarcas === false) {
+            return $this->redirect("/");
         }
-        return $this->View( 'otrasMarcas' , compact('instrumentosOtrasMarcas') ) ;
-
+        return $this->View('otrasMarcas', compact('instrumentosOtrasMarcas'));
     }
-
 }

@@ -1,18 +1,21 @@
 <?php
+
 namespace Domain\application\services\Instrumentos;
 
 use Domain\infrastructure\repositories\Instrumentos\InstrumentoRepository;
 
-class getAllInstrumentos {
+class getAllInstrumentos
+{
 
-    private InstrumentoRepository $repository ; 
+    private InstrumentoRepository $repository;
 
-    public function __construct( InstrumentoRepository $repository ) {
-        $this->repository = $repository ; 
+    public function __construct(InstrumentoRepository $repository)
+    {
+        $this->repository = $repository;
     }
 
-    public function execute() {
+    public function execute()
+    {
         return $this->repository->All();
     }
 }
-?>

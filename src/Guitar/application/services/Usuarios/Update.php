@@ -14,4 +14,3 @@ class Update {
         return $this->repository->Update( $id , $data);
     }
 }
-?>

@@ -9,12 +9,9 @@ use Framework\Router;
 
 
 
-Router::Get( '/' , [HomeController::class , 'index'] ) ; 
+Router::Get('/', [HomeController::class, 'index']);
 
-Router::Get( '/instrumentos/marca/:codigo' , [InstrumentosController::class , 'marca'] ) ; 
+Router::Get('/instrumentos/marca/:codigo', [InstrumentosController::class, 'marca']);
 
-Router::Get( '/contacto/form' , [ContactoController::class , 'form'] ) ; 
-Router::Post( '/contacto/form' , [ContactoController::class , 'formPost'] ) ; 
-
-
-
+Router::Get('/contacto/form', [ContactoController::class, 'form']);
+Router::Post('/contacto/form', [ContactoController::class, 'formPost']);

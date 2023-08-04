@@ -1,4 +1,5 @@
 <?php
+
 namespace Controllers\backend;
 
 use  Controllers\backend\SecureController;
@@ -12,56 +13,62 @@ use Domain\application\services\Usuarios\Save;
 use Domain\infrastructure\repositories\Usuarios\UsuarioDatabaseRepository;
 
 
-class UsuariosController extends SecureController {
+class UsuariosController extends SecureController
+{
 
 
-    public function listado() {
+    public function listado()
+    {
 
-        $service = new getAllUsuarios( new UsuarioDatabaseRepository() ) ; 
-        $usuarios_listado = $service->execute( ) ; 
-        return $this->View( 'listado' , compact('usuarios_listado') ) ;
-
+        $service = new getAllUsuarios(new UsuarioDatabaseRepository());
+        $usuarios_listado = $service->execute();
+        return $this->View('listado', compact('usuarios_listado'));
     }
 
 
-    public function crear() {
+    public function crear()
+    {
 
-        return $this->View( 'crear' , [] ) ;
-    }
-    
-    public function crear_grabar(){
-        $data = $this->Post() ; 
-        var_dump( $data ) ;
-        $service = new Save( new UsuarioDatabaseRepository() ) ; 
-        $usuario = $service->execute( $data ) ; 
-        return $this->View( "crear_grabar" , []) ;
+        return $this->View('crear', []);
     }
 
-    public function detalle( $id ) {
-        $service = new FindById( new UsuarioDatabaseRepository() ) ; 
-        $usuario = $service->execute( $id ) ; 
-        return $this->View( 'detalle' , compact('usuario') ) ;
+    public function crear_grabar()
+    {
+        $data = $this->Post();
+        var_dump($data);
+        $service = new Save(new UsuarioDatabaseRepository());
+        $usuario = $service->execute($data);
+        return $this->View("crear_grabar", []);
     }
 
-    public function borrar( $id ) {
-        $service = new Borrar( new UsuarioDatabaseRepository() ) ; 
-        $usuario = $service->execute( $id ) ; 
-        return "Registro Eliminado" ;
+    public function detalle($id)
+    {
+        $service = new FindById(new UsuarioDatabaseRepository());
+        $usuario = $service->execute($id);
+        return $this->View('detalle', compact('usuario'));
     }
 
-    
-    public function modificar( $id) {
-        $service = new FindById( new UsuarioDatabaseRepository() ) ; 
-        $usuario = $service->execute( $id ) ; 
-        return $this->View( 'modificar' , compact( 'id' , 'usuario') ) ;
+    public function borrar($id)
+    {
+        $service = new Borrar(new UsuarioDatabaseRepository());
+        $usuario = $service->execute($id);
+        return "Registro Eliminado";
     }
 
-    public function modificar_grabar( $id ) {
-        $data = $this->Post() ; 
-        var_dump( $data ) ;
-        $service = new Update( new UsuarioDatabaseRepository() ) ; 
-        $usuario = $service->execute( $id, $data ) ; 
-        return $this->View( "modificar_grabar" , []) ; 
+
+    public function modificar($id)
+    {
+        $service = new FindById(new UsuarioDatabaseRepository());
+        $usuario = $service->execute($id);
+        return $this->View('modificar', compact('id', 'usuario'));
     }
 
+    public function modificar_grabar($id)
+    {
+        $data = $this->Post();
+        var_dump($data);
+        $service = new Update(new UsuarioDatabaseRepository());
+        $usuario = $service->execute($id, $data);
+        return $this->View("modificar_grabar", []);
+    }
 }

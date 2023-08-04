@@ -1,9 +1,8 @@
 <?php
-    namespace Framework ; 
-    
-    // 
-    class Application {
 
+namespace Framework;
 
-
-    }
+// 
+class Application
+{
+}

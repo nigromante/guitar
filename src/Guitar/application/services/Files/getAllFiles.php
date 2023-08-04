@@ -15,4 +15,3 @@ class getAllFiles {
         return $this->repository->All() ; 
     }
 }
-?>

@@ -8,9 +8,9 @@
         <div class="login-fieldset">
 
             <div class="text-center">
-                <h1 class="h4 text-gray-900 mb-4"> Asistencia  </h1>
+                <h1 class="h4 text-gray-900 mb-4"> Asistencia </h1>
                 <br>
-                <p><?=$data['email']?></p>
+                <p><?= $data['email'] ?></p>
                 <p> Su solicitud de asistencia ha sido recibida </p>
             </div>
 

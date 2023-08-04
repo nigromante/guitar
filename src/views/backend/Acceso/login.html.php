@@ -11,7 +11,7 @@
                 <h1 class="h4 text-gray-900 mb-4">Acceso Restringido </h1>
             </div>
 
-            <form class="user" method="POST"  action="/backend/acceso/login">
+            <form class="user" method="POST" action="/backend/acceso/login">
 
                 <div class="form-group">
                     <input type="email" name="email" class="form-control form-control-user" placeholder="Email">

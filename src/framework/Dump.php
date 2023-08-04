@@ -1,17 +1,18 @@
 <?php
 
-namespace Framework ; 
+namespace Framework;
 
 class Dump
 {
     private static $instance;
-    private $values ;
-    private $current_group ; 
+    private $values;
+    private $current_group;
 
-    protected function __construct() { 
-        $this->current_group = "default" ;  
+    protected function __construct()
+    {
+        $this->current_group = "default";
         // $this->values = [ "default" => [ "description" => "user dump" , "data" => [] ] ];
-        $this->values = [  ];
+        $this->values = [];
     }
 
     public static function getInstance(): self
@@ -23,36 +24,34 @@ class Dump
     }
 
 
-    public function setGroup( $group = "default" , $description = "" ) {
-        $this->current_group = $group ;
-        if( !isset( $this->values[ $group ] ) ) {
-            $this->values[ $group ] = [ "description" => $description , "data" => [] ] ; 
-        }  
-    }
-
-
-    public function set( $data, $title='' )
+    public function setGroup($group = "default", $description = "")
     {
-        $this->values[ $this->current_group ]["data"][] =  [ "key" => $title , "value" => $data  ] ; 
+        $this->current_group = $group;
+        if (!isset($this->values[$group])) {
+            $this->values[$group] = ["description" => $description, "data" => []];
+        }
     }
 
-    public function get( $group = "default" )
+
+    public function set($data, $title = '')
     {
-        return $this->values[ $group ] ; 
+        $this->values[$this->current_group]["data"][] =  ["key" => $title, "value" => $data];
     }
 
-    public function getData( $group = "default" )
+    public function get($group = "default")
     {
-        return $this->values[ $group ]["data"] ; 
+        return $this->values[$group];
     }
 
-
-
-    public function getAll( )
+    public function getData($group = "default")
     {
-        return $this->values ; 
+        return $this->values[$group]["data"];
     }
-    
 
+
+
+    public function getAll()
+    {
+        return $this->values;
+    }
 }
-

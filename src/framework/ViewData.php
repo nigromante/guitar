@@ -1,12 +1,14 @@
 <?php
-namespace Framework ; 
+
+namespace Framework;
 
 class ViewData
 {
     private static $instance;
-    private static $values ;
+    private static $values;
 
-    protected function __construct() { 
+    protected function __construct()
+    {
         self::$values = [];
     }
 
@@ -18,16 +20,15 @@ class ViewData
         return self::$instance;
     }
 
-    public function set( $key, $value='' )
+    public function set($key, $value = '')
     {
-        self::$values[trim($key)] = trim($value) ; 
+        self::$values[trim($key)] = trim($value);
     }
 
-    public function get( $key )
+    public function get($key)
     {
-        if( !isset( self::$values[trim($key)]))
+        if (!isset(self::$values[trim($key)]))
             return "";
-        return self::$values[trim($key)] ; 
+        return self::$values[trim($key)];
     }
-
 }

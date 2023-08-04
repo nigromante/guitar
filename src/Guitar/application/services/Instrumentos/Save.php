@@ -1,17 +1,21 @@
 <?php
+
 namespace Domain\application\services\Instrumentos;
+
 use Domain\infrastructure\repositories\Instrumentos\InstrumentoRepository;
 
-class Save {
+class Save
+{
 
-    private InstrumentoRepository $repository ; 
+    private InstrumentoRepository $repository;
 
-    public function __construct( InstrumentoRepository $repository ) {
-        $this->repository = $repository ; 
+    public function __construct(InstrumentoRepository $repository)
+    {
+        $this->repository = $repository;
     }
 
-    public function execute( $data ) {
-        return $this->repository->Save( $data);
+    public function execute($data)
+    {
+        return $this->repository->Save($data);
     }
 }
-?>

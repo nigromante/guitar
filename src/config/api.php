@@ -5,5 +5,4 @@ use Controllers\api\ApiHelpController;
 use Framework\Router;
 
 
-Router::Get( '/api' , [ApiHelpController::class , 'index'] ) ; 
-
+Router::Get('/api', [ApiHelpController::class, 'index']);

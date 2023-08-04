@@ -1,17 +1,21 @@
 <?php
+
 namespace Domain\application\services\Instrumentos;
+
 use Domain\infrastructure\repositories\Instrumentos\InstrumentoRepository;
 
-class Update {
+class Update
+{
 
-    private InstrumentoRepository $repository ; 
+    private InstrumentoRepository $repository;
 
-    public function __construct( InstrumentoRepository $repository ) {
-        $this->repository = $repository ; 
+    public function __construct(InstrumentoRepository $repository)
+    {
+        $this->repository = $repository;
     }
 
-    public function execute( $id, $data ) {
-        return $this->repository->Update( $id , $data);
+    public function execute($id, $data)
+    {
+        return $this->repository->Update($id, $data);
     }
 }
-?>

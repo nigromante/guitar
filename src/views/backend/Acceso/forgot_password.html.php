@@ -8,10 +8,10 @@
         <div class="login-fieldset">
 
             <div class="text-center">
-                <h1 class="h4 text-gray-900 mb-4"> Asistencia  </h1>
+                <h1 class="h4 text-gray-900 mb-4"> Asistencia </h1>
             </div>
 
-            <form class="user" method="POST"  action="/backend/acceso/forgot-password">
+            <form class="user" method="POST" action="/backend/acceso/forgot-password">
 
                 <div class="form-group">
                     <input type="email" name="email" class="form-control form-control-user" placeholder="Email">

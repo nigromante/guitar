@@ -15,4 +15,3 @@ class getAllUsuarios {
         return $this->repository->All();
     }
 }
-?>

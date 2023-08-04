@@ -1,12 +1,13 @@
 <?php
+
 namespace Controllers\backend;
 
 
-class SecureController extends \Framework\Controller {
+class SecureController extends \Framework\Controller
+{
 
     public function CheckAuth()
     {
-        return isset( $_SESSION['user.email'] ) ;
+        return isset($_SESSION['user.email']);
     }
-
 }
