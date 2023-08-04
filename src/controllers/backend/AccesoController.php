@@ -51,6 +51,11 @@ class AccesoController extends Controller {
         return $this->View( 'forgot_password' , [] , 'acceso') ;
     }
 
+    public function forgot_password_procesar() {
+        $data = $this->Post() ; 
+        return $this->View( 'forgot_password_procesar' , compact( "data" ) , 'acceso') ;
+    }
+
     public function no_access(){
         return $this->View( 'no_access' , [] , 'acceso') ;
     }
