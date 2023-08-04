@@ -18,7 +18,7 @@
     try {
         $route = Router::evalRequest( $_SERVER["REQUEST_URI"] , $_SERVER["REQUEST_METHOD"] ) ; 
 
-        $response = Router::dispatch( $route );
+        $response = Router::dispatch( $route , $_SERVER["REQUEST_URI"] , $_SERVER["REQUEST_METHOD"] );
         
         echo $response ; 
 

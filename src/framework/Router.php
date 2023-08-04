@@ -52,7 +52,7 @@ class Router {
         throw new Exception("404") ;
     } 
 
-    public static function dispatch( $route ) {
+    public static function dispatch( $route , $uri, $method ) {
         // var_dump( $route ) ;
         GLOBAL $ENV_VARS ; 
 
@@ -72,12 +72,14 @@ class Router {
             $clase =  $callback["class"] ; 
             $metodo = $callback["method"] ;
     
-
             
             $obj = new ($clase)( ) ;
             
             if( method_exists( $clase ,'CheckAuth')  ) { 
                 if( ! $obj->CheckAuth() ) {
+
+                    Logger::Alert( "$method | $uri | $clase :: $metodo " ) ;                      
+        
                     $obj->redirect("/backend/acceso/no-access") ;
                     return "" ;
                 }
