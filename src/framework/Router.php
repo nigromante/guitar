@@ -78,7 +78,7 @@ class Router {
             
             if( method_exists( $clase ,'CheckAuth')  ) { 
                 if( ! $obj->CheckAuth() ) {
-                    $obj->redirect("/") ;
+                    $obj->redirect("/backend/acceso/no-access") ;
                     return "" ;
                 }
             } 

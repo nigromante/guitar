@@ -12,11 +12,11 @@ class AccesoController extends Controller {
     public function login() {
 
         if( isset( $_SESSION['user.email'] ) )  {
-            $this->redirect( "/backend" ) ;
+            $this->redirect( "/backend/dashboard" ) ;
             return ; 
         }
 
-        return $this->View( 'login' , [] , 'simple') ;
+        return $this->View( 'login' , [] , 'acceso') ;
 
     }
 
@@ -33,19 +33,26 @@ class AccesoController extends Controller {
             $_SESSION['user.email'] = $data ["email"] ; 
             $_SESSION['user.nombre'] = $usuario ["Nombre"] . " " . $usuario ["Apellido"]; 
 
-            return $this->redirect( "/backend" ) ;
+            return $this->redirect( "/backend/dashboard" ) ;
         }
 
-        return $this->View( 'login' , [] , 'simple') ;
+        return $this->View( 'login' , [] , 'acceso') ;
 
     }
 
 
     public function logout() { 
-        // unset( $_SESSION['user.email'] ) ;
         session_destroy() ;
         return $this->redirect( "/backend/acceso/login" ) ;
 
+    }
+
+    public function forgot_password(){
+        return $this->View( 'forgot_password' , [] , 'acceso') ;
+    }
+
+    public function no_access(){
+        return $this->View( 'no_access' , [] , 'acceso') ;
     }
 
 

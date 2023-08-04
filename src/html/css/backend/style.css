@@ -19,7 +19,32 @@
     }
 
 
-p {
-    padding: 8px;
-    border : 1px saddlebrown; 
-}
+    p {
+        padding: 8px;
+        border : 1px saddlebrown; 
+    }
+
+
+    .login-container_wrapper {
+        display: block;
+        width: 840px;
+        margin: 200px auto 0;
+    }
+    .login-container {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        padding:20px;
+        border:1px solid #ccc;
+    }
+    .login-container .login-image {
+        width: 400px;
+        height: auto;
+        color : #4e73df;
+        background-color : #fff;
+    }    
+    .login-container .login-fieldset {
+        width: 400px;
+        height: auto;
+    }  
+    

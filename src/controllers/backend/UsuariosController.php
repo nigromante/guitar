@@ -19,9 +19,6 @@ class UsuariosController extends SecureController {
 
         $service = new getAllUsuarios( new UsuarioDatabaseRepository() ) ; 
         $usuarios_listado = $service->execute( ) ; 
-
-        //  var_dump($usuarios_listado ); 
-
         return $this->View( 'listado' , compact('usuarios_listado') ) ;
 
     }
@@ -30,8 +27,6 @@ class UsuariosController extends SecureController {
     public function crear() {
 
         return $this->View( 'crear' , [] ) ;
-    
-    
     }
     
     public function crear_grabar(){
