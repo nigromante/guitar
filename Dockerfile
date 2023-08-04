@@ -11,5 +11,7 @@ COPY ./conf/php/docker-php-ext-xdebug.ini /usr/local/etc/php/conf.d
 RUN a2enmod rewrite
 RUN a2enmod ssl
 RUN service apache2 restart
- 
+
+RUN mkdir /var/www/logs
+
 EXPOSE 80

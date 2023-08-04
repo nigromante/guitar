@@ -28,6 +28,7 @@ clean-images:
 clean-data:
 	sudo rm -rf data/mysql
 	sudo rm -rf log
+	sudo rm -rf src/logs
 	
 status:
 	docker ps -a
