@@ -22,8 +22,7 @@ build:
 
 .PHONY: clean
 clean:
-	rm -rf vendor
-	rm composer.lock
+	rm -rf vendor && rm composer.lock
 
 testSuites:
 	./vendor/bin/phpunit --list-suites
