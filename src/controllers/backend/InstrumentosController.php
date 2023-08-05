@@ -34,9 +34,8 @@ class InstrumentosController extends SecureController
     public function crear_grabar()
     {
         $data = $this->Post();
-        var_dump($data);
         $service = new Save(new InstrumentoDatabaseRepository());
-        $instrumento = $service->execute($data);
+        $service->execute($data);
         return $this->View("crear_grabar", []);
     }
 
@@ -65,9 +64,8 @@ class InstrumentosController extends SecureController
     public function modificar_grabar($id)
     {
         $data = $this->Post();
-        var_dump($data);
         $service = new Update(new InstrumentoDatabaseRepository());
-        $instrumento = $service->execute($id, $data);
+        $service->execute($id, $data);
         return $this->View("modificar_grabar", []);
     }
 }

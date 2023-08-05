@@ -32,8 +32,6 @@ class Router
 
         // dump_group( 'router', 'Router' ) ; 
         // dumpsection( $uri , 'uri' ) ;
-        // var_dump( $uri ) ;
-        // var_dump( $method ) ;
         // dumpsection( $method , 'method') ;
 
         foreach (self::$routes[$method] as $route => $callback) {
@@ -58,13 +56,10 @@ class Router
 
     public static function dispatch($route, $uri, $method)
     {
-        // var_dump( $route ) ;
         global $ENV_VARS;
-
 
         dump_group('Environment', 'Environment');
         dumpsection($ENV_VARS, 'ENV_VARS');
-
 
         extract($route);
         if (is_callable($callback)) {
