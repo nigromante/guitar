@@ -21,7 +21,7 @@ class UsuarioDatabaseRepository  implements UsuarioRepository
 
     public function All()
     {
-        $sql = "SELECT * FROM `usuarios` where enable=1 ";
+        $sql = "SELECT * FROM `usuarios` ";
         $result = mysqli_query($this->db, $sql);
         $rows = $result->fetch_all(MYSQLI_ASSOC);
         $response = [];
@@ -75,7 +75,7 @@ class UsuarioDatabaseRepository  implements UsuarioRepository
 
     public function FindById($id)
     {
-        $sql = "SELECT * FROM `usuarios` where enable=1 and id='{$id}' ";
+        $sql = "SELECT * FROM `usuarios` where id='{$id}' ";
         $result = mysqli_query($this->db, $sql);
         $row = $result->fetch_assoc();
 
@@ -158,7 +158,7 @@ class UsuarioDatabaseRepository  implements UsuarioRepository
 
     public function UserSession()
     {
-        $sql = "SELECT *, CONVERT_TZ( createdat ,'UTC', 'America/Santiago') fecha_creacion , CONVERT_TZ( Session_Create ,'UTC', 'America/Santiago') fecha_session FROM `usuarios` left join `Session` on `usuarios`.Email = `Session`.Session_User where enable=1 ";
+        $sql = "SELECT *, CONVERT_TZ( createdat ,'UTC', 'America/Santiago') fecha_creacion , CONVERT_TZ( Session_Create ,'UTC', 'America/Santiago') fecha_session FROM `usuarios` left join `Session` on `usuarios`.Email = `Session`.Session_User ";
         $result = mysqli_query($this->db, $sql);
         $rows = $result->fetch_all(MYSQLI_ASSOC);
         return $rows ; 

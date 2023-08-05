@@ -1,4 +1,4 @@
-{{ title :: usuario: <?= $usuario["nombre"] ?> }}
+{{ title :: usuario: <?= $usuario["Nombre"] ?> }}
 
 <p> <?= $usuario["id"] ?> </p>
 <p> <?= $usuario["Nombre"] ?> </p>
