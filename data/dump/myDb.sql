@@ -157,15 +157,11 @@ CREATE TABLE `usuarios` (
   `Email` varchar(100) NOT NULL,
   `createdat` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `enable` int NOT NULL DEFAULT '0',
-  `password` varchar(100) NOT NULL
+  `tries` int NOT NULL DEFAULT '0',
+  `password` varchar(100) NOT NULL, 
+  `lastlogin` datetime NULL NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
---
--- Volcado de datos para la tabla `usuarios`
---
-
-INSERT INTO `usuarios` ( `Nombre`, `Apellido`, `Email`, `createdat`, `enable`, `password`) VALUES
-( 'Anibal', 'Barca', 'anibalbarca@ajdfsfodsa.com', '2023-07-31 22:51:36', 1, 'cartago1234')
 
 --
 -- Índices para tablas volcadas
@@ -188,3 +184,10 @@ ALTER TABLE `usuarios`
 ALTER TABLE `usuarios`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` ( `Nombre`, `Apellido`, `Email`, `createdat`, `enable`, `password`) VALUES
+( 'Julian', 'Vidal', 'julianvidal@live.cl', now(), 1, 'test')

@@ -12,6 +12,12 @@ services:
         extra_hosts:
             - host.docker.internal:host-gateway
 
+    mailhog:
+        image: mailhog/mailhog:latest
+        ports:
+            - "1025:1025"
+            - "8025:8025"
+
     mysql:
         image: mysql:8.0
         restart: always

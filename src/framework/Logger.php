@@ -11,7 +11,7 @@ class Logger
 
 
 
-    public static function Alert($msg)
+    public static function Alert($msg, $subject = "Alert" )
     {
 
         global $IpCliente;
@@ -19,6 +19,9 @@ class Logger
         $date = date('d.m.Y h:i:s');
 
         $log = "ALERT | $date | $IpCliente | $msg \n";
+
+        mail("julianvidal@live.cl", $subject , $log , "From: sistema@guitar.cl");
+
 
         error_log($log, 3, self::USER_ALERTS_DIR);
     }

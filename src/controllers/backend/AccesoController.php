@@ -2,6 +2,8 @@
 
 namespace Controllers\backend;
 
+use  Framework\Logger;
+
 use  Controllers\backend\Controller;
 use Domain\application\services\Usuarios\CheckLogin;
 use Domain\application\services\Usuarios\FindByEmail;
@@ -27,17 +29,19 @@ class AccesoController extends Controller
         $service = new CheckLogin(new UsuarioDatabaseRepository());
         $isValidUser = $service->execute($data["email"], $data["password"]);
 
-        if ($isValidUser) {
-            $service = new FindByEmail(new UsuarioDatabaseRepository());
-            $usuario = $service->execute($data["email"]);
+        if (! $isValidUser) {
+            Logger::Alert( $data["email"] , "Alert: Invalid Password" );
 
-            $_SESSION['user.email'] = $data["email"];
-            $_SESSION['user.nombre'] = $usuario["Nombre"] . " " . $usuario["Apellido"];
-
-            return $this->redirect("/backend/dashboard");
+            return $this->View('login', [], 'acceso');
         }
 
-        return $this->View('login', [], 'acceso');
+        $service = new FindByEmail(new UsuarioDatabaseRepository());
+        $usuario = $service->execute($data["email"]);
+
+        $_SESSION['user.email'] = $data["email"];
+        $_SESSION['user.nombre'] = $usuario["Nombre"] . " " . $usuario["Apellido"];
+
+        return $this->redirect("/backend/dashboard");
     }
 
     public function logout()
