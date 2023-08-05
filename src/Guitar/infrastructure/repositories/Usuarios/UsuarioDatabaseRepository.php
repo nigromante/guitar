@@ -9,13 +9,9 @@ class UsuarioDatabaseRepository  implements UsuarioRepository
     private $db;
     public function __construct()
     {
-        $server = 'mysql';
-        $user = 'user';
-        $password = 'test';
-        $dbName = 'myDb';
-
-
-        $this->db = mysqli_connect($server, $user, $password, $dbName);
+        global $config ; 
+        extract ($config['database']) ; 
+        $this->db = mysqli_connect($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
     }
 
 
