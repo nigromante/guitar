@@ -131,12 +131,28 @@ class UsuarioDatabaseRepository  implements UsuarioRepository
         return "OK";
     }
 
-    public function CheckLogin($email, $password)
+    public function UserCheckLogin($email, $password)
     {
         $sql = "SELECT * FROM `usuarios` where enable=1 and `Email`='{$email}' and  `password`='{$password}' ";
         $result = mysqli_query($this->db, $sql);
         $row = $result->fetch_assoc();
-
         return ($row != null);
+    }
+    public function UserLoginSuccess($email)
+    {
+        $sql = "UPDATE `usuarios` set  
+            `tries` = '0'  , 
+            `lastlogin` = now()  
+            where `Email` = '{$email}' ";
+        $result = mysqli_query($this->db, $sql);
+    }
+
+    public function UserLoginError($email)
+    {
+        $sql = "UPDATE `usuarios` set  
+        `tries` = `tries` + 1  , 
+        `enable` =  case when tries >= 3 then 0 else `enable` end 
+        where `Email` = '{$email}' ";
+        $result = mysqli_query($this->db, $sql);
     }
 }

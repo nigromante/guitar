@@ -4,7 +4,7 @@ namespace Domain\application\services\Usuarios;
 
 use Domain\infrastructure\repositories\Usuarios\UsuarioRepository;
 
-class CheckLogin
+class UserLoginSuccess
 {
 
     private UsuarioRepository $repository;
@@ -14,8 +14,8 @@ class CheckLogin
         $this->repository = $repository;
     }
 
-    public function execute($email, $password)
+    public function execute($email)
     {
-        return $this->repository->CheckLogin($email, $password);
+        return $this->repository->UserLoginSuccess($email);
     }
 }

@@ -80,10 +80,17 @@ class UsuarioInMemoryRepository  implements UsuarioRepository
     public function Update($id, $data)
     {
     }
-    public function CheckLogin($Email, $password)
+    public function UserCheckLogin($Email, $password)
     {
     }
     public function FindByEmail($email)
+    {
+    }
+
+    public function UserLoginSuccess($Email)
+    {
+    }
+    public function UserLoginError($Email)
     {
     }
 }
