@@ -158,19 +158,10 @@ class UsuarioDatabaseRepository  implements UsuarioRepository
 
     public function UserSession()
     {
-        $sql = "SELECT * FROM `usuarios` left join `Session` on `usuarios`.Email = `Session`.Session_User where enable=1 ";
+        $sql = "SELECT *, CONVERT_TZ( createdat ,'UTC', 'America/Santiago') fecha_creacion , CONVERT_TZ( Session_Create ,'UTC', 'America/Santiago') fecha_session FROM `usuarios` left join `Session` on `usuarios`.Email = `Session`.Session_User where enable=1 ";
         $result = mysqli_query($this->db, $sql);
         $rows = $result->fetch_all(MYSQLI_ASSOC);
         return $rows ; 
-        /*
-        $response = [];
-        foreach ($rows as $row) {
-            $response[] = ["id" => $row["id"], "enable" => $row["enable"], "Email" => $row["Email"], "Nombre" => $row["Nombre"], "Apellido" => $row["Apellido"], "createdat"
-            => $row["createdat"], "password" => $row["password"]];
-        }
-
-        return $response;
-        */
     }
 
 
