@@ -72,7 +72,8 @@ CREATE TABLE `Session` (
   `Session_Id` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `Session_Create` datetime NOT NULL,
   `Session_Expires` datetime NOT NULL,
-  `Session_Data` text CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci
+  `Session_Data` text CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci,
+  `Session_User` varchar(100) COLLATE utf8mb3_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --

@@ -20,4 +20,5 @@ interface  UsuarioRepository
     public function UserLoginSuccess($Email);
     public function UserLoginError($Email);
 
+    public function UserSession();
 }

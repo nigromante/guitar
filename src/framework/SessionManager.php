@@ -72,14 +72,41 @@ class SessionManager
         }
     }
 
+    private function getUserEmail($data) {
+
+        if( empty($data) ) return "";
+        $source = explode(";" , $data);
+        
+        $data_array= [];
+        foreach( $source  as $item ) {
+            if( !empty( $item ) ) {
+                list( $key, $value ) = explode("|" , $item);
+                $t = explode(":" , $value ) ;
+                $data_array[ $key ] = str_replace( '"', "", array_pop( $t ) );
+            }
+        } 
+
+
+        return $data_array[ 'user.email' ] ; 
+    }
+
+
     public function write($id, $data)
     {
+
+        $email = $this->getUserEmail($data) ; 
+        if( $email != "") {
+            $email = ", Session_User='{$email}' " ; 
+        } else {
+            $email = ", Session_User='' " ; 
+        }
+
         $id = "{$this->prefix}{$id}" ; 
         $sql = "INSERT INTO  
                 Session 
                 (Session_Id,Session_Expires,Session_Data,Session_Create) 
                 VALUES ( '{$id}' , date_add( now(),interval {$this->espera} minute) , '{$data}' , now())  
-                ON DUPLICATE KEY UPDATE  Session_Expires=date_add( now(),interval {$this->espera} minute),Session_Data='{$data}' 
+                ON DUPLICATE KEY UPDATE  Session_Expires=date_add( now(),interval {$this->espera} minute),Session_Data='{$data}'  $email
                 ";
 
         $result = mysqli_query(  $this->link , $sql );

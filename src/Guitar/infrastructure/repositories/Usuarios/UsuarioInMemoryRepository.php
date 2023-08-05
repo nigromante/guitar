@@ -93,4 +93,7 @@ class UsuarioInMemoryRepository  implements UsuarioRepository
     public function UserLoginError($Email)
     {
     }
+    public function UserSession()
+    {
+    }
 }
