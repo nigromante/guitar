@@ -11,6 +11,7 @@ class Save {
     }
 
     public function execute( $data ) {
+        $data["password"] = \Framework\crypt\Crypt::encript( $data["password"] ) ;
         return $this->repository->Save( $data);
     }
 }

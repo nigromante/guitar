@@ -6,7 +6,7 @@ class Crypt implements CryptInterface
 {
 
     public static function encript( $input ): string {
-        return $input;
+        return md5($input) ;
     }
 
     public static function decript( $input ): string {

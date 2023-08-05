@@ -6,7 +6,6 @@
 <p> <?= $usuario["Email"] ?> </p>
 <p> <?= $usuario["createdat"] ?> </p>
 <p> <?= $usuario["enable"] ?> </p>
-<p> <?= $usuario["password"] ?> </p>
 
 <br>
 <br>

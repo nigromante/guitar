@@ -11,6 +11,7 @@ class Update {
     }
 
     public function execute( $id, $data ) {
+        $data["password"] = \Framework\crypt\Crypt::encript( $data["password"] ) ;
         return $this->repository->Update( $id , $data);
     }
 }

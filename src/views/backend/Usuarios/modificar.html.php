@@ -23,7 +23,7 @@
         
         <div class="mb-3">
             <label for="password" class="form-label">Contraseña</label>
-            <input name="password" class="form-control" id="password" value="<?= $usuario["password"] ?>" >
+            <input name="password" class="form-control" id="password" value="" >
 
         </div>
 
