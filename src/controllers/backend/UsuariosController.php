@@ -16,10 +16,8 @@ use Framework\crypt\CryptMD5;
 class UsuariosController extends SecureController
 {
 
-
     public function listado()
     {
-
         $service = new getAllUsuarios(new UsuarioDatabaseRepository());
         $usuarios_listado = $service->execute();
         return $this->View('listado', compact('usuarios_listado'));
@@ -28,17 +26,18 @@ class UsuariosController extends SecureController
 
     public function crear()
     {
-
         return $this->View('crear', []);
     }
+
 
     public function crear_grabar()
     {
         $data = $this->Post();
-        $service = new Save(new UsuarioDatabaseRepository(), new CryptMD5() );
+        $service = new Save(new UsuarioDatabaseRepository(), new CryptMD5());
         $service->execute($data);
         return $this->View("crear_grabar", []);
     }
+
 
     public function detalle($id)
     {
@@ -46,6 +45,7 @@ class UsuariosController extends SecureController
         $usuario = $service->execute($id);
         return $this->View('detalle', compact('usuario'));
     }
+
 
     public function borrar($id)
     {
@@ -62,10 +62,11 @@ class UsuariosController extends SecureController
         return $this->View('modificar', compact('id', 'usuario'));
     }
 
+
     public function modificar_grabar($id)
     {
         $data = $this->Post();
-        $service = new Update(new UsuarioDatabaseRepository() , new CryptMD5());
+        $service = new Update(new UsuarioDatabaseRepository(), new CryptMD5());
         $service->execute($id, $data);
         return $this->View("modificar_grabar", []);
     }

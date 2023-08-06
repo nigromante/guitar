@@ -14,17 +14,17 @@ use Domain\infrastructure\repositories\Usuarios\UsuarioDatabaseRepository;
 
 class AccesoController extends Controller
 {
+
     public function login()
     {
-
         if (isset($_SESSION['user.email'])) {
             $this->redirect("/backend/dashboard");
             return;
         }
-
         return $this->View('login', [], 'acceso');
     }
 
+    
     public function login_validar()
     {
         $data = $this->Post();
@@ -56,22 +56,26 @@ class AccesoController extends Controller
         return $this->redirect("/backend/dashboard");
     }
 
+
     public function logout()
     {
         session_destroy();
         return $this->redirect("/backend/acceso/login");
     }
 
+
     public function forgot_password()
     {
         return $this->View('forgot_password', [], 'acceso');
     }
+
 
     public function forgot_password_procesar()
     {
         $data = $this->Post();
         return $this->View('forgot_password_procesar', compact("data"), 'acceso');
     }
+
 
     public function no_access()
     {
