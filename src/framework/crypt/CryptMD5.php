@@ -2,7 +2,7 @@
 
 namespace Framework\crypt;
 
-class Crypt implements CryptInterface 
+class CryptMD5 implements CryptInterface 
 {
 
     public static function encript( $input ): string {

@@ -2,9 +2,10 @@
 
 namespace Controllers\backend;
 
-use  Framework\Logger;
+use Framework\crypt\CryptMD5;
+use Framework\Logger;
 
-use  Controllers\backend\Controller;
+use Controllers\backend\Controller;
 use Domain\application\services\Usuarios\UserCheckLogin;
 use Domain\application\services\Usuarios\FindByEmail;
 use Domain\application\services\Usuarios\UserLoginError;
@@ -28,23 +29,23 @@ class AccesoController extends Controller
     {
         $data = $this->Post();
 
-        $userRepository = new UsuarioDatabaseRepository() ; 
+        $userRepository = new UsuarioDatabaseRepository();
 
-        $service = new UserCheckLogin($userRepository);
+        $service = new UserCheckLogin($userRepository, new CryptMD5());
         $isValidUser = $service->execute($data["email"], $data["password"]);
 
-        if (! $isValidUser) {
+        if (!$isValidUser) {
 
             $serviceError = new UserLoginError($userRepository);
-            $serviceError->execute( $data["email"] ) ; 
+            $serviceError->execute($data["email"]);
 
-            Logger::Alert( $data["email"] , "Alert: Invalid Password" );
+            Logger::Alert($data["email"], "Alert: Invalid Password");
 
             return $this->View('login', [], 'acceso');
         }
 
         $serviceSuccess = new UserLoginSuccess($userRepository);
-        $serviceSuccess->execute( $data["email"] ) ; 
+        $serviceSuccess->execute($data["email"]);
 
         $service = new FindByEmail($userRepository);
         $usuario = $service->execute($data["email"]);

@@ -11,7 +11,7 @@ use Domain\application\services\Usuarios\getAllUsuarios;
 use Domain\application\services\Usuarios\Save;
 
 use Domain\infrastructure\repositories\Usuarios\UsuarioDatabaseRepository;
-
+use Framework\crypt\CryptMD5;
 
 class UsuariosController extends SecureController
 {
@@ -35,7 +35,7 @@ class UsuariosController extends SecureController
     public function crear_grabar()
     {
         $data = $this->Post();
-        $service = new Save(new UsuarioDatabaseRepository());
+        $service = new Save(new UsuarioDatabaseRepository(), new CryptMD5() );
         $service->execute($data);
         return $this->View("crear_grabar", []);
     }
@@ -65,7 +65,7 @@ class UsuariosController extends SecureController
     public function modificar_grabar($id)
     {
         $data = $this->Post();
-        $service = new Update(new UsuarioDatabaseRepository());
+        $service = new Update(new UsuarioDatabaseRepository() , new CryptMD5());
         $service->execute($id, $data);
         return $this->View("modificar_grabar", []);
     }
