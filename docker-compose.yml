@@ -12,10 +12,11 @@ services:
         extra_hosts:
             - host.docker.internal:host-gateway
         environment:
-            - DB_DATABASE=$DB_NAME
-            - DB_USER=$DB_USER
-            - DB_PASSWORD=$DB_PASSWORD
             - DB_HOST=mysql
+            - DB_DATABASE=${DB_NAME}
+            - DB_USER=${DB_USER}
+            - DB_PASSWORD=${DB_PASSWORD}
+            - SESSION_TTL=${SESSION_TTL}
 
     mysql:
         image: mysql:8.0
@@ -24,10 +25,10 @@ services:
             - "3306:3306"
         command: --default-authentication-plugin=mysql_native_password
         environment:
-            - MYSQL_DATABASE=$DB_NAME
-            - MYSQL_USER="$DB_USER
-            - MYSQL_PASSWORD="$DB_PASSWORD}
-            - MYSQL_ROOT_PASSWORD=$DB_ROOT_PASSWORD
+            - MYSQL_DATABASE=${DB_NAME}
+            - MYSQL_USER=${DB_USER}
+            - MYSQL_PASSWORD=${DB_PASSWORD}
+            - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
         volumes:
             - ./conf:/etc/mysql/conf.d
             - ./data/dump:/docker-entrypoint-initdb.d

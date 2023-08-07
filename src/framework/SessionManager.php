@@ -33,12 +33,12 @@ class SessionManager
     private $link;
     private $bdd_config ; 
     private $prefix = '' ; 
-    private $espera ; 
+    private $ttl ; 
 
     public function __construct( $bdd_config,  $prefix = '' )
     {
         $this->bdd_config = $bdd_config  ;
-        $this->espera = $bdd_config[ 'espera' ] ;
+        $this->ttl = $bdd_config[ 'ttl' ] ;
         if( $prefix != '' )  $prefix .= "@" ;  
         $this->prefix  = $prefix ;  
     }
@@ -105,8 +105,8 @@ class SessionManager
         $sql = "INSERT INTO  
                 Session 
                 (Session_Id,Session_Expires,Session_Data,Session_Create) 
-                VALUES ( '{$id}' , date_add( now(),interval {$this->espera} minute) , '{$data}' , now())  
-                ON DUPLICATE KEY UPDATE  Session_Expires=date_add( now(),interval {$this->espera} minute),Session_Data='{$data}'  $email
+                VALUES ( '{$id}' , date_add( now(),interval {$this->ttl} minute) , '{$data}' , now())  
+                ON DUPLICATE KEY UPDATE  Session_Expires=date_add( now(),interval {$this->ttl} minute),Session_Data='{$data}'  $email
                 ";
 
         $result = mysqli_query(  $this->link , $sql );

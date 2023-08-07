@@ -33,9 +33,8 @@ $dbConfigSession = [
     'user' => getenv( "DB_USER" ),
     'password' => getenv( "DB_PASSWORD" ) ,
 
-    'espera' => 5
+    'ttl' => getenv( "SESSION_TTL" )
 ];
-
 
 $handler_session = new SessionManager($dbConfigSession, $IpCliente);
 session_set_save_handler(
