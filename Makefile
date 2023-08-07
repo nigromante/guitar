@@ -44,3 +44,6 @@ pull:
 push:
 	git push origin master
 
+backup:
+	./scripts/backup.sh
+
