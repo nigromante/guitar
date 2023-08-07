@@ -36,7 +36,7 @@ status:
 	echo
 
 ssh:
-	docker exec -it guitar_php_1 /bin/bash
+	docker-compose exec php /bin/bash
 
 pull:
 	git pull origin master
