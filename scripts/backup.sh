@@ -4,7 +4,6 @@ _now=$(date +"%m_%d_%Y")
 _file="data/backup/data_$_now.sql"
 
 EXPORT_COMMAND='exec mysqldump "$MYSQL_DATABASE" -uroot -p"$MYSQL_ROOT_PASSWORD"'
-echo $EXPORT_COMMAND
 
 docker-compose exec mysql sh -c "$EXPORT_COMMAND" > $_file
 
