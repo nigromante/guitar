@@ -28,10 +28,10 @@ $IpCliente = get_client_ip();
 date_default_timezone_set('America/Santiago');
 
 $dbConfigSession = [
-    'server' => 'mysql',
-    'user' => 'user',
-    'password' => 'test',
-    'database' => 'myDb',
+    'server' => getenv( "DB_HOST" ),
+    'database' => getenv( "DB_DATABASE" ),
+    'user' => getenv( "DB_USER" ),
+    'password' => getenv( "DB_PASSWORD" ) ,
 
     'espera' => 5
 ];
