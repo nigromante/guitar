@@ -1,20 +1,27 @@
 
 .PHONY: help
 help:
+	@clear
+	@echo 😄 Opciones del proyecto
+	@echo	
+
 	@echo make help
 	@echo make version
 	@echo make build
 	@echo make clean
-
+	@echo	
 	@echo make testSuites
 	@echo make testUnit
 	@echo make testIntegration
 	@echo make testAll
 	@echo make testCoverage
+	@echo	
 
 	
 version:
-	@echo '1.0 microframework'
+	@clear
+	@echo '1.0 microframework 🥇'
+	@echo	
 
 .PHONY: build
 build:
@@ -22,7 +29,9 @@ build:
 
 .PHONY: clean
 clean:
-	rm -rf vendor && rm composer.lock
+	rm -rf vendor 
+	rm -f composer.lock 
+	rm -rf ./logs/*
 
 testSuites:
 	./vendor/bin/phpunit --list-suites
