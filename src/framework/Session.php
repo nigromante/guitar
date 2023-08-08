@@ -28,12 +28,12 @@ $IpCliente = get_client_ip();
 date_default_timezone_set('America/Santiago');
 
 $dbConfigSession = [
-    'server' => getenv( "DB_HOST" ),
-    'database' => getenv( "DB_DATABASE" ),
-    'user' => getenv( "DB_USER" ),
-    'password' => getenv( "DB_PASSWORD" ) ,
+    'server' => $config['database']['DB_HOST'],
+    'database' => $config['database']['DB_NAME'],
+    'user' => $config['database']['DB_USER'],
+    'password' => $config['database']['DB_PASS'] ,
 
-    'ttl' => getenv( "SESSION_TTL" )
+    'ttl' => $config['session']['SESSION_TTL']
 ];
 
 $handler_session = new SessionManager($dbConfigSession, $IpCliente);

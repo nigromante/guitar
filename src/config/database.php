@@ -5,4 +5,3 @@ $config['database'] = [
     'DB_USER' => getenv( "DB_USER" ),
     'DB_PASS' => getenv( "DB_PASSWORD" )
 ];
-
