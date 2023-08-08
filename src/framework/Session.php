@@ -46,8 +46,10 @@ session_set_save_handler(
     [$handler_session, 'gc']
 );
 
-session_name("GUITAR");
+var_dump ($config);
+
+session_name($config['session']['SESSION_KEY']);
 session_start();
-session_gc(); 
+//session_gc(); 
 
 // $_SESSION['user.name'] = "julian vidal"; 
