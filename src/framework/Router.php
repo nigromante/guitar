@@ -73,7 +73,6 @@ class Router
 
             dump_group('Controller', 'Controller');
             dumpsection( $callback, 'Callback');
-    echo $clase ;
             $obj = new ($clase)();
 
             if (method_exists($clase, 'CheckAuth')) {
