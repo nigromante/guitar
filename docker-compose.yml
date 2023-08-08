@@ -17,6 +17,7 @@ services:
             - DB_USER=${DB_USER}
             - DB_PASSWORD=${DB_PASSWORD}
             - SESSION_TTL=${SESSION_TTL}
+            - SESSION_KEY=${SESSION_KEY}
 
     mysql:
         image: mysql:8.0

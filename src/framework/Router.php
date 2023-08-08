@@ -11,19 +11,19 @@ class Router
 
     public static function Get($uri, $callback)
     {
-        if (is_callable($callback)) {
-            self::$routes['GET'][$uri] = $callback;
-            return;
-        }
+        // if (is_callable($callback)) {
+        //     self::$routes['GET'][$uri] = $callback;
+        //     return;
+        // }
         self::$routes['GET'][$uri] = ['class' => $callback[0], 'method' => $callback[1]];
     }
 
     public static function Post($uri, $callback)
     {
-        if (is_callable($callback)) {
-            self::$routes['POST'][$uri] = $callback;
-            return;
-        }
+        // if (is_callable($callback)) {
+        //     self::$routes['POST'][$uri] = $callback;
+        //     return;
+        // }
         self::$routes['POST'][$uri] = ['class' => $callback[0], 'method' => $callback[1]];
     }
 
@@ -73,7 +73,7 @@ class Router
 
             dump_group('Controller', 'Controller');
             dumpsection( $callback, 'Callback');
-    
+    echo $clase ;
             $obj = new ($clase)();
 
             if (method_exists($clase, 'CheckAuth')) {

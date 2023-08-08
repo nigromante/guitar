@@ -46,7 +46,6 @@ session_set_save_handler(
     [$handler_session, 'gc']
 );
 
-var_dump ($config);
 
 session_name($config['session']['SESSION_KEY']);
 session_start();

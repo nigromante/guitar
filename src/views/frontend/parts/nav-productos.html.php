@@ -5,4 +5,4 @@
 <?php } ?>
 
 <li><hr class="dropdown-divider"></li>
-<li><a class="dropdown-item" href="/instrumentos/marca/otras-marcas">Otras Marcas</a></li>
+<li><a class="dropdown-item" href="/instrumentos/otrasmarcas">Otras Marcas</a></li>

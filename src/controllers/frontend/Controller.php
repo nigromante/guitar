@@ -13,12 +13,10 @@ class Controller extends \Framework\Controller
 
     public function __construct()
     {
-        parent::addGlobals("instrumentos", $this->AllInstrumentos());
-    }
-
-    private function AllInstrumentos()
-    {
         $serviceAll = new getSelectedInstrumentos(new InstrumentoDatabaseRepository());
-        return  $serviceAll->execute();
-    }
+        $instrumentos =  $serviceAll->execute();
+        parent::addGlobals("instrumentos", $instrumentos );
+    
+   }
+
 }
