@@ -1,19 +1,11 @@
 <?php
 
 namespace Domain\infrastructure\repositories\Instrumentos;
+use Domain\infrastructure\repositories\DatabaseRepository;
 
 
-class InstrumentoDatabaseRepository  implements InstrumentoRepository
+class InstrumentoDatabaseRepository extends DatabaseRepository implements InstrumentoRepository
 {
-
-    private $db;
-    public function __construct()
-    {
-        global $config ; 
-        extract ($config['database']) ; 
-        $this->db = mysqli_connect($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
-    }
-
 
     public function All()
     {

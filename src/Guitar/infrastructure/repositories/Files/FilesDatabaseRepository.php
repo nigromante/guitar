@@ -1,17 +1,9 @@
 <?php
 namespace Domain\infrastructure\repositories\Files;
+use Domain\infrastructure\repositories\DatabaseRepository;
 
 
-class FilesDatabaseRepository  implements  FilesRepository {
-
-    private $db ;
-    public function __construct()
-    {
-        global $config ; 
-        extract ($config['database']) ; 
-        $this->db = mysqli_connect($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
-    }
-
+class FilesDatabaseRepository extends DatabaseRepository  implements  FilesRepository {
 
     public function All() {
         $sql = "SELECT * FROM `files` where state=1 " ; 

@@ -1,19 +1,11 @@
 <?php
 
 namespace Domain\infrastructure\repositories\Usuarios;
+use Domain\infrastructure\repositories\DatabaseRepository;
 
 
-class UsuarioDatabaseRepository  implements UsuarioRepository
+class UsuarioDatabaseRepository  extends DatabaseRepository implements UsuarioRepository
 {
-
-    private $db;
-    public function __construct()
-    {
-        global $config ; 
-        extract ($config['database']) ; 
-        $this->db = mysqli_connect($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
-    }
-
 
     public function All()
     {
