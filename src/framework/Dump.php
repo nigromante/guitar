@@ -35,7 +35,7 @@ class Dump
 
     public function set($data, $title = '')
     {
-        $this->values[$this->current_group]["data"][] =  ["key" => $title, "value" => $data];
+        $this->values[$this->current_group]["data"][$title] =  $data;
     }
 
     public function get($group = "default")

@@ -71,7 +71,9 @@ class Router
             $clase =  $callback["class"];
             $metodo = $callback["method"];
 
-
+            dump_group('Controller', 'Controller');
+            dumpsection( $callback, 'Callback');
+    
             $obj = new ($clase)();
 
             if (method_exists($clase, 'CheckAuth')) {

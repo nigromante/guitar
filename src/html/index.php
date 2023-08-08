@@ -8,7 +8,9 @@ use Framework\Router;
 use Framework\Application;
 
 
-dump("Guitar", "Application");
+dump_group( 'Application', 'Application' ) ; 
+dumpsection( 'Guitar' , 'Name' ) ;
+
 
 $app = new Application();
 

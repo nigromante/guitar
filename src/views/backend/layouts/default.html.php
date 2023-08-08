@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="/css/backend/style.css">
 </head>
 
-<body id="page-top">
+<body id="page-top" class="d-flex flex-column h-100">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -53,21 +53,29 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <?php \Framework\View::include_part( 'footer', $data ) ;?> 
+            <?php // \Framework\View::include_part( 'footer', $data ) ;?> 
             <!-- End of Footer -->
 
 
-            <?php // \Framework\View::include_part( 'dev', $dev_data ) ;?>
+            <footer class="footer mt-auto py-3">
+                <div class="container">
+                        <?php \Framework\View::include_part( 'dev', [] ) ;?>
+                </div>
+            </footer>
         </div>
         <!-- End of Content Wrapper -->
 
     </div>
     <!-- End of Page Wrapper -->
 
+
+
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
+
+
 
     <!-- Logout Modal-->
     <?php \Framework\View::include_part( 'logout', $data ) ;?> 
