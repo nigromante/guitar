@@ -11,20 +11,25 @@ class Router
 
     public static function Get($uri, $callback)
     {
-        // if (is_callable($callback)) {
-        //     self::$routes['GET'][$uri] = $callback;
-        //     return;
-        // }
-        self::$routes['GET'][$uri] = ['class' => $callback[0], 'method' => $callback[1]];
+        if( is_array($callback ) ) {
+            self::$routes['GET'][$uri] = ['class' => $callback[0], 'method' => $callback[1]];
+            return ; 
+        }
+        if (is_callable($callback)) {
+            self::$routes['GET'][$uri] = $callback;
+        }
     }
 
     public static function Post($uri, $callback)
     {
-        // if (is_callable($callback)) {
-        //     self::$routes['POST'][$uri] = $callback;
-        //     return;
-        // }
-        self::$routes['POST'][$uri] = ['class' => $callback[0], 'method' => $callback[1]];
+        if( is_array($callback ) ) {
+            self::$routes['POST'][$uri] = ['class' => $callback[0], 'method' => $callback[1]];
+            return ; 
+        }
+        if (is_callable($callback)) {
+            self::$routes['POST'][$uri] = $callback;
+        }
+
     }
 
     public static function evalRequest($uri, $method)
