@@ -23,12 +23,6 @@ class UsuarioInMemoryRepository  implements UsuarioRepository
         asort($this->marcas);
     }
 
-
-    public function All()
-    {
-        return $this->marcas;
-    }
-
     public function Selected()
     {
         $response = [];
@@ -74,9 +68,6 @@ class UsuarioInMemoryRepository  implements UsuarioRepository
     {
     }
 
-    public function Save($data)
-    {
-    }
     public function Update($id, $data)
     {
     }

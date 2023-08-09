@@ -7,19 +7,6 @@ use Domain\infrastructure\repositories\DatabaseRepository;
 class UsuarioDatabaseRepository  extends DatabaseRepository implements UsuarioRepository
 {
 
-    public function All()
-    {
-        $sql = "SELECT * FROM `usuarios` ";
-        $result = mysqli_query($this->db, $sql);
-        $rows = $result->fetch_all(MYSQLI_ASSOC);
-        $response = [];
-        foreach ($rows as $row) {
-            $response[] = ["id" => $row["id"], "enable" => $row["enable"], "Email" => $row["Email"], "Nombre" => $row["Nombre"], "Apellido" => $row["Apellido"], "createdat"
-            => $row["createdat"], "password" => $row["password"]];
-        }
-
-        return $response;
-    }
 
     public function Selected()
     {
@@ -84,23 +71,6 @@ class UsuarioDatabaseRepository  extends DatabaseRepository implements UsuarioRe
     {
         // $sql = "DELETE FROM `usuarios` where id='{$id}' " ; 
         $sql = "UPDATE `usuarios` set enable=0  where id='{$id}' ";
-        $result = mysqli_query($this->db, $sql);
-
-        return "OK";
-    }
-
-    public function Save($data)
-    {
-        $sql = "INSERT INTO `usuarios` 
-            ( `Nombre`, `Apellido`, `Email`, `password`, `createdat` , `enable` ) VALUES 
-            (
-                '{$data["Nombre"]}', 
-                '{$data["Apellido"]}', 
-                '{$data["Email"]}', 
-                '{$data["password"]}' , 
-                now(), 
-                1 
-            )";
         $result = mysqli_query($this->db, $sql);
 
         return "OK";

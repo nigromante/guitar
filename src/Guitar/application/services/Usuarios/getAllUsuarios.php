@@ -1,17 +1,17 @@
 <?php
 namespace Domain\application\services\Usuarios;
 
-use Domain\infrastructure\repositories\Usuarios\UsuarioRepository;
+use Domain\infrastructure\repositories\Usuarios\Interfaces\AllInterface;
 
 class getAllUsuarios {
 
-    private UsuarioRepository $repository ; 
+    private AllInterface $repository ; 
 
-    public function __construct( UsuarioRepository $repository ) {
+    public function __construct( AllInterface $repository ) {
         $this->repository = $repository ; 
     }
 
     public function execute() {
-        return $this->repository->All();
+        return $this->repository->execute() ;
     }
 }
