@@ -16,35 +16,53 @@ help:
 	@echo make backup
 	@echo	
 
+.PHONY: info
+info:
+	@clear
+	@pwd
+	@echo
+	@echo $$USER
+	@echo
+	@date
+	@echo
+	@neofetch
+
+.PHONY: ps
+ps:
+	@glances
 
 build:
-	docker-compose build
+	sudo docker-compose build
 
 run:
-	docker-compose up -d 
+	@docker-compose up -d 
 
 stop:
-	docker-compose down 
+	@docker-compose down 
 
 clean:
-	docker rm -f $$(docker ps -aq)  
-	docker rmi -f $$(docker images -aq)
-	
+	@clear
+	@docker rm -f $$(docker ps -aq)  > /dev/null 2>&1 || 	@docker rmi -f $$(docker images -aq)   > /dev/null 2>&1 
+
 clean-images:
 	docker rmi -f $$(docker images -aq)
 
 clean-data:
-	sudo rm -rf data/mysql
-	sudo rm -rf log
+	@sudo rm -rf data/mysql
+	@sudo rm -rf log
 	
+.PHONY: status
 status:
-	docker ps -a
-	echo
-	docker images -a
-	echo
+	@clear
+	@docker-compose ps 
+	@echo
+	@echo
+	@docker-compose images
+	@echo
+	@echo
 
 ssh:
-	docker-compose exec php /bin/bash
+	@docker-compose exec php /bin/bash
 
 pull:
 	git pull origin master
