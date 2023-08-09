@@ -31,14 +31,14 @@ namespace Framework ;
 class SessionManager
 {
     private $link;
-    private $bdd_config ; 
+    private $session_config ; 
     private $prefix = '' ; 
     private $ttl ; 
 
-    public function __construct( $bdd_config,  $prefix = '' )
+    public function __construct( $session_config,  $prefix = '' )
     {
-        $this->bdd_config = $bdd_config  ;
-        $this->ttl = $bdd_config[ 'ttl' ] ;
+        $this->session_config = $session_config  ;
+        $this->ttl = $session_config[ 'SESSION_TTL' ] ;
         if( $prefix != '' )  $prefix .= "@" ;  
         $this->prefix  = $prefix ;  
     }
@@ -46,7 +46,12 @@ class SessionManager
 
     public function open($savePath, $sessionName)
     {
-        $link = mysqli_connect( $this->bdd_config['server'] , $this->bdd_config['user'], $this->bdd_config['password'] , $this->bdd_config['database']);
+        $link = mysqli_connect( 
+                $this->session_config['DB_HOST'] , 
+                $this->session_config['DB_USER'], 
+                $this->session_config['DB_PASS'] , 
+                $this->session_config['DB_NAME']
+            );
         if($link){
             $this->link = $link;
             return true;

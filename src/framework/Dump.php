@@ -11,7 +11,6 @@ class Dump
     protected function __construct()
     {
         $this->current_group = "default";
-        // $this->values = [ "default" => [ "description" => "user dump" , "data" => [] ] ];
         $this->values = [];
     }
 
@@ -47,8 +46,6 @@ class Dump
     {
         return $this->values[$group]["data"];
     }
-
-
 
     public function getAll()
     {

@@ -14,11 +14,11 @@ class Logger
     public static function Alert($msg, $subject = "Alert" )
     {
 
-        global $IpCliente;
+        global $ClientIpAddress;
 
         $date = date('d.m.Y h:i:s');
 
-        $log = "ALERT | $date | $IpCliente | $msg \n";
+        $log = "ALERT | $date | {$ClientIpAddress} | $msg \n";
 
         mail("julianvidal@live.cl", $subject , $log , "From: sistema@guitar.cl");
 
