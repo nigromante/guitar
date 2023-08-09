@@ -26,12 +26,14 @@ class Logger
         error_log($log, 3, self::USER_ALERTS_DIR);
     }
 
-    public static function Error($msg)
+    public static function Error($msg, $subject = "Error" )
     {
 
         $date = date('d.m.Y h:i:s');
 
         $log = "ERROR :: $date  |  $msg \n";
+
+        mail("julianvidal@live.cl", $subject , $log , "From: sistema@guitar.cl");
 
         error_log($log, 3, self::USER_ERROR_DIR);
     }

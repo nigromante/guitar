@@ -56,7 +56,7 @@ class Router
             }
         }
 
-        throw new Exception("404");
+        throw new Exception( sprintf( "Error 404 : %s [%s]" , $uri, $method ) );
     }
 
     public static function dispatch($route, $uri, $method)
@@ -78,6 +78,7 @@ class Router
 
             dump_group('Controller', 'Controller');
             dumpsection( $callback, 'Callback');
+            
             $obj = new ($clase)();
 
             if (method_exists($clase, 'CheckAuth')) {

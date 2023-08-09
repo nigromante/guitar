@@ -11,4 +11,10 @@ class FrontendController extends Controller {
 
         return $this->Data( json_encode($this->Globals()) ) ;
     }
+    public function error() {
+
+        throw new \Exception( "error de pruebas" );
+    }
+
+
 }

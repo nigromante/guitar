@@ -1,5 +1,5 @@
 log
 data/mysql
 src/composer.lock
-src/logs/guitar_alerts.log
+src/logs
 data/backup

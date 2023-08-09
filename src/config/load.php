@@ -1,6 +1,4 @@
 <?php
-$config = [];
-
 $ENV_VARS = [
     'SERVER' => $_SERVER,
     'GET' => $_GET,
@@ -9,10 +7,10 @@ $ENV_VARS = [
 ];
 
 
+
+$config = [];
+
 require_once "database.php";
 require_once "session.php";
+require_once "routes.php";
 
-// require_once "api.php" ;
-require_once "web.php";
-require_once "backend.php";
-// require_once "test.php" ;
