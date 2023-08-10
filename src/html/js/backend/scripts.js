@@ -15,6 +15,7 @@ var Utilities=Utilities||(function () {
     
           fetch( url )
           .then(function (response) {
+              console.log( response );
               row.remove();
             })
           .catch(function (err) {

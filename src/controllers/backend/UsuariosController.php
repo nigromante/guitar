@@ -4,20 +4,23 @@ namespace Controllers\backend;
 
 use  Controllers\backend\SecureController;
 
-use Domain\domain\entities\User;
 use Framework\crypt\CryptMD5 as CRYPT ;
 
+// Model
+use Domain\domain\entities\User;
+
 // Services
-use Domain\application\services\Usuarios\Borrar;
+use Domain\application\services\Usuarios\DisableUser;
 use Domain\application\services\Usuarios\FindById;
-use Domain\application\services\Usuarios\Update;
 use Domain\application\services\Usuarios\GetAllUsers;
 use Domain\application\services\Usuarios\CreateUsuario;
+use Domain\application\services\Usuarios\UpdateUser;
 // Repositories
-use Domain\infrastructure\repositories\Usuarios\UsuarioDatabaseRepository;
 use Domain\infrastructure\repositories\Usuarios\Database\GetAllUsersRepository;
 use Domain\infrastructure\repositories\Usuarios\Database\CreateUserRepository;
 use Domain\infrastructure\repositories\Usuarios\Database\FindByIdRepository;
+use Domain\infrastructure\repositories\Usuarios\Database\ChangeUserStateRepository;
+use Domain\infrastructure\repositories\Usuarios\Database\UpdateUserRepository;
 
 
 class UsuariosController extends SecureController
@@ -67,9 +70,13 @@ class UsuariosController extends SecureController
 
     public function borrar($id)
     {
-        $service = new Borrar(new UsuarioDatabaseRepository());
-        $usuario = $service->execute($id);
-        return "Registro Eliminado";
+        $servicefind = new FindById(new FindByIdRepository());
+        $user = $servicefind->execute($id);
+
+
+        $service = new DisableUser(new ChangeUserStateRepository());
+        $usuario = $service->execute($user);
+        return $usuario->getFullName() . " Disabled";
     }
 
 
@@ -84,8 +91,22 @@ class UsuariosController extends SecureController
     public function modificar_grabar($id)
     {
         $data = $this->Post();
-        $service = new Update(new UsuarioDatabaseRepository(), new CRYPT());
-        $service->execute($id, $data);
-        return $this->View("modificar_grabar", []);
+
+        $password = empty($data['password']) ? '' : ( new CRYPT() )->encript( $data['password']) ;
+
+        $user = new User(
+            $id, 
+            $data['Nombre'] , 
+            $data['Apellido'] , 
+            $data['Email'] , 
+            0,
+            '',
+            $password 
+        ) ;  
+
+
+        $service = new UpdateUser(new UpdateUserRepository());
+        $userUpdated = $service->execute($user);
+        return $this->View("modificar_grabar", compact( 'userUpdated' ));
     }
 }
