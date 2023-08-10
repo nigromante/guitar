@@ -2,25 +2,27 @@
 
 namespace Controllers\backend;
 
-use Framework\crypt\CryptMD5;
+use Framework\crypt\CryptMD5 as CRYPT ;
 use Framework\Logger;
 
 use Controllers\backend\Controller;
-use Domain\application\services\Usuarios\UserCheckLogin;
+
+// services
 use Domain\application\services\Usuarios\FindByEmail;
-use Domain\application\services\Usuarios\UserLoginError;
-use Domain\application\services\Usuarios\UserLoginSuccess;
-use Domain\infrastructure\repositories\Usuarios\UsuarioDatabaseRepository;
+use Domain\application\services\Auth\ValidateLogin;
+use Domain\application\services\Auth\ValidateLoginCommand;
 
+// repositories
 use Domain\infrastructure\repositories\Usuarios\Database\FindByEmailRepository;
-
+use Domain\infrastructure\repositories\Auth\Database\ValidateLoginRepository;
+use utilities\AppSession;
 
 class AccesoController extends Controller
 {
 
     public function login()
     {
-        if (isset($_SESSION['user.email'])) {
+        if ( AppSession::UserCheck()) {
             $this->redirect("/backend/dashboard");
             return;
         }
@@ -32,29 +34,17 @@ class AccesoController extends Controller
     {
         $data = $this->Post();
 
-        $userRepository = new UsuarioDatabaseRepository();
-
-        $service = new UserCheckLogin($userRepository, new CryptMD5());
-        $isValidUser = $service->execute($data["email"], $data["password"]);
-
-        if (!$isValidUser) {
-
-            $serviceError = new UserLoginError($userRepository);
-            $serviceError->execute($data["email"]);
-
+        $validateService = new ValidateLogin( new ValidateLoginRepository() ) ; 
+        if( ! $validateService->execute( new ValidateLoginCommand( $data['email'] , CRYPT::encript($data['password'])) ) ) {
             Logger::Alert($data["email"], "Alert: Invalid Password");
 
             return $this->View('login', [], 'acceso');
         }
 
-        $serviceSuccess = new UserLoginSuccess($userRepository);
-        $serviceSuccess->execute($data["email"]);
-
         $service = new FindByEmail( new FindByEmailRepository());
         $usuario = $service->execute( $data["email"] );
 
-        $_SESSION['user.email'] = $usuario->getEmail();
-        $_SESSION['user.nombre'] = $usuario->getFullName() ;
+        AppSession::UserSet( $usuario->getEmail() , $usuario->getFullName() ) ;
 
         return $this->redirect("/backend/dashboard");
     }

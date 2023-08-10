@@ -2,12 +2,13 @@
 
 namespace Controllers\backend;
 
+use utilities\AppSession;
 
 class SecureController extends \Framework\Controller
 {
 
     public function CheckAuth()
     {
-        return isset($_SESSION['user.email']);
+        return AppSession::UserCheck(); 
     }
 }
