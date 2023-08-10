@@ -2,7 +2,7 @@
 
 namespace Controllers\backend;
 
-use utilities\AppSession;
+use Utilities\AppSession;
 
 class SecureController extends \Framework\Controller
 {

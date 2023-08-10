@@ -15,7 +15,7 @@ use Domain\application\services\Auth\ValidateLoginCommand;
 // repositories
 use Domain\infrastructure\repositories\Usuarios\Database\FindByEmailRepository;
 use Domain\infrastructure\repositories\Auth\Database\ValidateLoginRepository;
-use utilities\AppSession;
+use Utilities\AppSession;
 
 class AccesoController extends Controller
 {

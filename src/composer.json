@@ -4,6 +4,7 @@
     "autoload": {
         "psr-4": {
             "Framework\\": "framework/",
+            "Utilities\\": "utilities/",
             "Controllers\\": "controllers/",
             "Domain\\": "Guitar/"
 
