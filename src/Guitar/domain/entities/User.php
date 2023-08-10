@@ -11,8 +11,9 @@ class User
     private $estado;
     private $fecha_creacion;
     private $password;
+    private $theme;
 
-    public function __construct($id, $nombre, $apellido, $email, $estado, $fecha_creacion = '', $password = '' )
+    public function __construct($id, $nombre, $apellido, $email, $estado, $fecha_creacion = '', $password = '', $theme='' )
     {
       $this->id = $id;
       $this->nombre = $nombre;
@@ -21,6 +22,7 @@ class User
       $this->estado = $estado;
       $this->fecha_creacion = $fecha_creacion;
       $this->password = $password;
+      $this->theme = $theme;
     }
 
     public function getId() { return ( $this->id ) ; } 
@@ -33,4 +35,5 @@ class User
 
     public function getFullName() { return Trim(  sprintf( "%s %s" , $this->nombre , $this->apellido )) ; }
 
+    public function getTheme() { return $this->theme ; }
 }

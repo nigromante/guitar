@@ -19,4 +19,13 @@ class AppSession {
         return $_SESSION['user.nombre'] ;
     }
 
+    public static function UserThemeSet( $key ) {
+        $_SESSION['user.theme'] = $key;
+    }
+    
+    public static function UserThemeget( ) {
+        return $_SESSION['user.theme'] ;
+    }
+
+
 }

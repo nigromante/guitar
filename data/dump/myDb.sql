@@ -157,7 +157,9 @@ CREATE TABLE `usuarios` (
   `enable` int NOT NULL DEFAULT '0',
   `tries` int NOT NULL DEFAULT '0',
   `password` varchar(100) NOT NULL, 
-  `lastlogin` datetime NULL NULL
+  `lastlogin` datetime NULL NULL,
+  `Theme` varchar(20) NOT NULL
+
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
@@ -187,6 +189,6 @@ COMMIT;
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` ( `Nombre`, `Apellido`, `Email`, `createdat`, `enable`, `password`) VALUES
-( 'Julian', 'Vidal', 'julianvidal@live.cl', now(), 1, MD5('test') )
+INSERT INTO `usuarios` ( `Nombre`, `Apellido`, `Email`, `createdat`, `enable`, `password`, `Theme`) VALUES
+( 'Julian', 'Vidal', 'julianvidal@live.cl', now(), 1, MD5('test'), 'Dune' )
 

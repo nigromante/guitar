@@ -15,7 +15,7 @@ class FindByEmailRepository extends DatabaseRepository implements FindByEmailInt
 
         if( ! $row ) return null;
 
-        return new User( $row["id"] , $row["Nombre"], $row["Apellido"] , $row["Email"], $row["enable"], $row["createdat"]  ) ;
+        return new User( $row["id"] , $row["Nombre"], $row["Apellido"] , $row["Email"], $row["enable"], $row["createdat"] , "",  $row["Theme"] ) ;
 
 
     }

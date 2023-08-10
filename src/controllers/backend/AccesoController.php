@@ -45,6 +45,7 @@ class AccesoController extends Controller
         $usuario = $service->execute( $data["email"] );
 
         AppSession::UserSet( $usuario->getEmail() , $usuario->getFullName() ) ;
+        AppSession::UserThemeSet( $usuario->getTheme() ) ;
 
         return $this->redirect("/backend/dashboard");
     }
