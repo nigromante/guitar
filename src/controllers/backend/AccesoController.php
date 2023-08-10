@@ -12,6 +12,9 @@ use Domain\application\services\Usuarios\UserLoginError;
 use Domain\application\services\Usuarios\UserLoginSuccess;
 use Domain\infrastructure\repositories\Usuarios\UsuarioDatabaseRepository;
 
+use Domain\infrastructure\repositories\Usuarios\Database\FindByEmailRepository;
+
+
 class AccesoController extends Controller
 {
 
@@ -47,11 +50,11 @@ class AccesoController extends Controller
         $serviceSuccess = new UserLoginSuccess($userRepository);
         $serviceSuccess->execute($data["email"]);
 
-        $service = new FindByEmail($userRepository);
-        $usuario = $service->execute($data["email"]);
+        $service = new FindByEmail( new FindByEmailRepository());
+        $usuario = $service->execute( $data["email"] );
 
-        $_SESSION['user.email'] = $data["email"];
-        $_SESSION['user.nombre'] = $usuario["Nombre"] . " " . $usuario["Apellido"];
+        $_SESSION['user.email'] = $usuario->getEmail();
+        $_SESSION['user.nombre'] = $usuario->getFullName() ;
 
         return $this->redirect("/backend/dashboard");
     }

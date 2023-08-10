@@ -9,8 +9,6 @@ interface  UsuarioRepository
 
     public function Selected();
     public function NonSelected();
-    public function FindByEmail($email);
-    public function FindById($id);
     public function Borrar($id);
 
     public function Update($id, $data);

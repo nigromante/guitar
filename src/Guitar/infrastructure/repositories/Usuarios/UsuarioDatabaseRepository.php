@@ -35,38 +35,6 @@ class UsuarioDatabaseRepository  extends DatabaseRepository implements UsuarioRe
     }
 
 
-
-    public function FindByEmail($email)
-    {
-        $sql = "SELECT * FROM `usuarios` where enable=1 and Email='{$email}' ";
-        $result = mysqli_query($this->db, $sql);
-        $row = $result->fetch_assoc();
-
-        $response = ["id" => $row["id"], "enable" => $row["enable"], "Email" => $row["Email"], "Nombre" => $row["Nombre"], "Apellido" => $row["Apellido"], "createdat"
-        => $row["createdat"], "password" => $row["password"]];
-
-        return $response;
-    }
-
-    public function FindById($id)
-    {
-        $sql = "SELECT * FROM `usuarios` where id='{$id}' ";
-        $result = mysqli_query($this->db, $sql);
-        $row = $result->fetch_assoc();
-
-        $response = [
-            "id" => $row["id"],
-            "enable" => $row["enable"],
-            "Email" => $row["Email"],
-            "Nombre" => $row["Nombre"],
-            "Apellido" => $row["Apellido"],
-            "createdat"  => $row["createdat"],
-            "password" => $row["password"]
-        ];
-
-        return $response;
-    }
-
     public function Borrar($id)
     {
         // $sql = "DELETE FROM `usuarios` where id='{$id}' " ; 

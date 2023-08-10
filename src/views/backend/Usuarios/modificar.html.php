@@ -3,22 +3,22 @@
 
     <h1> Modificar Usuario </h1>
 
-    <form class="row g-3" method="post" action="/backend/usuarios/modificar/<?= $id ?>">
+    <form class="row g-3" method="post" action="/backend/usuarios/modificar/<?= $usuario->getId() ?>">
 
         <div class="mb-3">
             <label for="Nombre" class="form-label">Nombre</label>
-            <input name="Nombre" class="form-control" id="Nombre"  value="<?= $usuario["Nombre"] ?>" >
+            <input name="Nombre" class="form-control" id="Nombre"  value="<?= $usuario->getNombre() ?>" >
         </div>
 
         <div class="mb-3">
             <label for="Apellido" class="form-label">Apellido</label>
-            <input name="Apellido" class="form-control" id="Apellido" value="<?= $usuario["Apellido"] ?>" >
+            <input name="Apellido" class="form-control" id="Apellido" value="<?= $usuario->getApellido() ?>" >
 
         </div>
 
         <div class="mb-3">
             <label for="Email" class="form-label">Email</label>
-            <textarea name="Email" class="form-control" id="Email" rows="1"    ><?= $usuario["Email"] ?></textarea>
+            <textarea name="Email" class="form-control" id="Email" rows="1"    ><?= $usuario->getEmail() ?></textarea>
         </div>
         
         <div class="mb-3">

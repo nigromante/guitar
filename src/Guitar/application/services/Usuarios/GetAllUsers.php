@@ -3,7 +3,7 @@ namespace Domain\application\services\Usuarios;
 
 use Domain\infrastructure\repositories\Usuarios\Interfaces\AllInterface;
 
-class getAllUsuarios {
+class GetAllUsers {
 
     private AllInterface $repository ; 
 

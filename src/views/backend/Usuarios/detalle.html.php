@@ -1,11 +1,10 @@
-{{ title :: usuario: <?= $usuario["Nombre"] ?> }}
+{{ title :: usuario: <?= $usuario->getNombre() ?> }}
 
-<p> <?= $usuario["id"] ?> </p>
-<p> <?= $usuario["Nombre"] ?> </p>
-<p> <?= $usuario["Apellido"] ?> </p>
-<p> <?= $usuario["Email"] ?> </p>
-<p> <?= $usuario["createdat"] ?> </p>
-<p> <?= $usuario["enable"] ?> </p>
+<p> <?= $usuario->getId() ?> </p>
+<p> <?= $usuario->getNombre() ?> </p>
+<p> <?= $usuario->getApellido() ?> </p>
+<p> <?= $usuario->getEmail() ?> </p>
+<p> <?= $usuario->getEstado() ?> </p>
 
 <br>
 <br>

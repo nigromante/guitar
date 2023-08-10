@@ -14,24 +14,20 @@
         <tr>
           <th>Id</th>
           <th>Nombre </th>
-          <th>Apellido</th>
           <th>Email</th>
-          <th>Creado</th>
           <th>Estado</th>
           <th></th>
         </tr>
         <!-- en la parte de abajo los nombres tienen que ser igual a base de datos -->
         <?php foreach ($usuarios_listado as $usuario) { ?>
           <tr>
-            <td> <a class="btn btn-success btn-circle" href="/backend/usuarios/detalle/<?= $usuario["id"] ?>"> <?= $usuario["id"] ?> </a> </td>
-            <td> <?= $usuario["Nombre"] ?> </td>
-            <td> <?= $usuario["Apellido"] ?> </td>
-            <td> <?= $usuario["Email"] ?> </td>
-            <td> <?= $usuario["createdat"] ?> </td>
-            <td> <?= $usuario["enable"] ?> </td>
+            <td> <a class="btn btn-success btn-circle" href="/backend/usuarios/detalle/<?= $usuario->getId() ?>"> <?= $usuario->getId() ?> </a> </td>
+            <td> <?= $usuario->getFullName() ?> </td>
+            <td> <?= $usuario->getEmail() ?> </td>
+            <td> <?= $usuario->getEstado() ?> </td>
             <td>
-              <a class="btn btn-danger btn-icon-split  action action-borrar" data-id="<?= $usuario["id"] ?>" href="/backend/usuarios/borrar/<?= $usuario["id"] ?>">Borrar </a>
-              <a class="btn btn-info btn-icon-split action action-modificar" data-id="<?= $usuario["id"] ?>" href="/backend/usuarios/modificar/<?= $usuario["id"] ?>">Modificar </a>
+              <a class="btn btn-danger btn-icon-split  action action-borrar" data-id="<?= $usuario->getId() ?>" href="/backend/usuarios/borrar/<?= $usuario->getId() ?>">Borrar </a>
+              <a class="btn btn-info btn-icon-split action action-modificar" data-id="<?= $usuario->getId() ?>" href="/backend/usuarios/modificar/<?= $usuario->getId() ?>">Modificar </a>
             </td>
           </tr>
         <?php } ?>

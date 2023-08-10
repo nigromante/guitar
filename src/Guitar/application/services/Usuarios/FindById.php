@@ -2,20 +2,21 @@
 
 namespace Domain\application\services\Usuarios;
 
-use Domain\infrastructure\repositories\Usuarios\UsuarioRepository;
+use Domain\domain\entities\User;
+use Domain\infrastructure\repositories\Usuarios\Interfaces\FindByIdInterface;
 
 class FindById
 {
 
-    private UsuarioRepository $repository;
+    private FindByIdInterface $repository;
 
-    public function __construct(UsuarioRepository $repository)
+    public function __construct(FindByIdInterface $repository)
     {
         $this->repository = $repository;
     }
 
-    public function execute($id)
+    public function execute($id) : User
     {
-        return $this->repository->FindById($id);
+        return $this->repository->execute( $id ) ;
     }
 }

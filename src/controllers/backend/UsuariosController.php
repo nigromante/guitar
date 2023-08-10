@@ -4,19 +4,20 @@ namespace Controllers\backend;
 
 use  Controllers\backend\SecureController;
 
+use Domain\domain\entities\User;
 use Framework\crypt\CryptMD5 as CRYPT ;
 
 // Services
 use Domain\application\services\Usuarios\Borrar;
 use Domain\application\services\Usuarios\FindById;
 use Domain\application\services\Usuarios\Update;
-use Domain\application\services\Usuarios\getAllUsuarios;
+use Domain\application\services\Usuarios\GetAllUsers;
 use Domain\application\services\Usuarios\CreateUsuario;
-use Domain\application\services\Usuarios\CreateUsuarioCommand;
 // Repositories
 use Domain\infrastructure\repositories\Usuarios\UsuarioDatabaseRepository;
-use Domain\infrastructure\repositories\Usuarios\Database\UsuariosAllRepository;
+use Domain\infrastructure\repositories\Usuarios\Database\GetAllUsersRepository;
 use Domain\infrastructure\repositories\Usuarios\Database\CreateUserRepository;
+use Domain\infrastructure\repositories\Usuarios\Database\FindByIdRepository;
 
 
 class UsuariosController extends SecureController
@@ -24,7 +25,7 @@ class UsuariosController extends SecureController
 
     public function listado()
     {
-        $service = new getAllUsuarios( new UsuariosAllRepository() );
+        $service = new GetAllUsers( new GetAllUsersRepository() );
         $usuarios_listado = $service->execute();
         return $this->View('listado', compact('usuarios_listado'));
     }
@@ -39,23 +40,26 @@ class UsuariosController extends SecureController
     public function crear_grabar()
     {
         $data = $this->Post();
-        $data_command = new CreateUsuarioCommand( 
+        $user = new User(
+                null, 
                 $data['Nombre'] , 
                 $data['Apellido'] , 
                 $data['Email'] , 
+                0,
+                '',
                 ( new CRYPT() )->encript( $data['password']) 
             ) ;  
 
         $service = new CreateUsuario(new CreateUserRepository());
-        $service->execute( $data_command );
-        return $this->View("crear_grabar", compact( 'data_command' ));
+        $newUser = $service->execute($user);
+        return $this->View("crear_grabar", compact( 'newUser' ));
     }
 
 
 
     public function detalle($id)
     {
-        $service = new FindById(new UsuarioDatabaseRepository());
+        $service = new FindById(new FindByIdRepository());
         $usuario = $service->execute($id);
         return $this->View('detalle', compact('usuario'));
     }
@@ -71,9 +75,9 @@ class UsuariosController extends SecureController
 
     public function modificar($id)
     {
-        $service = new FindById(new UsuarioDatabaseRepository());
+        $service = new FindById(new FindByIdRepository());
         $usuario = $service->execute($id);
-        return $this->View('modificar', compact('id', 'usuario'));
+        return $this->View('modificar', compact('usuario'));
     }
 
 

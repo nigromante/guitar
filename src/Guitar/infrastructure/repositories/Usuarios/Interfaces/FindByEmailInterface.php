@@ -1,10 +1,11 @@
 <?php
 
 namespace Domain\infrastructure\repositories\Usuarios\Interfaces;
+
 use Domain\domain\entities\User;
 
-interface  CreateUserInterface
+interface  FindByEmailInterface
 {
 
-    public function execute( User $user );
+    public function execute( $email ) : User ;
 }

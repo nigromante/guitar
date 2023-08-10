@@ -1,5 +1,6 @@
 <?php
 namespace Domain\application\services\Usuarios;
+use Domain\domain\entities\User;
 use Domain\infrastructure\repositories\Usuarios\Interfaces\CreateUserInterface;
 
 class CreateUsuario {
@@ -10,7 +11,7 @@ class CreateUsuario {
         $this->repository = $repository ;
     }
 
-    public function execute( CreateUsuarioCommand $data ) {
+    public function execute( User $data ) {
         return $this->repository->execute( $data );
     }
 }

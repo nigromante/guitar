@@ -2,20 +2,21 @@
 
 namespace Domain\application\services\Usuarios;
 
-use Domain\infrastructure\repositories\Usuarios\UsuarioRepository;
+use Domain\domain\entities\User;
+use Domain\infrastructure\repositories\Usuarios\Interfaces\FindByEmailInterface;
 
 class FindByEmail
 {
 
-    private UsuarioRepository $repository;
+    private FindByEmailInterface $repository;
 
-    public function __construct(UsuarioRepository $repository)
+    public function __construct(FindByEmailInterface $repository)
     {
         $this->repository = $repository;
     }
 
-    public function execute($email)
+    public function execute($email) : User
     {
-        return $this->repository->FindByEmail($email);
+        return $this->repository->execute($email);
     }
 }

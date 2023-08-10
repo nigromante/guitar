@@ -48,22 +48,6 @@ class UsuarioInMemoryRepository  implements UsuarioRepository
     }
 
 
-    public function FindByAlias($alias)
-    {
-        if (!isset($this->marcas[$alias]))
-            return false;
-
-        return $this->marcas[$alias];
-    }
-
-    public function FindById($id)
-    {
-        if (!isset($this->marcas[$id]))
-            return false;
-
-        return $this->marcas[$id];
-    }
-
     public function Borrar($id)
     {
     }
@@ -72,9 +56,6 @@ class UsuarioInMemoryRepository  implements UsuarioRepository
     {
     }
     public function UserCheckLogin($Email, $password)
-    {
-    }
-    public function FindByEmail($email)
     {
     }
 
