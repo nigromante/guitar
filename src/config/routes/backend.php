@@ -5,6 +5,7 @@ use Controllers\backend\FilesController;
 use Controllers\backend\DashboardController;
 use Controllers\backend\UsuariosController;
 use Controllers\backend\AccesoController;
+use Controllers\backend\ProfileController; 
 
 use Framework\Router;
 
@@ -42,3 +43,6 @@ Router::Get('/backend/usuarios/crear', [UsuariosController::class, 'crear']);
 Router::Post('/backend/usuarios/crear', [UsuariosController::class, 'crear_grabar']);
 Router::Get('/backend/usuarios/modificar/:id', [UsuariosController::class, 'modificar']);
 Router::Post('/backend/usuarios/modificar/:id', [UsuariosController::class, 'modificar_grabar']);
+
+Router::Get('/backend/profile/cambiartema', [ProfileController::class, 'cambiartema']);
+Router::Post('/backend/profile/cambiartema', [ProfileController::class, 'cambiartema_grabar']);

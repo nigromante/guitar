@@ -18,12 +18,15 @@ class AppSession {
 
         return $_SESSION['user.nombre'] ;
     }
+    public static function UserEmail( ) {
 
+        return $_SESSION['user.email'] ;
+    }
     public static function UserThemeSet( $key ) {
         $_SESSION['user.theme'] = $key;
     }
     
-    public static function UserThemeget( ) {
+    public static function UserThemeGet( ) {
         return $_SESSION['user.theme'] ;
     }
 

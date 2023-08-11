@@ -48,3 +48,19 @@
         height: auto;
     }  
     
+
+.theme-Dune    #wrapper #content-wrapper {
+    background-color:sandybrown ;
+}
+
+.theme-TMMT    #wrapper #content-wrapper {
+    background-color: green ;
+}
+
+.theme-startrek    #wrapper #content-wrapper {
+    background-color:darkblue ;
+}
+
+.theme-starwars    #wrapper #content-wrapper {
+    background-color:black ;
+}

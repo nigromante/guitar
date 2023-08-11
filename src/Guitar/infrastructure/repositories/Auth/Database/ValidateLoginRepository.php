@@ -20,7 +20,7 @@ class ValidateLoginRepository  extends DatabaseRepository implements ValidateLog
         $sql = "SELECT * FROM `usuarios` where enable=1 and `Email`='{$command->email}' and  `password`='{$command->password}' ";
         $result = mysqli_query($this->db, $sql);
         $row = $result->fetch_assoc();
-        return($row == null) ; 
+        return($row != null) ; 
     }
 
     private function SuccessLogin( ValidateLoginCommand $command ) {

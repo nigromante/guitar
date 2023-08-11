@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="/css/backend/style.css">
 </head>
 
-<body id="page-top" class="d-flex flex-column h-100">
+<body id="page-top" class="d-flex flex-column h-100 theme-<?= Utilities\AppSession::UserThemeGet() ?> ">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
