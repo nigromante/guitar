@@ -190,5 +190,5 @@ COMMIT;
 --
 
 INSERT INTO `usuarios` ( `Nombre`, `Apellido`, `Email`, `createdat`, `enable`, `password`, `Theme`) VALUES
-( 'Julian', 'Vidal', 'julianvidal@live.cl', now(), 1, MD5('test'), 'Dune' )
+( 'Julian', 'Vidal', 'julianvidal@live.cl', now(), 1, MD5('test'), 'dune' )
 
