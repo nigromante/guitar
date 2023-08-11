@@ -15,5 +15,5 @@ session_set_save_handler(
 
 session_name($config['session']['SESSION_KEY']);
 session_start();
-//session_gc(); 
+session_gc(); 
 
