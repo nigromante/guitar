@@ -19,6 +19,11 @@ services:
             - SESSION_TTL=${SESSION_TTL}
             - SESSION_KEY=${SESSION_KEY}
 
+    redis:
+        image: redis:latest
+        ports:
+            - "6382:6379"
+
     mysql:
         image: mysql:8.0
         restart: always

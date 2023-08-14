@@ -4,7 +4,7 @@ namespace Controllers\backend;
 
 use Utilities\AppSession;
 
-class SecureController extends \Framework\Controller
+class SecureController extends Controller
 {
 
     public function CheckAuth()

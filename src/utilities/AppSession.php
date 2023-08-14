@@ -4,24 +4,35 @@ namespace Utilities;
 
 class AppSession {
 
-    public static function UserSet( $key, $name ) {
 
-        $_SESSION['user.email'] = $key;
-        $_SESSION['user.nombre'] = $name ;
-    }
     public static function UserCheck() {
 
         return isset( $_SESSION['user.email'] ) ;
     }
 
-    public static function UserName( ) {
+    public static function UserEmailSet( $email ) {
 
-        return $_SESSION['user.nombre'] ;
+        $_SESSION['user.email'] = $email;
     }
+
     public static function UserEmail( ) {
 
         return $_SESSION['user.email'] ;
     }
+
+
+
+    public static function UserNameSet( $name ) {
+        $_SESSION['user.nombre'] = $name ;
+    }
+
+
+    public static function UserNameGet( ) {
+
+        return $_SESSION['user.nombre'] ;
+    }
+
+    
     public static function UserThemeSet( $key ) {
         $_SESSION['user.theme'] = $key;
     }

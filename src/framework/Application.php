@@ -30,7 +30,7 @@ class Application
             
         } catch ( \Exception $e) {
 
-            Logger::Error( $e->getMessage() , "Error: Exception" );
+            FileLog::Error( $e->getMessage() );
 
             header( sprintf( "HTTP/1.0 500 Internal Server Error: %s", $e->getMessage()));
         }

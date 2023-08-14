@@ -3,7 +3,7 @@
 namespace Framework;
 
 
-class Logger
+class FileLog
 {
 
     const USER_ERROR_DIR = '/var/www/logs/guitar.log';
@@ -11,7 +11,7 @@ class Logger
 
 
 
-    public static function Alert($msg, $subject = "Alert" )
+    public static function Alert($msg)
     {
 
         global $ClientIpAddress;
@@ -20,20 +20,15 @@ class Logger
 
         $log = "ALERT | $date | {$ClientIpAddress} | $msg \n";
 
-        mail("julianvidal@live.cl", $subject , $log , "From: sistema@guitar.cl");
-
-
         error_log($log, 3, self::USER_ALERTS_DIR);
     }
 
-    public static function Error($msg, $subject = "Error" )
+    public static function Error($msg)
     {
 
         $date = date('d.m.Y h:i:s');
 
         $log = "ERROR :: $date  |  $msg \n";
-
-        mail("julianvidal@live.cl", $subject , $log , "From: sistema@guitar.cl");
 
         error_log($log, 3, self::USER_ERROR_DIR);
     }

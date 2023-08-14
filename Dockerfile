@@ -4,9 +4,9 @@ RUN apt-get update && apt-get upgrade -y
 RUN apt-get install sudo unzip wget curl git -y
 RUN docker-php-ext-install mysqli
 RUN pecl install xdebug && docker-php-ext-enable xdebug
+RUN pecl install redis  && docker-php-ext-enable redis
 
 COPY ./conf/php/docker-php-ext-xdebug.ini /usr/local/etc/php/conf.d
-
 
 RUN curl -Lsf 'https://storage.googleapis.com/golang/go1.8.3.linux-amd64.tar.gz' | tar -C '/usr/local' -xvzf -
 ENV PATH /usr/local/go/bin:$PATH

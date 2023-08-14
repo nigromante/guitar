@@ -84,14 +84,19 @@ class Router
             if (method_exists($clase, 'CheckAuth')) {
                 if (!$obj->CheckAuth()) {
 
-                    Logger::Alert("$method | $uri | $clase :: $metodo ", "Alert: No autorizado");
+                    FileLog::Alert("$method | $uri | $clase :: $metodo ");
 
                     $obj->redirect("/backend/acceso/no-access");
                     return "";
                 }
             }
 
-            return $obj->{$metodo}(...$params);
+            $response =  $obj->{$metodo}(...$params);
+
+            Event::proccess() ; 
+
+            return $response ;
+
         }
 
         return false;
