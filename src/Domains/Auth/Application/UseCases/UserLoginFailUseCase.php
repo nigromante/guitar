@@ -2,21 +2,23 @@
 
 namespace App\Auth\Application\UseCases;
 
-use App\Auth\Domain\Contracts\UserLoginFailInterface;
-use App\Auth\Infrastructure\Repositories\UserLoginFailRepository;
+use App\Auth\Domain\Contracts\AuthRepositoryInterface;
+use App\Auth\Infrastructure\Repositories\AuthDatabaseRepository;
 
 class UserLoginFailUseCase
 {
 
-    private UserLoginFailInterface $repositorio;
+    private AuthRepositoryInterface $repositorio ; 
 
     public function __construct()
     {
-        $this->repositorio = new UserLoginFailRepository();
+        $this->repositorio = new AuthDatabaseRepository();
     }
 
     public function execute($email)
     {
-        $this->repositorio->execute($email);
+        $user = $this->repositorio->findByEmailOrFail( $email ) ;
+
+        $this->repositorio->userErrorLogin( $user ) ;
     }
 }

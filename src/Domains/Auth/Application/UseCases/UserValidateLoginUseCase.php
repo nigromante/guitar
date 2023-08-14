@@ -2,24 +2,22 @@
 
 namespace App\Auth\Application\UseCases;
 
-use App\Auth\Domain\Contracts\FindUserInterface;
+use App\Auth\Domain\Contracts\AuthRepositoryInterface;
 use App\Auth\Domain\ValueObjects\Password;
-use App\Auth\Infrastructure\Repositories\FindUserDatabaseRepository;
+use App\Auth\Infrastructure\Repositories\AuthDatabaseRepository;
 
 class UserValidateLoginUseCase
 {
-
-    private FindUserInterface $repositorio;
+    private AuthRepositoryInterface $repositorio ; 
 
     public function __construct()
     {
-        $this->repositorio = new FindUserDatabaseRepository();
+        $this->repositorio = new AuthDatabaseRepository();
     }
 
     public function execute(UserValidateLoginCommand $command)
     {
-        if (!($user = $this->repositorio->execute($command->email)))
-            return false;
+        $user = $this->repositorio->findByEmailOrFail( $command->email ) ;
 
         return $user->ValidateLogin(Password::create($command->password));
     }

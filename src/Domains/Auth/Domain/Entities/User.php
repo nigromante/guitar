@@ -4,12 +4,9 @@ declare(strict_types=1);
 namespace App\Auth\Domain\Entities;
 use App\Auth\Domain\Events\UserLoginSuccessEvent;
 use App\Auth\Domain\Events\UserLoginFailEvent;
-use App\Auth\Domain\Notifies\NotifyEvent;
-use App\Auth\Domain\Notifies\User\LoginsuccessNotify;
 use App\Auth\Domain\ValueObjects\EmailRequired; 
 use App\Auth\Domain\ValueObjects\Password;
 use App\Auth\Infrastructure\System\Event;
-use App\Auth\Infrastructure\System\Notifier;
 
 final class User
 {
@@ -36,5 +33,10 @@ final class User
 
         return false; 
     }
+
+    public function getEmail() {
+        return $this->email ; 
+    }
+
     
 }

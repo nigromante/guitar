@@ -1,0 +1,14 @@
+<?php
+namespace App\Auth\Domain\Contracts;
+
+use App\Auth\Domain\Entities\User;
+
+interface AuthRepositoryInterface {
+
+    public function findByEmailOrFail( $email) :User ;
+
+    public function userSuccessLogin( User $user );
+
+    public function userErrorLogin( User $user );
+
+}
