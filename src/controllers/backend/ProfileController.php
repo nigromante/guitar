@@ -27,7 +27,7 @@ class ProfileController extends SecureController
         AppSession::UserThemeSet( $tema ) ;
 
         $service = new CambiarTema( new CambiarTemaRepository());
-        $usuario = $service->execute( AppSession::UserEmail(), $tema );
+        $usuario = $service->execute( AppSession::UserEmailGet(), $tema );
 
         return $this->View('cambiartema', compact( 'tema' ) );
         

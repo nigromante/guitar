@@ -15,7 +15,7 @@ class AppSession {
         $_SESSION['user.email'] = $email;
     }
 
-    public static function UserEmail( ) {
+    public static function UserEmailGet( ) {
 
         return $_SESSION['user.email'] ;
     }

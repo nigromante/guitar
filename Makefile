@@ -42,7 +42,7 @@ stop:
 
 clean:
 	@clear
-	@docker rm -f $$(docker ps -aq)  > /dev/null 2>&1 || 	@docker rmi -f $$(docker images -aq)   > /dev/null 2>&1 
+	@docker rm -f $$(docker ps -aq)   && 	@docker1 rmi -f $$(docker images -aq) 
 
 clean-images:
 	docker rmi -f $$(docker images -aq)

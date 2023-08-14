@@ -37,7 +37,7 @@ class AccesoController extends Controller
         $service = new FindByEmail(new FindByEmailRepository());
         $usuario = $service->execute($data["email"]);
         
-        AppSession::UserNameSet($usuario->$usuario->getFullName() );
+        AppSession::UserNameSet($usuario->getFullName() );
         AppSession::UserThemeSet($usuario->getTheme());
         
 
