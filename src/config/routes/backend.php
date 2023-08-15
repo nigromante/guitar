@@ -46,3 +46,8 @@ Router::Post('/backend/usuarios/modificar/:id', [UsuariosController::class, 'mod
 
 Router::Get('/backend/profile/cambiartema', [ProfileController::class, 'cambiartema']);
 Router::Post('/backend/profile/cambiartema', [ProfileController::class, 'cambiartema_grabar']);
+
+Router::Get('/backend/profile/editarperfil', [ProfileController::class, 'editarperfil']);
+Router::Post('/backend/profile/editarperfil', [ProfileController::class, 'editarperfil_grabar']);
+
+

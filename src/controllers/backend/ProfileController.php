@@ -30,9 +30,26 @@ class ProfileController extends SecureController
         $usuario = $service->execute( AppSession::UserEmailGet(), $tema );
 
         return $this->View('cambiartema', compact( 'tema' ) );
-        
-
     }
+
+    public function editarperfil($id)
+    {
+        $service = new FindById(new EditarPerfilRepository());
+        $usuario = $service->execute($id);
+        return $this->View('editarperfil', compact('id', 'usuario'));
+    }
+
+    public function editarperfil_grabar($id)
+    {
+        $data = $this->Post();
+        $service = new Update(new EditarPerfilRepository());
+        $service->execute($id, $data);
+        return $this->View("editarperfil_grabar", []);
+    }
+
+
+
+
 }
 
 
