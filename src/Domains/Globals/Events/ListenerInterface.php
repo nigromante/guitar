@@ -1,10 +1,11 @@
-<?php 
+<?php
+
 namespace App\Globals\Events;
 
+interface ListenerInterface
+{
 
-interface ListenerInterface {
+    public function __construct($event);
 
-    public function __construct( $event );
-
-    public function handle() ;
+    public function handle();
 }

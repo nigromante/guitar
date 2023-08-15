@@ -9,7 +9,7 @@ use App\Auth\Domain\Exceptions\UserBlockedException;
 use App\Auth\Domain\Exceptions\UserInvalidPasswordException;
 use App\Auth\Domain\ValueObjects\EmailRequired; 
 use App\Auth\Domain\ValueObjects\Password;
-use App\Auth\Infrastructure\System\Event;
+use App\Globals\System\EventManager;
 
 final class User
 {
@@ -24,7 +24,7 @@ final class User
         $this->estado = $estado;
 
         if( $this->estado == 0 ) { 
-            Event::dispatch( new UserBlockedTryToLoginEvent( $this->email->value() ) ) ;
+            EventManager::dispatch( new UserBlockedTryToLoginEvent( $this->email->value() ) ) ;
             throw UserBlockedException::Send( $this->email->value() ) ;
         }
     }
@@ -33,12 +33,12 @@ final class User
     {
         if( $this->password->equalTo($password) ) {
 
-            Event::dispatch( new UserLoginSuccessEvent( $this->email->value() ) ) ;
+            EventManager::dispatch( new UserLoginSuccessEvent( $this->email->value() ) ) ;
 
             return true ;
         }
 
-        Event::dispatch( new UserLoginFailEvent( $this->email->value() ) ) ;
+        EventManager::dispatch( new UserLoginFailEvent( $this->email->value() ) ) ;
 
         throw UserInvalidPasswordException::Send( $this->email->value() ) ; 
     }

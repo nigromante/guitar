@@ -2,7 +2,7 @@
 
 namespace App\Auth\Infrastructure\Listeners;
 
-use App\Auth\Infrastructure\System\FileLog;
+use App\Globals\System\FileLog;
 use App\Globals\Events\ListenerAbstract;
 
 

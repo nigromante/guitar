@@ -1,6 +1,5 @@
 <?php
-namespace App\Auth\Infrastructure\System;
-
+namespace App\Globals\System;
 
 class FileLog extends \Framework\FileLog 
 {

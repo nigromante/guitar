@@ -2,7 +2,7 @@
 
 namespace App\Auth\Infrastructure\Configure;
 
-use App\Auth\Infrastructure\System\Event;
+use App\Globals\System\EventManager;
 
 use App\Auth\Domain\Events\UserLoginFailEvent;
 use App\Auth\Domain\Events\UserLoginSuccessEvent;
@@ -18,7 +18,7 @@ class DomainEvents
 
     public static function setup()
     {
-        Event::Listeners(
+        EventManager::Listeners(
             [
                 UserLoginSuccessEvent::class => [
                     UserLoginSuccessEventResolveAction::class , 
