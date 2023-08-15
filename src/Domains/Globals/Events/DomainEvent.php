@@ -1,7 +1,5 @@
 <?php
-
-namespace App\Auth\Domain\Events;
-
+namespace App\Globals\Events;
 
 abstract class DomainEvent
 {

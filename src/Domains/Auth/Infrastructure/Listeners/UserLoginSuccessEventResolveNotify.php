@@ -1,14 +1,17 @@
-<?php 
+<?php
+
 namespace App\Auth\Infrastructure\Listeners;
 
-class UserLoginSuccessEventResolveNotify {
+use App\Globals\Events\ListenerAbstract;
 
-    public function __construct( private readonly $event ) {}
+class UserLoginSuccessEventResolveNotify extends ListenerAbstract
+{
 
-    public function handle() {
+    public function handle()
+    {
 
-        $email = $this->event->data() ;
+        $email = $this->event->data();
 
-        mail( $email, "Login Success", "se ha logueado") ;         
+        mail($email, "Login Success", "se ha logueado");
     }
 }

@@ -3,20 +3,16 @@
 namespace App\Auth\Infrastructure\Listeners;
 
 use App\Auth\Infrastructure\System\FileLog;
+use App\Globals\Events\ListenerAbstract;
 
 
-class UserLoginFailEventResolveLogger
+class UserLoginFailEventResolveLogger extends ListenerAbstract
 {
-
-    public function __construct(private $event)
-    {
-    }
 
     public function handle()
     {
-
         $email = $this->event->data();
 
-        FileLog::Error(sprintf("%s :: %s", $this->event::class, $email ));
+        FileLog::Error(sprintf("%s :: %s", $this->event::class, $email));
     }
 }

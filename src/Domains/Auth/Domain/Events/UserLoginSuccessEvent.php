@@ -1,5 +1,9 @@
 <?php
+
 namespace App\Auth\Domain\Events;
 
-class UserLoginSuccessEvent extends DomainEvent {
+use App\Globals\Events\DomainEvent;
+
+class UserLoginSuccessEvent extends DomainEvent
+{
 }

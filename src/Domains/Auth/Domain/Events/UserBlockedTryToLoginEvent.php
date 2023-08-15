@@ -2,6 +2,8 @@
 
 namespace App\Auth\Domain\Events;
 
-class UserBlockedTryToLoginEvent extends DomainEvent {
-}
+use App\Globals\Events\DomainEvent;
 
+class UserBlockedTryToLoginEvent extends DomainEvent
+{
+}

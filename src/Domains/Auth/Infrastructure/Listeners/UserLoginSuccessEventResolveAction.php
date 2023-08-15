@@ -1,15 +1,18 @@
-<?php 
+<?php
+
 namespace App\Auth\Infrastructure\Listeners;
+
 use App\Auth\Application\UseCases\UserLoginSuccessUseCase;
+use App\Globals\Events\ListenerAbstract;
 
-class UserLoginSuccessEventResolveAction {
+class UserLoginSuccessEventResolveAction extends ListenerAbstract
+{
 
-    public function __construct( private $event ) {}
+    public function handle()
+    {
 
-    public function handle() {
+        $email = $this->event->data();
 
-        $email = $this->event->data() ;
-
-        (new UserLoginSuccessUseCase())->execute( $email );
+        (new UserLoginSuccessUseCase())->execute($email);
     }
 }
