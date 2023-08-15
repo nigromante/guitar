@@ -29,6 +29,9 @@ class AppSession {
 
     public static function UserNameGet( ) {
 
+        if( ! isset( $_SESSION['user.nombre'] ))
+            return null ; 
+
         return $_SESSION['user.nombre'] ;
     }
 
@@ -38,6 +41,10 @@ class AppSession {
     }
     
     public static function UserThemeGet( ) {
+
+        if( ! isset( $_SESSION['user.theme'] ))
+            return null ;
+             
         return $_SESSION['user.theme'] ;
     }
 

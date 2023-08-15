@@ -9,7 +9,6 @@ use App\Auth\Domain\ValueObjects\Password;
 
 class AuthDatabaseRepository implements AuthRepositoryInterface {
 
-    private static const RETRIES = 3 ; 
 
     protected $db;
 
@@ -20,19 +19,20 @@ class AuthDatabaseRepository implements AuthRepositoryInterface {
         $this->db = mysqli_connect($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
     }
 
-    public function findByEmailOrFail( $email ) :User {
+    public function findByEmailOrFail( EmailRequired $email ) :User {
 
-        $sql = "SELECT * FROM `usuarios` WHERE `Email`='{$email}' ";
+        $sql = "SELECT * FROM `usuarios` WHERE `Email`='{$email->value()}'";
         $result = mysqli_query($this->db, $sql);
         $row = $result->fetch_assoc();
 
         if (!$row) {
-            throw UserNotFoundException::Send($email);
+            throw UserNotFoundException::Send($email->value());
         }
 
         return new User(
-            EmailRequired::init($row["Email"]),
-            Password::set($row["password"])
+            $email,
+            Password::set($row["password"]), 
+            $row[ 'enable']
         );
 
     }
@@ -49,7 +49,7 @@ class AuthDatabaseRepository implements AuthRepositoryInterface {
     public function userErrorLogin( User $user ){
         $sql = "UPDATE `usuarios` set  
         `tries` = `tries` + 1  , 
-        `enable` =  case when tries >= {self::RETRIES} then 0 else `enable` end 
+        `enable` =  case when tries >= 3 then 0 else `enable` end 
         where `Email` = '{$user->getEmail()->value()}' ";
         mysqli_query($this->db, $sql);        
     }

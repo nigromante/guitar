@@ -5,12 +5,8 @@ namespace Controllers\backend;
 use Controllers\backend\Controller;
 use Utilities\AppSession;
 
-// services
 use App\Auth\Application\UseCases\UserValidateLoginUseCase;
 use App\Auth\Application\UseCases\UserValidateLoginCommand;
-
-use Domain\application\services\Usuarios\FindByEmail;
-use Domain\infrastructure\repositories\Usuarios\Database\FindByEmailRepository;
 
 class AccesoController extends Controller
 {
@@ -29,19 +25,17 @@ class AccesoController extends Controller
     {
         $data = $this->Post();
 
-        if (!(new UserValidateLoginUseCase())->execute( new UserValidateLoginCommand( $data['email'], $data['password']) )) {
-            return $this->View('login', [], 'acceso');
+        try {
+
+            (new UserValidateLoginUseCase())->execute(new UserValidateLoginCommand($data['email'], $data['password']));
+
+            AppSession::UserEmailSet($data['email']);
+
+            return $this->redirect("/backend/dashboard");
+        } catch (\Exception $e) {
+
+            return $this->View('login', ['message' => $e->getMessage()], 'acceso');
         }
-        AppSession::UserEmailSet( $data['email'] );
-
-        $service = new FindByEmail(new FindByEmailRepository());
-        $usuario = $service->execute($data["email"]);
-        
-        AppSession::UserNameSet($usuario->getFullName() );
-        AppSession::UserThemeSet($usuario->getTheme());
-        
-
-        return $this->redirect("/backend/dashboard");
     }
 
 

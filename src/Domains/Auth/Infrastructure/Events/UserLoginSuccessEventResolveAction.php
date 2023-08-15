@@ -2,7 +2,6 @@
 namespace App\Auth\Infrastructure\Events;
 use App\Auth\Application\UseCases\UserLoginSuccessUseCase;
 
-
 class UserLoginSuccessEventResolveAction {
 
     public function __construct( private $event ) {}

@@ -1,4 +1,10 @@
 {{ title :: Acceso Restringido }}
+<?php
+    if( isset($message ) ) {
+        echo $message ; 
+    }
+?>
+
 <div class="login-container_wrapper">
 
     <div class="login-container">

@@ -17,6 +17,6 @@ class UserLoginFailEventResolveLogger
 
         $email = $this->event->data();
 
-        FileLog::Error(sprintf("%s :: %s", $this->event::class, $email));
+        FileLog::Error(sprintf("%s :: %s", $this->event::class, $email ));
     }
 }
