@@ -10,6 +10,9 @@ final class Password
 
     private function __construct(string $password = '')
     {
+        if( ! $this->ValidatePassword($password)) 
+            throw new \Exception("Password insegura") ;
+
         $this->password = $password ;
     }
 
@@ -23,7 +26,12 @@ final class Password
         return new static ( MD5($password));
     }
 
+    private function ValidatePassword( $password ) {
+        if( strlen( $password) < 3 )
+            return false ; 
 
+        return true ;
+    }
     public function equalTo(Password $anotherPassword): bool
     {
         return $this->password  ===  $anotherPassword->password ; 
