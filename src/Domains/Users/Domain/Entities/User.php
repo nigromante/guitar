@@ -2,7 +2,6 @@
 declare(strict_types=1);
 
 namespace App\Users\Domain\Entities;
-use App\Users\Domain\ValueObjects\EmailRequired; 
 
 final class User
 {
@@ -19,13 +18,14 @@ final class User
         $this->theme = $theme;
     }
 
-
     public function getEmail() {
-        return $this->email ; 
+        return $this->email;
     }
+
     public function getNombre() {
         return $this->nombre ; 
     }
+
     public function getApellido() {
         return $this->apellido ; 
     }
@@ -34,10 +34,8 @@ final class User
         return trim($this->nombre . " " . $this->apellido) ; 
     }
 
-
     public function getTheme() {
         return $this->theme ; 
     }
-
     
 }

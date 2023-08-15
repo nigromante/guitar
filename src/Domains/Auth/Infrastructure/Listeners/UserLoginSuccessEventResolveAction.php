@@ -1,5 +1,5 @@
 <?php 
-namespace App\Auth\Infrastructure\Events;
+namespace App\Auth\Infrastructure\Listeners;
 use App\Auth\Application\UseCases\UserLoginSuccessUseCase;
 
 class UserLoginSuccessEventResolveAction {

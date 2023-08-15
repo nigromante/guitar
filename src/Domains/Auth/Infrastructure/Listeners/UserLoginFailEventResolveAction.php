@@ -1,9 +1,9 @@
 <?php 
-namespace App\Auth\Infrastructure\Events;
+namespace App\Auth\Infrastructure\Listeners;
 use App\Auth\Application\UseCases\UserLoginFailUseCase;
 
 
-class UserLoginSuccessEventResolveNotify {
+class UserLoginFailEventResolveAction {
 
     public function __construct( private $event ) {}
 
@@ -11,6 +11,6 @@ class UserLoginSuccessEventResolveNotify {
 
         $email = $this->event->data() ;
 
-        mail( $email, "Login Success", "se ha logueado") ;         
+        (new UserLoginFailUseCase())->execute( $email );
     }
 }
