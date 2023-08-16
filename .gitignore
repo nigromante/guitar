@@ -3,3 +3,6 @@ data/mysql
 src/composer.lock
 src/logs
 data/backup
+wiki/db
+wiki/settings
+wiki/images
