@@ -21,6 +21,7 @@
         "phpunit/phpunit": "^10.2"
     },
     "require": {
-        "predis/predis": "^2.2"
+        "predis/predis": "^2.2",
+        "php-amqplib/php-amqplib": "^2.0"
     }
 }
