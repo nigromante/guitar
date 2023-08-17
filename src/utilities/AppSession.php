@@ -48,5 +48,17 @@ class AppSession {
         return $_SESSION['user.theme'] ;
     }
 
+    public static function UserAvatarSet( $key ) {
+        $_SESSION['user.avatar'] = $key;
+    }
+    
+    public static function UserAvatarGet( ) {
+
+        if( ! isset( $_SESSION['user.avatar'] ))
+            return null ;
+             
+        return $_SESSION['user.avatar'] ;
+    }
+
 
 }

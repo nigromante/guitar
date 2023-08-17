@@ -158,7 +158,8 @@ CREATE TABLE `usuarios` (
   `tries` int NOT NULL DEFAULT '0',
   `password` varchar(100) NOT NULL, 
   `lastlogin` datetime NULL NULL,
-  `Theme` varchar(20) NOT NULL
+  `Theme` varchar(20) NOT NULL,
+  `Avatar` varchar(20) NOT NULL
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 

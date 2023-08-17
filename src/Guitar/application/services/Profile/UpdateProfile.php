@@ -12,11 +12,19 @@ class UpdateProfile {
         $this->repository = new ProfileRepository() ;
     }
 
-    public function ChangeUserTheme( $email, $newTheme ) {
+    public function ChangeUserThemeAndAvatar( $email, $newTheme , $newAvatar ) {
 
         $user = $this->repository->findUserByEmail( $email ) ;
 
-        $this->repository->setTheme( $user, $newTheme ) ;        
+        $this->repository->setThemeAndAvatar( $user, $newTheme, $newAvatar ) ;        
 
     }
+
+    // public function ChangeUserAvatar( $email, $newAvatar ) {
+
+    //     $user = $this->repository->findUserByEmail( $email ) ;
+
+    //     $this->repository->setAvatar( $user, $newAvatar ) ;        
+
+    // }
 }

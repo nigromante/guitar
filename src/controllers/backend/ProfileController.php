@@ -16,7 +16,8 @@ class ProfileController extends SecureController
     public function cambiartema()
     {
         $tema = AppSession::UserThemeGet() ; 
-        return $this->View('cambiartema', compact( 'tema' ) );
+        $avatar = AppSession::UserAvatarGet() ;
+        return $this->View('cambiartema', compact( 'tema' , 'avatar') );
     }
 
     public function cambiartema_grabar()
@@ -24,13 +25,16 @@ class ProfileController extends SecureController
         $data = $this->Post();
 
         $tema = $data["Tema"] ;
+        $avatar = $data["Avatar"] ;
         
         AppSession::UserThemeSet( $tema ) ;
+        AppSession::UserAvatarSet( $avatar ) ;
 
         $service = new UpdateProfile( );
-        $service->ChangeUserTheme( AppSession::UserEmailGet(), $tema );
-
-        return $this->View('cambiartema', compact( 'tema' ) );
+        $service->ChangeUserThemeAndAvatar( AppSession::UserEmailGet(), $tema , $avatar);
+    
+        return $this->View('cambiartema', compact( 'tema' , 'avatar' ) );
+        
     }
 
     /*

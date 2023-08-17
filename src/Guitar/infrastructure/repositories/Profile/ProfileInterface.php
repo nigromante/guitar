@@ -6,7 +6,9 @@ interface ProfileInterface {
 
     public function findUserByEmail($email) : ?User ;
 
-    public function setTheme( User $user , $newTheme ) ;
+    public function setThemeAndAvatar( User $user , $newTheme , $newAvatar ) ;
+
+   // public function setAvatar( User $user , $newAvatar ) ;
 
 } 
 

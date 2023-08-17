@@ -1,7 +1,8 @@
 <h1>CAMBIAR TEMA Y AVATAR</h1>
-<form class="row g-3" method="post" action="/backend/profile/cambiartema">
+<form  method="post" action="/backend/profile/cambiartema">
+<div class="row">
 
-        <div class="mb-3">
+<div class="mb-3">
             <label for="Tema" class="form-label">Tema</label>
             <select name="Tema"    class="form-control" id="Tema">
                 <option value="" > Seleccionar tema </option>
@@ -13,20 +14,30 @@
             </select>
         </div>
 
-        <div class="mb-3">
+</div>
+     
+<div class="row">
+
+<div class="mb-3">
             <label for="Avatar" class="form-label">Avatar</label>
             <select name="Avatar"    class="form-control" id="Avatar">
                 <option value="" > Seleccionar avatar </option>
-                <option value="paul" <?php echo $tema=="paul" ? "selected" : "" ; ?> > Paul </option>
-                <option value="gandalf" <?php echo $tema=="gandalf" ? "selected" : "" ; ?> > Gandalf </option>
-                <option value="cptkirk" <?php echo $tema=="cptkirk" ? "selected" : "" ; ?>> Cpt Kirk </option>
-                <option value="luke" <?php echo $tema=="luke" ? "selected" : "" ; ?>> Luke </option>
-                <option value="leonardo" <?php echo $tema=="leonardo" ? "selected" : "" ; ?>> Leonardo </option>
+                <option value="paul" <?php echo $avatar=="paul" ? "selected" : "" ; ?> > Paul </option>
+                <option value="gandalf" <?php echo $avatar=="gandalf" ? "selected" : "" ; ?> > Gandalf </option>
+                <option value="cptkirk" <?php echo $avatar=="cptkirk" ? "selected" : "" ; ?>> Cpt Kirk </option>
+                <option value="luke" <?php echo $avatar=="luke" ? "selected" : "" ; ?>> Luke </option>
+                <option value="leonardo" <?php echo $avatar=="leonardo" ? "selected" : "" ; ?>> Leonardo </option>
             </select>
         </div>
 
-        <div class="col-auto">
+    
+
+</div>
+<div class="col-auto">
             <button type="submit" class="btn btn-primary btn-icon-split"> Confirmar </button>
         </div>
+
+
+     
 
 </form>

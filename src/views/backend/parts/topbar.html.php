@@ -1,4 +1,5 @@
-               <!-- Topbar -->
+           
+              <!-- Topbar -->
                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
 <!-- Sidebar Toggle (Topbar) -->
@@ -174,7 +175,8 @@
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= Utilities\AppSession::UserNameGet() ?></span>
             <img class="img-profile rounded-circle"
-                src="https://source.unsplash.com/Mv9hjnEUHR4/60x60">
+            src="<?= Utilities\AvatarImages::ResolverAvatar(Utilities\AppSession::UserAvatarGet()) ?>">
+
         </a>
         <!-- Dropdown - User Information -->
         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
