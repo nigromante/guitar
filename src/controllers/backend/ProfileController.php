@@ -4,6 +4,7 @@ namespace Controllers\backend ;
 
 use Controllers\backend\SecureController;
 use Domain\application\services\Profile\CambiarTema;
+use Domain\application\services\Profile\UpdateProfile;
 use Domain\application\services\Usuarios\FindByEmail;
 use Domain\infrastructure\repositories\Usuarios\Database\CambiarTemaRepository;
 use Domain\infrastructure\repositories\Usuarios\Database\FindByEmailRepository;
@@ -26,12 +27,13 @@ class ProfileController extends SecureController
         
         AppSession::UserThemeSet( $tema ) ;
 
-        $service = new CambiarTema( new CambiarTemaRepository());
-        $usuario = $service->execute( AppSession::UserEmailGet(), $tema );
+        $service = new UpdateProfile( );
+        $service->ChangeUserTheme( AppSession::UserEmailGet(), $tema );
 
         return $this->View('cambiartema', compact( 'tema' ) );
     }
 
+    /*
     public function editarperfil($id)
     {
         $service = new FindById(new EditarPerfilRepository());
@@ -46,6 +48,7 @@ class ProfileController extends SecureController
         $service->execute($id, $data);
         return $this->View("editarperfil_grabar", []);
     }
+    */
 
 
 

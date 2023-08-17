@@ -1,19 +1,22 @@
 <?php
 namespace Domain\application\services\Profile;
 
-use Domain\domain\entities\User;
-use Domain\infrastructure\repositories\Usuarios\Interfaces\UpdateProfileInterface;
+use Domain\infrastructure\repositories\Profile\ProfileInterface;
+use Domain\infrastructure\repositories\Profile\ProfileRepository;
 
 class UpdateProfile {
 
-    private UpdateProfileInterface $repository ; 
+    private ProfileInterface $repository ; 
 
-    public function __construct( UpdateProfileInterface $repository) {
-        $this->repository = $repository ;
+    public function __construct( ) {
+        $this->repository = new ProfileRepository() ;
     }
 
-    public function execute( User $user ) {
+    public function ChangeUserTheme( $email, $newTheme ) {
 
-        return $this->repository->execute( $user );
+        $user = $this->repository->findUserByEmail( $email ) ;
+
+        $this->repository->setTheme( $user, $newTheme ) ;        
+
     }
 }
