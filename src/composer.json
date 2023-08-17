@@ -7,6 +7,7 @@
             "Utilities\\": "utilities/",
             "Controllers\\": "controllers/",
             "Domain\\": "Guitar/" , 
+            "Workers\\": "Workers/",
             "App\\": "Domains/"
 
         }
@@ -22,6 +23,6 @@
     },
     "require": {
         "predis/predis": "^2.2",
-        "php-amqplib/php-amqplib": "^2.0"
+        "php-amqplib/php-amqplib": ">=3.0"
     }
 }
