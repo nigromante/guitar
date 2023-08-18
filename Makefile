@@ -31,6 +31,11 @@ info:
 ps:
 	@glances
 
+
+diagram:
+	docker run --rm -v $$PWD/src/Domains:/code montealegreluis/phuml phuml:diagram -r -a -i -o -p dot . class_diagram.png
+
+
 build:
 	sudo docker-compose build
 
