@@ -17,11 +17,24 @@ final class  HelloConsumer extends RabbitMQConsumer implements RabbitMQConsumerI
 
         $email = $msg->body ; 
 
-        $repositorio = new AuthDatabaseRepository();
+        try {
+            $email_param = EmailRequired::init( $email ) ; 
 
-        $user = $repositorio->findByEmailOrFail( EmailRequired::init( $email ) ) ;
+            $repositorio = new AuthDatabaseRepository();
 
-        $repositorio->userSuccessLogin( $user ) ;
+            $user = $repositorio->findByEmailOrFail( $email_param ) ;
+    
+            $repositorio->userSuccessLogin( $user ) ;
+
+            echo " 😄 " ;
+    
+        }catch(\Exception $e ) {
+
+            echo "\n" , $e->getMessage() ; 
+
+        }
+
+
     }
 
 }
