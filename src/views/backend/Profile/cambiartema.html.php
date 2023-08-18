@@ -6,11 +6,14 @@
             <label for="Tema" class="form-label">Tema</label>
             <select name="Tema"    class="form-control" id="Tema">
                 <option value="" > Seleccionar tema </option>
-                <option value="dune" <?php echo $tema=="dune" ? "selected" : "" ; ?> > Dune </option>
-                <option value="lotr" <?php echo $tema=="lotr" ? "selected" : "" ; ?> > Lord of the rings </option>
-                <option value="startrek" <?php echo $tema=="startrek" ? "selected" : "" ; ?>> Star Trek </option>
-                <option value="starwars" <?php echo $tema=="starwars" ? "selected" : "" ; ?>> Star Wars </option>
-                <option value="tmnt" <?php echo $tema=="tmnt" ? "selected" : "" ; ?>> Teenage Mutant Ninja Turtles </option>
+
+                <?php 
+
+                    $temas=Utilities\AvatarImages::AllThemes(  ) ; 
+                    foreach ($temas as $key=>$value){ ?>
+                            <option value="<?=$key?>" <?php echo $tema==$key ? "selected" : "" ; ?> > <?=$value?> </option>
+
+                    <?php  } ?>
             </select>
         </div>
 
@@ -22,11 +25,15 @@
             <label for="Avatar" class="form-label">Avatar</label>
             <select name="Avatar"    class="form-control" id="Avatar">
                 <option value="" > Seleccionar avatar </option>
-                <option value="paul" <?php echo $avatar=="paul" ? "selected" : "" ; ?> > Paul </option>
-                <option value="gandalf" <?php echo $avatar=="gandalf" ? "selected" : "" ; ?> > Gandalf </option>
-                <option value="cptkirk" <?php echo $avatar=="cptkirk" ? "selected" : "" ; ?>> Cpt Kirk </option>
-                <option value="luke" <?php echo $avatar=="luke" ? "selected" : "" ; ?>> Luke </option>
-                <option value="leonardo" <?php echo $avatar=="leonardo" ? "selected" : "" ; ?>> Leonardo </option>
+
+                <?php 
+
+                    $avatars=Utilities\AvatarImages::All( Utilities\AppSession::UserThemeGet() ) ; 
+                    foreach ($avatars as $key=>$value){ ?>
+                            <option value="<?=$key?>" <?php echo $avatar==$key ? "selected" : "" ; ?> > <?=$value['description']?> </option>
+
+                  <?php  } ?>
+
             </select>
         </div>
 

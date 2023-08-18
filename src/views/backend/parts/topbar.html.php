@@ -175,7 +175,9 @@
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= Utilities\AppSession::UserNameGet() ?></span>
             <img class="img-profile rounded-circle"
-            src="<?= Utilities\AvatarImages::ResolverAvatar(Utilities\AppSession::UserAvatarGet()) ?>">
+            src="<?= Utilities\AvatarImages::ResolverAvatarImage( Utilities\AppSession::UserThemeGet(),  Utilities\AppSession::UserAvatarGet()) ?>"
+            alt="<?= Utilities\AvatarImages::ResolverAvatarDescription( Utilities\AppSession::UserThemeGet(), Utilities\AppSession::UserAvatarGet()) ?>"
+            >
 
         </a>
         <!-- Dropdown - User Information -->
