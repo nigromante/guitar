@@ -2,6 +2,10 @@
 
 require_once  '../vendor/autoload.php';
 
+date_default_timezone_set('America/Santiago');
+require_once "../config/load.php";
+
+
 use Workers\Consumers\HelloConsumer;
 use Workers\RabbitMQ\RabbitMQConnection;
 use Workers\RabbitMQ\RabbitMQConnectionCommand;
@@ -19,20 +23,8 @@ use Workers\RabbitMQ\RabbitMQConnectionCommand;
 
     foreach( $consumers as $consumer_name => $connection ) {
 
-        echo "\n" , $consumer_name ;
-        // $fiber = new Fiber(function( $consumer_name, $connection ) : void {
+        $consumer = new $consumer_name( $connection );
 
-            echo "\n" , 'Instance of ' , $consumer_name , "\n" ; 
-        //    Fiber::suspend('fiber') ;
-
-            $consumer = new $consumer_name( $connection );
-
-            $consumer->run();
-  
-        // });
-
-        //$fiber->start( $consumer_name, $connection );
+        $consumer->run();
 
     }
-
-

@@ -20,24 +20,24 @@ abstract class RabbitMQConsumer
 
     public function handle($msg)
     {
+        $fecha = date('Y-m-d H:i:s');
+        $class = get_class( $this ) ;
+
+        echo $fecha , " :: " , $class , ' : ' , $msg->body ;
+
     }
 
 
     public function run()
     {
-
-        echo ' [x] Receiving events from queue : ', $this->queue_name, "\n\n";
-
         $this->channel->basic_consume($this->queue_name, '', false, true, false, false, function ($msg) {
             $this->handle($msg);
         });
 
         while ($this->channel->is_open()) {
-            echo "\n", '> ';
+            echo "\n" , '> ';
             $this->channel->wait();
         }
-
-        echo ' [x] Stop Receiving events for : ', $this->queue_name, "\n";
 
         $this->channel->close();
         $this->connection->close();
