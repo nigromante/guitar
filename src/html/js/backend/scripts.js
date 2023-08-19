@@ -1,205 +1,188 @@
-var Utilities=Utilities||(function () {
+(function ( document , window ) {
+
+  // Core
+    function FindElements( selectorClass ) {
+      return document.querySelectorAll( selectorClass ) ;
+    }
 
 
-  var PrivateDeleteEvent = function(){
-    const links = document.querySelectorAll('.action-borrar');
-    links.forEach((link) => {
-    
-      link.addEventListener('click', (event) => {
-        event.preventDefault();
-    
-        if (confirm("Confirme la eliminacion") == true) {
-    
-          row = event.target.closest("tr") ;
-          url = event.target.getAttribute("href") ;
-    
-          fetch( url )
-          .then(function (response) {
-              console.log( response );
-              row.remove();
-            })
-          .catch(function (err) {
-              console.warn('Something went wrong.', err);
-            });
-        }
-    
-      });
-    
-    });
-
-  }
-
-  var datosTemas =  {
-
-    "temas": {
-        "startrek": [
-           { 'alias' : 'cptkirk' , 'nombre' : 'Capitan Kirk' } , 
-           {'alias' :'spock' , 'nombre' : 'Spock' }
-          ],
-        "starwars": [
-           {'alias' :'luke' , 'nombre' : 'Luke' } , 
-           {'alias' :'yoda' , 'nombre' : 'Yoda' }
-          ],
-        "lotr": [
-           {'alias' :'frodo' , 'nombre' : 'Frodo' } , 
-           {'alias' :'gandalf' , 'nombre' : 'Gandalf' }
-          ]
- 
-        }
-    
-} ;
+    function FindElement( selectorId ) {
+      return document.querySelector( selectorId ) ;
+    }
 
 
+    function ChangeElementRef( selectorId, newRef ) {
+      FindElement( selectorId ).href = newRef ; 
+    }
 
-  var SeleccionarPersonajesPorTema = function( tema ) {
+    function ChangeElementSrc( selectorId, newSrc ) {
+      FindElement( selectorId ).setAttribute( "src" , newSrc )  ; 
+    }
 
-    if( tema == 'startrek' )
-      return  datosTemas.temas.startrek ; 
-    if( tema == 'starwars' )
-      return  datosTemas.temas.starwars ; 
-    if( tema == 'lotr' )
-      return  datosTemas.temas.lotr ; 
-  }
-
-
-  var CreateOptionControl = function( valor , texto ) {
-    newOption = document.createElement("option");
-    opt_txt = document.createTextNode (  texto);
-    newOption.appendChild (opt_txt);
-    newOption.setAttribute ("value", valor );
-    return (newOption);
-  }
+    function ChangeElementValue( selectorId, newValue ) {
+      FindElement( selectorId ).setAttribute( "value" , newValue )  ; 
+    }
 
 
-  var CambiarTemaPersonajes = function( personajes ) {
-    
-    const personajeControl = document.querySelector('#Avatar');
+    function ChangeElementImg( selectorId, newSrc, newAlt ) {
+      elem = FindElement( selectorId ) ;
+      elem.setAttribute( "src" , newSrc ) ;  
+      elem.setAttribute( "alt" , newAlt )  ; 
+    }
 
-      personajeControl.innerHTML = "" ;  
 
-      personajeControl.append( CreateOptionControl( '' ,  'Seleccionar avatar' )   );
+    function CreateOptionControl( value , text ) {
+        newOption = document.createElement("option");
+        newOption.appendChild ( document.createTextNode (text) );
+        newOption.setAttribute ("value", value );
+        return (newOption);
+    }
 
-      personajes.forEach(  (personaje) => {
-        personajeControl.append( CreateOptionControl( personaje.alias ,  personaje.nombre )   );
+
+    function ChangeSelectOptions( selectorId, textDefault, dataList ) {
+      const element = FindElement( selectorId );
+      element.innerHTML = "" ;  
+      element.append( CreateOptionControl( '' ,  textDefault )   );
+      dataList.forEach(  (item) => {
+        element.append( CreateOptionControl( item.value ,  item.text )   );
       }) ;
-
-  }
-
-
-
-  var CambiarTemaEventDefine = function() {
-
-    document
-      .querySelector('#Tema')
-      .addEventListener('change', 
-        (event) => { 
-            event.preventDefault();
-
-
-            CambiarTemaPersonajes( SeleccionarPersonajesPorTema( event.target.value ) );
-
-
-        }
-      );
-  }
-  
-
-
-  PrivateDeleteEvent();
-
-  CambiarTemaEventDefine();
-
-  return {
-
-     /*DeleteEvent: function(input){
-        PrivateDeleteEvent();
-     }*/
-  }
-})();
-
-
-//  -------------------------------
-
-//   #Tema
-
-  // RESPAADOS
-  // var CambiarTema = function( nuevoTema ) {
-
-  //   console.log( 'funcion CambiarTema :: ' , nuevoTema );
-
-
-  //   const personajesSlect = document.querySelectorAll('#Avatar');
-
-  //   console.log( personajesSlect ) ;
-
-  //   personajesSlect.forEach((personajeControl) => {
-
-  //     personajeControl.innerHTML = "" ;   // Elimina personajes anteriores
-
-  //     //  Agregar  opciones de PERSONAJES   para el nuevo tema
-  //     newOption = document.createElement("option");
-  //     opt_txt = document.createTextNode ( 'Seleccionar avatar');
-  //     newOption.appendChild (opt_txt);
-  //     newOption.setAttribute ("value", '');
-  //     personajeControl.append(newOption);
-
-  //     console.log( datosTemas ) ; 
-
-  //     personajes = SeleccionarPersonajesPorTema( nuevoTema ) ; 
-
-  //     console.log( personajes ) ; 
-
-  //     personajes.forEach(  (personaje) => {
-  //       console.log( personaje.alias ,  personaje.nombre  ) ; 
-
-  //       newOption = document.createElement("option");
-  //       opt_txt = document.createTextNode ( personaje.nombre);
-  //       newOption.appendChild (opt_txt);
-  //       newOption.setAttribute ("value", personaje.alias );
-  //       personajeControl.append(newOption);
-  
-  //     }) ;
-
-
-  //   });
-
-  // }
+    }
 
 
 
-  // var CambiarTemaEventDefine = function() {
-
-  //   // Buscar un control para ver sus eventos    #Tema es un SELECT .... en la pagina
-  //   const temasSelect = document.querySelectorAll('#Tema');
-
-  //   temasSelect.forEach((temaControl) => {
+// Delete Row
+    function DeleteRowEventProcess( target ){
+      row = target.closest("tr") ;
+      url = target.getAttribute("href") ;
     
-  //     //  Agregar a cada 'temaControl'  una funcion de control de eventos
-  //     //   'change'   se llama el evento   
-  //     temaControl.addEventListener('change', (event) => {   // funcion anonima que procesa el evento
+      if (confirm("Confirme la eliminacion") == true) {
 
-  //       // No acumula eventos --- previene clicks o eventos muy seguidos 
-  //       //  Se procesa una sola vez
-  //       event.preventDefault();
-
-  //       console.log( "change !! " );   //  llego un evento change !!!!!  
-
-  //       // Aca se programa ...  que hacer con esto ...
-  //       const control = event.target ; 
-
-  //       console.log( control );
-
-  //       const valor = control.value;
-        
-  //       CambiarTema( valor );
-        
+        fetch( url )
+        .then(function (response) {
+            row.remove();
+        })
+        .catch(function (err) {
+            console.warn('Something went wrong.', err);
+        });
+      }
+    }
 
 
-  //     }  //  aca termina la funcion anonima
+    function DeleteRowEventDefine(){
 
+      FindElements('.action-borrar').forEach((link) => {
       
-  //     );
-  //   });
+        link.addEventListener('click', (event) => {
+          event.preventDefault();
 
+          DeleteRowEventProcess( event.target ) ; 
+      
+        });
+      });
+
+    }
+
+
+// Change Theme
+    function CharactersFromTheme( theme ) {
+
+      var datosTemas =  {
+
+        "temas": {
+            "startrek": [
+              { 'value' : 'cptkirk' , 'text' : 'Capitan Kirk' } , 
+              {'value' :'spock' , 'text' : 'Spock' }
+              ],
+            "starwars": [
+              {'value' :'luke' , 'text' : 'Luke' } , 
+              {'value' :'yoda' , 'text' : 'Yoda' }
+              ],
+            "lotr": [
+              {'value' :'frodo' , 'text' : 'Frodo' } , 
+              {'value' :'gandalf' , 'text' : 'Gandalf' }
+              ]
+    
+            }
+        
+      } ;
+    
+
+      if( theme == 'startrek' )
+        return  datosTemas.temas.startrek ; 
+
+      if( theme== 'starwars' )
+        return  datosTemas.temas.starwars ; 
+
+      if( theme == 'lotr' )
+        return  datosTemas.temas.lotr ;
+      
+        return [] ;
+    }
+
+
+    function ChangeThemeEventProcess( target ) {
+      themeName =target.value ;
+
+      characters = CharactersFromTheme( themeName ) ;
+
+      ChangeElementImg( "#img-profile", "" , "" ) ; 
+
+      ChangeElementRef( "#link_style", "/css/backend/themes/" + themeName + "/style.css"  ) ; 
+
+      ChangeSelectOptions( '#Avatar' , 'Seleccionar avatar', characters );
+    }
+
+
+    function ChangeThemeEventDefine() {
+
+      FindElement('#Tema')
+        .addEventListener('change', (event) => { 
+              event.preventDefault();
+
+              ChangeThemeEventProcess( event.target ) ; 
+          }
+        );
+    }
+
+  
+// Change Character
+    function ChangeCharacterEventProcess( target ) {
+
+      character = target.value ;
+
+      ChangeElementImg( "#img-profile", "/images/avatars/" + character + ".jpg" , character ) ; 
+
+    }
+
+
+    function ChangeCharacterEventDefine() {
+
+      FindElement('#Avatar')
+        .addEventListener('change', (event) => {
+
+              event.preventDefault();
+
+              ChangeCharacterEventProcess( event.target ); 
+
+          }
+        );
+    }
+
+
+
+// Main
+    function Start() {
+
+      DeleteRowEventDefine();
+
+      ChangeThemeEventDefine();
+
+      ChangeCharacterEventDefine() ;
+
+    }
+
+    Start();
+
+})( document, window );
 
 

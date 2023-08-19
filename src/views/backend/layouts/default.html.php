@@ -23,9 +23,11 @@
     <!-- Custom styles for this page -->
     <link href="/admin/lib/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/backend/style.css">
+
     <?php if( Utilities\AppSession::UserThemeGet() != '' ) { ?>
-        <link rel="stylesheet" href="/css/backend/themes/<?= Utilities\AppSession::UserThemeGet() ?>/style.css">
+        <link rel="stylesheet" id='link_style' href="/css/backend/themes/<?= Utilities\AppSession::UserThemeGet() ?>/style.css">
     <?php } ?>
+    
 </head>
 
 <body id="page-top" class="d-flex flex-column h-100">
