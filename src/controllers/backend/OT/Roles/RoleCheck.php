@@ -1,7 +1,7 @@
 <?php
 namespace Controllers\backend\OT\Roles;
 
-use App\Security\Application\UseCases\CheckUserRoleUseCase;
+use Nigromante\Guitar\Security\Application\UseCases\CheckUserRoleUseCase;
 use Utilities\AppSession;
 
 trait RoleCheck {

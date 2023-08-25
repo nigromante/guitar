@@ -5,8 +5,8 @@ namespace Controllers\backend;
 use Controllers\backend\Controller;
 use Utilities\AppSession;
 
-use App\Auth\Application\UseCases\UserValidateLoginUseCase;
-use App\Auth\Application\UseCases\UserValidateLoginCommand;
+use Nigromante\Guitar\Auth\Application\UseCases\UserValidateLoginUseCase;
+use Nigromante\Guitar\Auth\Application\UseCases\UserValidateLoginCommand;
 
 class AccesoController extends Controller
 {

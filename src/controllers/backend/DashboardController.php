@@ -2,11 +2,13 @@
 
 namespace Controllers\backend;
 
-use App\Users\Application\UseCases\UserPreferencesUseCase;
+use Nigromante\Guitar\Users\Application\UseCases\UserPreferencesUseCase;
 use Controllers\backend\SecureController;
-use Domain\application\services\Sessions\UserList;
-use Domain\infrastructure\repositories\Sessions\Database\UsersSessionRepository;
 use Utilities\AppSession;
+
+// use Domain\application\services\Sessions\UserList;
+// use Domain\infrastructure\repositories\Sessions\Database\UsersSessionRepository;
+
 
 class DashboardController extends SecureController
 {
@@ -15,8 +17,10 @@ class DashboardController extends SecureController
     {
         $this->ReadUserSessionData();
 
-        $service = new UserList(new UsersSessionRepository());
-        $usuarios = $service->execute();
+        // $service = new UserList(new UsersSessionRepository());
+        // $usuarios = $service->execute();
+
+        $usuarios = [] ; 
         return $this->View('index', compact("usuarios"));
     }
 

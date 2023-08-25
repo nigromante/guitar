@@ -4,8 +4,8 @@ namespace Workers\Consumers;
 use Workers\RabbitMQ\RabbitMQConsumer;
 use Workers\RabbitMQ\RabbitMQConsumerInterface;
 
-use App\Auth\Domain\ValueObjects\EmailRequired;
-use App\Auth\Infrastructure\Repositories\AuthDatabaseRepository;
+use Nigromante\Guitar\Auth\Domain\ValueObjects\EmailRequired;
+use Nigromante\Guitar\Auth\Infrastructure\Repositories\AuthDatabaseRepository;
 
 final class  HelloConsumer extends RabbitMQConsumer implements RabbitMQConsumerInterface {
 
