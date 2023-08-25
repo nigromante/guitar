@@ -6,8 +6,7 @@
             "Framework\\": "framework/",
             "Utilities\\": "utilities/",
             "Controllers\\": "controllers/",
-            "Domain\\": "Guitar/" , 
-            "Workers\\": "Workers/"
+            "Domain\\": "Guitar/" 
         }
     },
     "authors": [
@@ -21,7 +20,6 @@
     },
     "require": {
         "predis/predis": "^2.2",
-        "php-amqplib/php-amqplib": ">=3.0",
         "nigromante/guitardomain": "dev-master"
     }
 }
