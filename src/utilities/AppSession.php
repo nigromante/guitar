@@ -5,6 +5,11 @@ namespace Utilities;
 class AppSession {
 
 
+    public static function getId() {
+        return session_id();    
+    }
+
+
     public static function UserCheck() {
 
         return isset( $_SESSION['user.email'] ) ;

@@ -6,6 +6,8 @@ use Controllers\backend\DashboardController;
 use Controllers\backend\UsuariosController;
 use Controllers\backend\AccesoController;
 use Controllers\backend\ProfileController; 
+use Controllers\backend\OT\CreateOTController;
+use Controllers\backend\OT\ReaderOTController;
 
 use Framework\Router;
 
@@ -51,3 +53,9 @@ Router::Get('/backend/profile/editarperfil', [ProfileController::class, 'editarp
 Router::Post('/backend/profile/editarperfil', [ProfileController::class, 'editarperfil_grabar']);
 
 
+
+//  OT
+Router::Get('/backend/ot/create', [CreateOTController::class, 'create']);
+Router::Get('/backend/ot/list', [ReaderOTController::class, 'list']);
+
+Router::Get('/backend/ot/get/:id', [ReaderOTController::class, 'get']);
