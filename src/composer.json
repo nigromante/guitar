@@ -20,6 +20,7 @@
     },
     "require": {
         "predis/predis": "^2.2",
-        "nigromante/guitardomain": "dev-master"
+        "nigromante/guitardomain": "dev-master",
+        "league/tactician": "^1.1"
     }
 }
