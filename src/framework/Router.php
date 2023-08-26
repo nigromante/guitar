@@ -35,10 +35,6 @@ class Router
     public static function evalRequest($uri, $method)
     {
 
-        // dump_group( 'router', 'Router' ) ; 
-        // dumpsection( $uri , 'uri' ) ;
-        // dumpsection( $method , 'method') ;
-
         foreach (self::$routes[$method] as $route => $callback) {
             if (strpos($route, ':') !== false) {
                 $route = preg_replace('#:[\da-zA-Z\-]+#', '([\da-zA-Z\-]+)', $route);
@@ -49,8 +45,6 @@ class Router
                 $params = array_slice($matches, 1);
 
                 $routeSelected = ['callback' => $callback, 'params' => $params];
-
-                // dumpsection( $routeSelected, 'route' ) ;
 
                 return $routeSelected;
             }

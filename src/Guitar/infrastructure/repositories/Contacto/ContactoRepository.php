@@ -24,7 +24,5 @@ class ContactoRepository implements ContactoInterface{
     private function SaveContactForm($post_data)
     {
         extract($post_data);  //  Extrae datos de POST como variables 
-        var_dump($email, "Email");
-        var_dump($mensaje, "Mensaje");
     }
 }
