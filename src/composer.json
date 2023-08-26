@@ -21,6 +21,7 @@
     "require": {
         "predis/predis": "^2.2",
         "nigromante/guitardomain": "dev-master",
-        "league/tactician": "^1.1"
+        "league/tactician": "^1.1",
+        "spatie/data-transfer-object": "^3.9"
     }
 }
