@@ -7,6 +7,9 @@ require_once "../config/load.php";
 
 require_once "../framework/bootstrap.php";
 
+require_once "../config/routes.php";
+
+
 
 use Framework\Application;
 

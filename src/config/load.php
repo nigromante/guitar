@@ -12,5 +12,6 @@ $config = [];
 
 require_once "database.php";
 require_once "session.php";
-require_once "routes.php";
+require_once "commandhandlers.php" ; 
 
+//  var_dump( $config ) ;
