@@ -57,5 +57,4 @@ Router::Post('/backend/profile/editarperfil', [ProfileController::class, 'editar
 //  OT
 Router::Get('/backend/ot/create', [CreateOTController::class, 'create']);
 Router::Get('/backend/ot/list', [ReaderOTController::class, 'list']);
-
 Router::Get('/backend/ot/get/:id', [ReaderOTController::class, 'get']);

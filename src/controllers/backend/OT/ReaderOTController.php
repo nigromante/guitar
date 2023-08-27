@@ -15,8 +15,6 @@ class ReaderOTController extends AssignmentController
 
     public function list()
     {
-        $this->checkAssignmentResource( 'list' ) ;
-         
         return "list .... ReaderOTController " ;
     }
 

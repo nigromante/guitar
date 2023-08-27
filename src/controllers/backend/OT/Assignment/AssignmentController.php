@@ -1,9 +1,9 @@
 <?php
 namespace Controllers\backend\OT\Assignment;
 
+use Nigromante\Guitar\Security\Application\Command\CheckAssignmentResourceCommand;
 use Utilities\AppSession;
 use Framework\Tactician;
-use Nigromante\Guitar\Security\Application\UseCases\CheckUserRoleCommand;
 
 
 class AssignmentController extends \Controllers\backend\SecureController
@@ -12,7 +12,14 @@ class AssignmentController extends \Controllers\backend\SecureController
 
         $userId = AppSession::getId( );
 
-        Tactician::getInstance()->handle( new CheckUserRoleCommand( AppSession::getId() , $resourceId ) ) ;
+
+        try {
+
+            Tactician::getInstance()->handle( new CheckAssignmentResourceCommand ( AppSession::getId() , $resourceId ) ) ;
+
+        }catch(\Exception $e ) {
+            $this->redirect("/backend/recurso-no-autorizado/" . $e->getMessage() );
+        }
          
     }
 
