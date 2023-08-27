@@ -6,6 +6,7 @@ use League\Tactician\CommandBus;
 use League\Tactician\Handler\CommandHandlerMiddleware;
 use League\Tactician\Handler\CommandNameExtractor\ClassNameExtractor;
 use League\Tactician\Handler\Locator\InMemoryLocator;
+use League\Tactician\Handler\MethodNameInflector\ClassNameInflector;
 use League\Tactician\Handler\MethodNameInflector\HandleClassNameInflector;
 
 
@@ -35,29 +36,30 @@ class Tactician
 
     public function handle( $command ) {
 
-        try {
+        $locator = new InMemoryLocator();
 
-            $locator = new InMemoryLocator();
+        $handler =  $this->config[ $command::class ] ; 
+        $locator->addHandler(new $handler(),  $command::class );
 
-            $handler =  $this->config[ $command::class ] ; 
-            $locator->addHandler(new $handler(),  $command::class );
+        $handlerMiddleware = new CommandHandlerMiddleware(
+            new ClassNameExtractor(),
+            $locator,
+            new MyHanfleInflector() 
+        );
 
-            $handlerMiddleware = new CommandHandlerMiddleware(
-                new ClassNameExtractor(),
-                $locator,
-                new HandleClassNameInflector()
-            );
-
-
-            $commandBus = new CommandBus([$handlerMiddleware]);
-
-            return $commandBus->handle( $command );
-
-        }
-        catch( \Exception $e) {
-            $msg = $e->getMessage() ; 
-        }
+        $commandBus = new CommandBus([$handlerMiddleware]);
+        return $commandBus->handle( $command );
     }
 
 
 }
+
+
+class MyHanfleInflector extends ClassNameInflector
+{
+    public function inflect($command, $commandHandler)
+    {
+        return 'handle' ;
+    }
+}
+
