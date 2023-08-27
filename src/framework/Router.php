@@ -53,7 +53,7 @@ class Router
         throw new Exception( sprintf( "Error 404 : %s [%s]" , $uri, $method ) );
     }
 
-    public static function dispatch($route, $uri, $method)
+    public static function dispatch( $route, $uri, $method )
     {
         global $ENV_VARS;
 

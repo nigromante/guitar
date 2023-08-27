@@ -7,6 +7,9 @@ use Framework\View;
 class Controller
 {
 
+    private $bus = null ;
+
+
     private $globals = [];
 
     public function addGlobals($key, $value)
