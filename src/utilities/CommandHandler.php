@@ -1,5 +1,5 @@
 <?php
-namespace Controllers;
+namespace Utilities;
 
 
 use League\Tactician\CommandBus;
