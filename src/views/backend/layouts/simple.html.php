@@ -24,7 +24,7 @@
 <body id="page-top">
 
 
-    <?php \Nigromante\Framework\View::include_content( $view_file, $data ) ;?>
+    <?php include_content( $view_file, $data ) ;?>
 
 
     <script src="/js/backend/scripts.js"></script>

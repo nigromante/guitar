@@ -27,11 +27,11 @@ function dumpData( $data , $key = '' ) {
     }
 }
 
-    \Nigromante\Framework\Dump::getInstance()->dump_group( 'Files', 'Files' ) ; 
-    \Nigromante\Framework\Dump::getInstance()->dumpsection( includedFiles() , 'Included' ) ;
+    dump()->dump_group( 'Files', 'Files' ) ; 
+    dump()->dumpsection( includedFiles() , 'Included' ) ;
 
 
-    $dump_data = \Nigromante\Framework\Dump::getInstance()->getDump() ; 
+    $dump_data = dump()->getDump() ; 
 
 ?>
 <style>

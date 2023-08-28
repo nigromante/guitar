@@ -14,15 +14,15 @@
 
 <body>
 
-    <?php \Nigromante\Framework\View::include_part('nav', $data); ?>
+    <?php include_part('nav', $data); ?>
 
     <div class="content">
-        <?php \Nigromante\Framework\View::include_content($view_file, $data); ?>
+        <?php include_content($view_file, $data); ?>
     </div>
 
-    <?php \Nigromante\Framework\View::include_part('footer', $data); ?>
+    <?php include_part('footer', $data); ?>
 
-    <?php // \Nigromante\Framework\View::include_part( 'dev', $dev_data ) ;
+    <?php // include_part( 'dev', $dev_data ) ;
     ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
