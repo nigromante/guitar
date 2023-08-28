@@ -18,6 +18,7 @@ class AssignmentController extends \Controllers\backend\SecureController
             CommandHandler::getInstance()->handle( new CheckAssignmentResourceCommand ( AppSession::getId() , $resourceId ) ) ;
 
         }catch(\Exception $e ) {
+            
             $this->redirect("/backend/recurso-no-autorizado/" . $e->getMessage() );
         }
          
