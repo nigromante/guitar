@@ -18,7 +18,7 @@
                 </a>
                 <ul class="dropdown-menu">
 
-                  <?php \Framework\View::include_part( 'nav-productos', $data ) ;?>
+                  <?php \Nigromante\Framework\View::include_part( 'nav-productos', $data ) ;?>
                   
                 </ul>
               </li>

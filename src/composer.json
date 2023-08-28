@@ -21,6 +21,7 @@
     "require": {
         "predis/predis": "^2.2",
         "nigromante/guitardomain": "dev-master",
+        "nigromante/framework": "dev-master",
         "league/tactician": "^1.1",
         "spatie/laravel-data": "^3.8"
     }

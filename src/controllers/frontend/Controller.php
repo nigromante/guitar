@@ -4,9 +4,9 @@ namespace Controllers\frontend;
 
 use Domain\application\services\Instrumentos\getSelectedInstrumentos;
 use Domain\infrastructure\repositories\Instrumentos\InstrumentoDatabaseRepository;
+use Nigromante\Framework\Controller as FrameworkController;
 
-
-class Controller extends \Framework\Controller
+class Controller extends FrameworkController
 {
 
     protected $instrumentos;

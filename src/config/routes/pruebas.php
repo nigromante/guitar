@@ -1,6 +1,6 @@
 <?php
+use Nigromante\Framework\Router ;
 
-use Framework\Router;
 use Controllers\test\FrontendController;
 
 use Predis\Client as PredisClient;

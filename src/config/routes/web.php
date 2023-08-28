@@ -1,11 +1,7 @@
 <?php
-
-use Controllers\frontend\HomeController;
+use Nigromante\Framework\Router ;
 use Controllers\frontend\InstrumentosController;
 use Controllers\frontend\ContactoController;
-
-
-use Framework\Router;
 
 
 

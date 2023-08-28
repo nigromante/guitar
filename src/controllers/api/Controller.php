@@ -2,7 +2,8 @@
 
 namespace Controllers\api;
 
+use Nigromante\Framework\Controller as FrameworkController;
 
-class Controller extends \Framework\Controller
+class Controller extends FrameworkController
 {
 }

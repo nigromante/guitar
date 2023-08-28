@@ -1,4 +1,5 @@
 <?php
+use Nigromante\Framework\Router ;
 
 use Controllers\backend\InstrumentosController;
 use Controllers\backend\FilesController;
@@ -9,7 +10,6 @@ use Controllers\backend\ProfileController;
 use Controllers\backend\OT\CreateOTController;
 use Controllers\backend\OT\ReaderOTController;
 
-use Framework\Router;
 
 Router::Get('/backend', [DashboardController::class, 'index']);
 Router::Get('/dashboard', [DashboardController::class, 'index']);

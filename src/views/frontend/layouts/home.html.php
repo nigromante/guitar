@@ -12,16 +12,16 @@
 </head>
 <body>
 
-    <?php \Framework\View::include_part( 'nav', $data ) ;?>
-    <?php \Framework\View::include_part( 'header', $data ) ;?>
+    <?php \Nigromante\Framework\View::include_part( 'nav', $data ) ;?>
+    <?php \Nigromante\Framework\View::include_part( 'header', $data ) ;?>
 
     <div class="content">
-        <?php \Framework\View::include_content( $view_file, $data ) ;?>
+        <?php \Nigromante\Framework\View::include_content( $view_file, $data ) ;?>
     </div>
 
-    <?php \Framework\View::include_part( 'footer', $data ) ;?>
+    <?php \Nigromante\Framework\View::include_part( 'footer', $data ) ;?>
     
-    <?php // \Framework\View::include_part( 'dev', [] ) ;?>
+    <?php // \Nigromante\Framework\View::include_part( 'dev', [] ) ;?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>

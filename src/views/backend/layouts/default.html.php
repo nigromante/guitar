@@ -35,7 +35,7 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-        <?php \Framework\View::include_part( 'nav', $data ) ;?>  
+        <?php \Nigromante\Framework\View::include_part( 'nav', $data ) ;?>  
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -43,13 +43,13 @@
             <!-- Main Content -->
             <div id="content">
 
-            <?php \Framework\View::include_part( 'topbar', $data ) ;?>  
+            <?php \Nigromante\Framework\View::include_part( 'topbar', $data ) ;?>  
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
                     <!-- Contenido  -->
-                    <?php \Framework\View::include_content( $view_file, $data ) ;?>
+                    <?php \Nigromante\Framework\View::include_content( $view_file, $data ) ;?>
 
                 </div>
                 <!-- /.container-fluid -->
@@ -58,13 +58,13 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <?php // \Framework\View::include_part( 'footer', $data ) ;?> 
+            <?php // \Nigromante\Framework\View::include_part( 'footer', $data ) ;?> 
             <!-- End of Footer -->
 
 
             <footer class="footer mt-auto py-3">
                 <div class="container">
-                        <?php \Framework\View::include_part( 'dev', [] ) ;?>
+                        <?php \Nigromante\Framework\View::include_part( 'dev', [] ) ;?>
                 </div>
             </footer>
         </div>
@@ -83,7 +83,7 @@
 
 
     <!-- Logout Modal-->
-    <?php \Framework\View::include_part( 'logout', $data ) ;?> 
+    <?php \Nigromante\Framework\View::include_part( 'logout', $data ) ;?> 
 
     <!-- Bootstrap core JavaScript-->
     <script src="/admin/lib/jquery/jquery.min.js"></script>

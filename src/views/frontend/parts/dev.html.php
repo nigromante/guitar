@@ -22,11 +22,11 @@ function includedFiles() {
 
     $files = get_included_files() ; 
 
-    dump_group( 'Files', 'Files' ) ; 
-    dumpsection( $files , 'Included' ) ;
+    \Nigromante\Framework\Dump::getInstance()->dump_group( 'Files', 'Files' ) ; 
+    \Nigromante\Framework\Dump::getInstance()->dumpsection( $files , 'Included' ) ;
 
 
-    $dump_data = getDump() ; 
+    $dump_data = \Nigromante\Framework\Dump::getInstance()->getDump() ; 
 
     echo "<pre>" ; 
     print_r( $dump_data ) ; 

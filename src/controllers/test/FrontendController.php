@@ -1,10 +1,9 @@
 <?php
 namespace Controllers\test;
 
-use  Controllers\frontend\Controller;
+use Nigromante\Framework\Controller as FrameworkController;
 
-
-class FrontendController extends Controller {
+class FrontendController extends FrameworkController {
 
 
     public function index() {
