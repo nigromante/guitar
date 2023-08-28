@@ -29,7 +29,7 @@ class Application
             dump_group( 'Route', 'Route' ) ; 
             dumpsection( $workRoute , 'workRoute' ) ;
 
-            Tactician::getInstance()->Configure( $this->config['commandhandlers'] ) ;
+            CommandHandler::getInstance()->Configure( $this->config['commandhandlers'] ) ;
 
 
             $response = Router::dispatch($workRoute, $uri, $method);

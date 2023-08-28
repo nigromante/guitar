@@ -7,12 +7,9 @@ use League\Tactician\Handler\CommandHandlerMiddleware;
 use League\Tactician\Handler\CommandNameExtractor\ClassNameExtractor;
 use League\Tactician\Handler\Locator\InMemoryLocator;
 use League\Tactician\Handler\MethodNameInflector\ClassNameInflector;
-use League\Tactician\Handler\MethodNameInflector\HandleClassNameInflector;
 
 
-
-
-class Tactician 
+class CommandHandler 
 {
     private static $instance;
     
