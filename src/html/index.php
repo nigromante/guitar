@@ -1,4 +1,5 @@
 <?php
+use Controllers\CommandHandler;
 require_once "../vendor/autoload.php";
 
 date_default_timezone_set('America/Santiago');
@@ -8,6 +9,9 @@ require_once "../utilities/framework_wrappers.php";
 
 
 Nigromante\Framework\Session::Start( $config ) ;
+
+CommandHandler::getInstance()->Configure( $config['commandhandlers'] ) ;
+
 
 (new  Nigromante\Framework\Application( $config ))
     ->run() ; 

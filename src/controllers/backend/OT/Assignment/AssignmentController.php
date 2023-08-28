@@ -3,7 +3,7 @@ namespace Controllers\backend\OT\Assignment;
 
 use Nigromante\Guitar\Security\Application\Command\CheckAssignmentResourceCommand;
 use Utilities\AppSession;
-use Controller\CommandHandler;
+use Controllers\CommandHandler;
 
 
 class AssignmentController extends \Controllers\backend\SecureController
