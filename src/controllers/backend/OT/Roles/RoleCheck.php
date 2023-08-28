@@ -2,7 +2,7 @@
 namespace Controllers\backend\OT\Roles;
 use Utilities\AppSession;
 
-use Framework\CommandHandler;
+use Controller\CommandHandler;
 use Nigromante\Guitar\Security\Application\Command\CheckUserRoleCommand;
 
 trait RoleCheck {
