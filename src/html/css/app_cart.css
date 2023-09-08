@@ -1,0 +1,114 @@
+html * {
+    margin: 0;
+    padding: 0 ;
+    box-sizing: border-box ;
+    text-decoration: none ;
+}
+
+body {
+    height: 100vh;
+    background-color: #61677A;
+}
+.contenido {
+    background-color: #61677A;
+    display: block;
+    width: 1200px ; 
+    margin: 0 auto ; 
+}
+
+.productos {
+    display: flex ;
+    flex-flow: row ;
+    /* height: 40px ; */
+    justify-content: space-around;
+    align-items: center;
+    background-color: #272829;
+}
+
+.productos a {
+    line-height: 20px;
+    padding: 0 30px; 
+    background-color: #272829;
+    text-align: center;
+   
+}
+
+.cards {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+}
+.cards .card  {
+    flex: 0 0 25%;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.card_content {
+    background-color: #272829;
+    border: 1px solid #ccc ; 
+    position: relative;
+    padding:8px;
+    color: #ccc;
+}
+
+.card_content .card__toolbar {
+    position: absolute ;
+    right: 0;
+    top: 0;
+}
+
+.card.producto {
+    background-color: #272829;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+}
+.card.producto h2 {
+    display: inline-block;
+    text-align: center;
+    padding: 0 0 1em 0;
+}
+.card.producto img {
+
+    width: 100%;
+}
+
+.cards .card img {
+
+    width: 200px;
+}
+
+.confirm {
+
+    padding: 2em;
+    text-align: center;
+
+}
+
+.productos h2 {
+
+    background: #272829;
+    color: whitesmoke;
+
+}
+
+.logo {
+
+    padding-left: 320px ; 
+    background: #272829; 
+}
+
+.logo img {
+
+    width: 720px;
+    
+}
+
+.image img{
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
