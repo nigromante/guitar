@@ -37,13 +37,13 @@ diagram:
 
 
 build:
-	sudo docker-compose build
+	sudo docker compose build
 
 run:
-	@docker-compose up -d 
+	@docker compose up -d 
 
 stop:
-	@docker-compose down 
+	@docker compose down 
 
 clean:
 	@clear
@@ -59,15 +59,15 @@ clean-data:
 .PHONY: status
 status:
 	@clear
-	@docker-compose ps 
+	@docker compose ps 
 	@echo
 	@echo
-	@docker-compose images
+	@docker compose images
 	@echo
 	@echo
 
 ssh:
-	@docker-compose exec php /bin/bash
+	@docker compose exec php /bin/bash
 
 pull:
 	git pull origin master
