@@ -6,7 +6,7 @@
             "Framework\\": "framework/",
             "Utilities\\": "utilities/",
             "Controllers\\": "controllers/",
-            "Domain\\": "Guitar/" 
+            "Domain\\": "Domain/Guitar/" 
         }
     },
     "authors": [

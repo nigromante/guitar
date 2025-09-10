@@ -11,9 +11,10 @@ class HomeController extends Controller
 
     public function index()
     {
-        $service = new Listado(new ProductoDatabaseRepository());
-        $Productos = $service->execute();
-    
+        // $service = new Listado(new ProductoDatabaseRepository());
+        // $Productos = $service->execute();
+        $Productos = [];
+        
         return $this->View('index', compact("Productos"), "home");
     }
 }
