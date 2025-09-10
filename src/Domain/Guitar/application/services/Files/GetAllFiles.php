@@ -3,7 +3,7 @@ namespace Domain\application\services\Files;
 
 use Domain\infrastructure\repositories\Files\FilesRepository;
 
-class getAllFiles {
+class GetAllFiles {
 
     private FilesRepository $repository ; 
 

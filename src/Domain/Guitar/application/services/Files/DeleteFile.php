@@ -4,7 +4,7 @@ namespace Domain\application\services\Files;
 
 use Domain\infrastructure\repositories\Files\FilesRepository;
 
-class DeleteFiles
+class DeleteFile
 {
 
     private FilesRepository $repository;
@@ -16,6 +16,6 @@ class DeleteFiles
 
     public function execute($id)
     {
-        return $this->repository->Borrar($id);
+        return $this->repository->RemoveFileById($id);
     }
 }
